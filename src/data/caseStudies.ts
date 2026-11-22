@@ -241,7 +241,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
         items: ["Markdown Parser", "DOMPurify", "Lucide React"],
       },
     ],
-    githubUrl: "https://github.com/srikanta2006",
+    githubUrl: "https://github.com/srikanta2006/Burst_Blogging",
   },
 
   hackos: {

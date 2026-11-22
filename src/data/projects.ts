@@ -68,7 +68,7 @@ export const PROJECTS: Project[] = [
     ],
     image: "/projects/placeholder-burst.svg",
     imageAlt: "Burst multi-user blogging platform preview placeholder",
-    githubUrl: "https://github.com/srikanta2006",
+    githubUrl: "https://github.com/srikanta2006/Burst_Blogging",
     liveUrl: undefined,
     isVerifiedDemo: false,
     highlights: [

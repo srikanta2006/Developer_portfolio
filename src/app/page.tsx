@@ -3,6 +3,8 @@ import { About } from "@/components/sections/About";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { Experience } from "@/components/sections/Experience";
+import { GitHubActivity } from "@/components/sections/GitHubActivity";
+import { TerminalSection } from "@/components/sections/TerminalSection";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -23,7 +25,13 @@ export default function Home() {
       {/* 5. Experience & Journey */}
       <Experience />
 
-      {/* 6. Contact */}
+      {/* 6. GitHub Activity */}
+      <GitHubActivity />
+
+      {/* 7. Interactive Terminal */}
+      <TerminalSection />
+
+      {/* 8. Contact */}
       <Contact />
     </>
   );
