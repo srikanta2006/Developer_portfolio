@@ -22,10 +22,48 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://srikanta.dev";
+
 export const metadata: Metadata = {
-  title: "Srikanta Bellamkonda — Creative Technologist · Software Developer · AI Builder",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Srikanta Bellamkonda — Creative Technologist · Software Developer · AI Builder",
+    template: "%s | Srikanta Bellamkonda",
+  },
   description:
     "Personal portfolio and technical case studies of Srikanta Bellamkonda, showcasing intelligent products at the intersection of software and AI.",
+  keywords: [
+    "Srikanta Bellamkonda",
+    "Creative Technologist",
+    "Software Developer",
+    "AI Builder",
+    "Agentic AI",
+    "FastAPI",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Hyderabad",
+  ],
+  authors: [{ name: "Srikanta Bellamkonda", url: "https://github.com/srikanta2006" }],
+  creator: "Srikanta Bellamkonda",
+  openGraph: {
+    title: "Srikanta Bellamkonda — Creative Technologist · Software Developer · AI Builder",
+    description:
+      "Personal portfolio and technical case studies showcasing intelligent products at the intersection of software and AI.",
+    url: siteUrl,
+    siteName: "Srikanta Bellamkonda Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Srikanta Bellamkonda — Portfolio",
+    description: "Creative Technologist · Software Developer · AI Builder",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

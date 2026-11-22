@@ -90,7 +90,8 @@ export function Header() {
               <Button
                 variant="secondary"
                 size="sm"
-                href="#contact"
+                href="/resume.pdf"
+                isExternal
                 className="gap-1.5"
               >
                 <span>Resume</span>
@@ -154,7 +155,8 @@ export function Header() {
               <Button
                 variant="outline"
                 size="md"
-                href="#contact"
+                href="/resume.pdf"
+                isExternal
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full justify-center gap-1.5"
               >

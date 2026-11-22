@@ -130,6 +130,7 @@ npm run build
 | **Phase 1** | Design foundation and site shell | **Complete** |
 | **Phase 2** | Homepage content and layout | **Complete** |
 | **Phase 3** | Project case studies | **Complete** |
-| **Phase 4** | Interactive features (Terminal & GitHub) | **Complete (Awaiting Review)** |
-| **Phase 5** | Quality, accessibility & optimization | Next up (Pending Phase 4 approval) |
+| **Phase 4** | Interactive features (Terminal & GitHub) | **Complete** |
+| **Phase 5** | Quality, accessibility & optimization | **Complete (Awaiting Review)** |
+| **Phase 6** | Deployment (Vercel preview) | Next up (Pending Phase 5 approval) |
 | **Phase 6** | Deployment (Vercel preview) | Scheduled |

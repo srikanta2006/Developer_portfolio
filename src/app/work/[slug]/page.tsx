@@ -30,8 +30,18 @@ export async function generateMetadata({
   if (!project) return { title: "Case Study Not Found" };
 
   return {
-    title: `${project.title} — Technical Case Study | Srikanta Bellamkonda`,
+    title: `${project.title} — Technical Case Study`,
     description: project.tagline,
+    openGraph: {
+      title: `${project.title} — Technical Case Study | Srikanta Bellamkonda`,
+      description: project.tagline,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} — Technical Case Study`,
+      description: project.tagline,
+    },
   };
 }
 
