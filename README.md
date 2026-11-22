@@ -128,8 +128,8 @@ npm run build
 | :--- | :--- | :--- |
 | **Phase 0** | Discovery and project setup | **Complete** |
 | **Phase 1** | Design foundation and site shell | **Complete** |
-| **Phase 2** | Homepage content and layout | **Complete (Awaiting Review)** |
-| **Phase 3** | Project case studies | Next up (Pending Phase 2 approval) |
-| **Phase 4** | Interactive features (Terminal & GitHub) | Scheduled |
+| **Phase 2** | Homepage content and layout | **Complete** |
+| **Phase 3** | Project case studies | **Complete (Awaiting Review)** |
+| **Phase 4** | Interactive features (Terminal & GitHub) | Next up (Pending Phase 3 approval) |
 | **Phase 5** | Quality, accessibility & optimization | Scheduled |
 | **Phase 6** | Deployment (Vercel preview) | Scheduled |
