@@ -3,7 +3,9 @@
 **Identity:** Creative Technologist · Software Developer · AI Builder  
 **Visual Direction:** Minimal Editorial  
 **Theme:** Light Only  
-**Architecture:** Next.js App Router (Hybrid: Single-Page Homepage + Dedicated Case-Study Routes)
+**Architecture:** Next.js App Router (Hybrid: Single-Page Homepage + Dedicated Case-Study Routes)  
+**Live Deployment:** [https://srikanta-portfolio-ten.vercel.app](https://srikanta-portfolio-ten.vercel.app)  
+**Repository:** [https://github.com/srikanta2006/Developer_portfolio](https://github.com/srikanta2006/Developer_portfolio)
 
 ---
 
@@ -131,6 +133,6 @@ npm run build
 | **Phase 2** | Homepage content and layout | **Complete** |
 | **Phase 3** | Project case studies | **Complete** |
 | **Phase 4** | Interactive features (Terminal & GitHub) | **Complete** |
-| **Phase 5** | Quality, accessibility & optimization | **Complete (Awaiting Review)** |
-| **Phase 6** | Deployment (Vercel preview) | Next up (Pending Phase 5 approval) |
+| **Phase 5** | Quality, accessibility & optimization | **Complete** |
+| **Phase 6** | Deployment (Vercel preview & production) | **Complete (Live)** |
 | **Phase 6** | Deployment (Vercel preview) | Scheduled |
