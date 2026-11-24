@@ -52,20 +52,20 @@ export function Header() {
         Skip to main content
       </a>
 
-      <header className="sticky top-0 z-40 w-full border-b border-[#E8E5DD] bg-[#F7F6F2]/90 backdrop-blur-md transition-colors">
+      <header className="sticky top-0 z-40 w-full border-b border-[#E2E8F0] bg-[#FAFAFC]/90 backdrop-blur-md transition-colors">
         <Container>
           <div className="flex h-16 sm:h-20 items-center justify-between">
             {/* Wordmark / Brand Identity */}
             <div className="flex items-center gap-3">
               <Link
                 href="/"
-                className="group flex flex-col font-sans transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB] rounded-sm"
+                className="group flex flex-col font-sans transition-opacity hover:opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded-sm"
               >
-                <span className="font-display text-lg sm:text-xl font-medium tracking-tight text-[#171717]">
+                <span className="font-heading text-lg sm:text-xl font-bold tracking-tight text-[#0F172A]">
                   Srikanta Bellamkonda
                 </span>
-                <span className="hidden sm:inline-block font-mono text-[11px] text-[#706E6B] tracking-wider uppercase">
-                  Creative Technologist · AI Builder
+                <span className="hidden sm:inline-block font-mono text-[11px] text-[#64748B] tracking-wider uppercase">
+                  Student Developer · Software & Applied AI
                 </span>
               </Link>
             </div>

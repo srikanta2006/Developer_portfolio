@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-page: #F7F6F2;
+  --color-page: #FAFAFC;
   --color-surface: #FFFFFF;
-  --color-primary: #171717;
-  --color-secondary: #706E6B;
-  --color-muted: #8A8884;
-  --color-accent: #6D5DFB;
-  --color-accent-hover: #5A49E6;
-  --color-accent-subtle: #F0EEFE;
-  --color-sage: #B8C6A5;
-  --color-sage-subtle: #F2F5EF;
-  --color-border: #E8E5DD;
-  --color-border-subtle: #F0EDE6;
+  --color-primary: #0F172A;
+  --color-secondary: #475569;
+  --color-muted: #64748B;
+  --color-accent: #4F46E5;
+  --color-accent-hover: #4338CA;
+  --color-accent-subtle: #EEF2FF;
+  --color-emerald-accent: #059669;
+  --color-emerald-subtle: #ECFDF5;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
 
-  --font-display: var(--font-playfair), Georgia, serif;
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-heading: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 :root {
-  --background: #F7F6F2;
-  --foreground: #171717;
+  --background: #FAFAFC;
+  --foreground: #0F172A;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 5.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -44,13 +44,13 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accessible focus visible utility */
+/* High-craft focus state */
 :focus-visible {
-  outline: 2px solid #6D5DFB;
+  outline: 2px solid #4F46E5;
   outline-offset: 2px;
 }

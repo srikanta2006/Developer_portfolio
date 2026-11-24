@@ -26,7 +26,7 @@ export async function GitHubActivity() {
   const { profile, repos, isFallback, rateLimited } = await fetchGitHubData();
 
   return (
-    <section id="github" className="py-20 sm:py-28 border-t border-[#E8E5DD]/70 scroll-mt-20">
+    <section id="github" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
       <Container>
         <SectionHeading
           number="05 / Open Source"
@@ -36,8 +36,8 @@ export async function GitHubActivity() {
 
         {/* Fallback Notice (Only visible if rate-limited or offline) */}
         {isFallback && (
-          <div className="mb-6 rounded-lg border border-[#E8E5DD] bg-[#F7F6F2] p-4 text-xs text-[#706E6B] flex items-center gap-2">
-            <Info className="h-4 w-4 text-[#6D5DFB] shrink-0" aria-hidden="true" />
+          <div className="mb-6 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-xs text-[#475569] flex items-center gap-2">
+            <Info className="h-4 w-4 text-[#4F46E5] shrink-0" aria-hidden="true" />
             <span>
               {rateLimited
                 ? "GitHub unauthenticated rate limit reached; displaying verified cached repository snapshot."
@@ -48,9 +48,9 @@ export async function GitHubActivity() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left: Profile Overview Card */}
-          <div className="lg:col-span-4 rounded-xl border border-[#E8E5DD] bg-white p-6 space-y-5 shadow-xs">
+          <div className="lg:col-span-4 rounded-xl border border-[#E2E8F0] bg-white p-6 space-y-5 shadow-sm">
             <div className="flex items-center gap-4">
-              <div className="relative h-14 w-14 rounded-full overflow-hidden border border-[#E8E5DD] bg-[#F7F6F2] shrink-0">
+              <div className="relative h-14 w-14 rounded-full overflow-hidden border border-[#E2E8F0] bg-[#F8FAFC] shrink-0">
                 <Image
                   src={profile.avatar_url}
                   alt={`${profile.name} GitHub avatar`}
@@ -59,47 +59,47 @@ export async function GitHubActivity() {
                 />
               </div>
               <div className="min-w-0">
-                <h3 className="font-display text-lg font-medium text-[#171717] truncate">
+                <h3 className="font-heading text-lg font-bold text-[#0F172A] truncate">
                   {profile.name}
                 </h3>
                 <a
                   href={profile.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-[#6D5DFB] hover:underline truncate block"
+                  className="font-mono text-xs text-[#4F46E5] hover:underline truncate block"
                 >
                   @{profile.login}
                 </a>
               </div>
             </div>
 
-            <p className="text-xs text-[#706E6B] leading-relaxed">
+            <p className="text-xs text-[#475569] leading-relaxed">
               {profile.bio}
             </p>
 
             {/* Profile Statistics */}
-            <div className="grid grid-cols-3 gap-2 pt-3 border-t border-[#E8E5DD] text-center">
-              <div className="p-2 rounded-lg bg-[#F7F6F2]">
-                <span className="font-mono text-base font-semibold text-[#171717] block">
+            <div className="grid grid-cols-3 gap-2 pt-3 border-t border-[#E2E8F0] text-center">
+              <div className="p-2 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9]">
+                <span className="font-mono text-base font-semibold text-[#0F172A] block">
                   {profile.public_repos}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#706E6B] block">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#64748B] block">
                   Repos
                 </span>
               </div>
-              <div className="p-2 rounded-lg bg-[#F7F6F2]">
-                <span className="font-mono text-base font-semibold text-[#171717] block">
+              <div className="p-2 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9]">
+                <span className="font-mono text-base font-semibold text-[#0F172A] block">
                   {profile.followers}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#706E6B] block">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#64748B] block">
                   Followers
                 </span>
               </div>
-              <div className="p-2 rounded-lg bg-[#F7F6F2]">
-                <span className="font-mono text-base font-semibold text-[#171717] block">
+              <div className="p-2 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9]">
+                <span className="font-mono text-base font-semibold text-[#0F172A] block">
                   {profile.following}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[#706E6B] block">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#64748B] block">
                   Following
                 </span>
               </div>
@@ -109,7 +109,7 @@ export async function GitHubActivity() {
               href={profile.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#171717] py-2.5 text-xs font-medium text-white hover:bg-[#2b2b2b] transition-colors"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0F172A] py-2.5 text-xs font-semibold text-white hover:bg-[#1E293B] transition-colors"
             >
               <GitHubIcon className="h-4 w-4" />
               <span>View Full GitHub Profile</span>
@@ -125,21 +125,21 @@ export async function GitHubActivity() {
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col justify-between p-5 rounded-xl border border-[#E8E5DD] bg-white hover:border-[#6D5DFB]/40 hover:shadow-2xs transition-all"
+                className="group flex flex-col justify-between p-5 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#4F46E5]/40 hover:shadow-sm transition-all"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between gap-2">
-                    <h4 className="font-mono text-sm font-semibold text-[#171717] group-hover:text-[#6D5DFB] transition-colors truncate">
+                    <h4 className="font-mono text-sm font-semibold text-[#0F172A] group-hover:text-[#4F46E5] transition-colors truncate">
                       {repo.name}
                     </h4>
-                    <ArrowUpRight className="h-3.5 w-3.5 text-[#706E6B] group-hover:text-[#6D5DFB] shrink-0" />
+                    <ArrowUpRight className="h-3.5 w-3.5 text-[#64748B] group-hover:text-[#4F46E5] shrink-0" />
                   </div>
-                  <p className="text-xs text-[#706E6B] line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#475569] line-clamp-2 leading-relaxed">
                     {repo.description || "Public repository and code exploration."}
                   </p>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 mt-2 border-t border-[#E8E5DD]/60 text-xs text-[#706E6B]">
+                <div className="flex items-center justify-between pt-4 mt-2 border-t border-[#E2E8F0] text-xs text-[#64748B]">
                   {repo.language ? (
                     <Badge variant="neutral" size="sm">
                       {repo.language}

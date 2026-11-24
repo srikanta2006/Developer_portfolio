@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, MapPin, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, MapPin, Sparkles, Mail, Phone } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -36,7 +36,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 export function Hero() {
   return (
-    <section className="pt-8 sm:pt-14 pb-16 sm:pb-24 border-b border-[#E8E5DD]/70">
+    <section className="pt-8 sm:pt-14 pb-16 sm:pb-24 border-b border-[#E2E8F0]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Main Hero Copy (Left Column) */}
@@ -45,68 +45,98 @@ export function Hero() {
             <div className="flex flex-wrap items-center gap-2.5">
               <Badge variant="accent" className="gap-1.5 py-1">
                 <Sparkles className="h-3 w-3" aria-hidden="true" />
-                <span>Creative Technologist · Software Developer · AI Builder</span>
+                <span>Student Developer · Software & Applied AI</span>
               </Badge>
-              <div className="inline-flex items-center gap-1.5 text-xs text-[#706E6B] font-mono">
-                <MapPin className="h-3.5 w-3.5 text-[#706E6B]" aria-hidden="true" />
+              <div className="inline-flex items-center gap-1.5 text-xs text-[#475569] font-mono">
+                <MapPin className="h-3.5 w-3.5 text-[#475569]" aria-hidden="true" />
                 <span>Hyderabad, India</span>
               </div>
             </div>
 
             {/* Typography-Led Headline */}
             <div className="space-y-3">
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-medium tracking-tight text-[#171717] leading-[1.12]">
-                Building intelligent products at the intersection of software and AI.
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-[#0F172A] leading-[1.14]">
+                Building intelligent products through software and AI.
               </h1>
-              <p className="font-sans text-lg sm:text-xl text-[#706E6B] leading-relaxed max-w-2xl">
-                I am Srikanta Bellamkonda. I design and engineer reliable web systems,
-                explore autonomous agent orchestration, and build software that solves
-                real problems with technical rigor and editorial restraint.
+              <p className="font-sans text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl">
+                I&apos;m a Computer Science student and developer passionate about building intelligent products through software engineering and applied AI. I enjoy turning ideas into practical applications by combining full-stack development, AI-powered systems, and problem-solving.
               </p>
+            </div>
+
+            {/* Professional Characteristics Chips */}
+            <div className="flex flex-wrap gap-2 pt-1">
+              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#EEF2FF] text-[#4338CA] border border-[#C7D2FE]">
+                Problem Solver
+              </span>
+              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0]">
+                Autonomous Product Builder
+              </span>
+              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0]">
+                Hands-on Developer
+              </span>
+              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]">
+                Full-Stack + Applied AI
+              </span>
             </div>
 
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Button variant="primary" size="lg" href="#work" className="gap-2">
-                <span>Explore my work</span>
+                <span>Explore Featured Projects</span>
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </Button>
 
               <Button variant="secondary" size="lg" href="#contact" className="gap-2">
-                <span>Get in touch / Resume</span>
+                <span>Contact Srikanta</span>
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </Button>
             </div>
 
             {/* Verified Public Channels */}
-            <div className="pt-4 flex items-center gap-5 text-sm text-[#706E6B]">
-              <span className="font-mono text-xs uppercase tracking-wider">Connect:</span>
+            <div className="pt-3 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#475569]">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#64748B]">Channels:</span>
               <a
                 href="https://github.com/srikanta2006"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#171717] hover:text-[#6D5DFB] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB] rounded"
+                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
               >
                 <GitHubIcon className="h-4 w-4" />
                 <span>GitHub</span>
               </a>
-              <span className="text-[#E8E5DD]" aria-hidden="true">/</span>
+              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
               <a
-                href="https://www.linkedin.com/in/srikanta-bellamkonda"
+                href="https://linkedin.com/in/srikanta-bellamkonda"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#171717] hover:text-[#6D5DFB] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB] rounded"
+                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
               >
                 <LinkedInIcon className="h-4 w-4" />
                 <span>LinkedIn</span>
+              </a>
+              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
+              <a
+                href="mailto:srikantabellamkonda@gmail.com"
+                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
+              >
+                <Mail className="h-4 w-4 text-[#4F46E5]" />
+                <span>Email</span>
+              </a>
+              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
+              <a
+                href="tel:+917337015933"
+                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
+              >
+                <Phone className="h-3.5 w-3.5 text-[#059669]" />
+                <span>+91 7337015933</span>
               </a>
             </div>
           </div>
 
           {/* Supporting Visual / Portrait Frame (Right Column) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-2xl border border-[#E8E5DD] bg-white p-3 shadow-xs">
-              <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#F7F6F2]">
+            <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-2xl border border-[#E2E8F0] bg-white p-3 shadow-sm">
+              <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#F8FAFC]">
                 <Image
                   src="/images/placeholder-portrait.svg"
                   alt="Srikanta Bellamkonda professional portrait placeholder"
@@ -116,10 +146,10 @@ export function Hero() {
                 />
               </div>
 
-              {/* Editorial Caption Tag */}
-              <div className="absolute -bottom-3 -right-2 bg-white border border-[#E8E5DD] rounded-lg px-3 py-1 shadow-xs hidden sm:block">
-                <span className="font-mono text-[11px] text-[#706E6B]">
-                  Hyderabad · 2026
+              {/* Status Caption Tag */}
+              <div className="absolute -bottom-3 -right-2 bg-white border border-[#E2E8F0] rounded-lg px-3 py-1.5 shadow-sm hidden sm:block">
+                <span className="font-mono text-[11px] font-semibold text-[#0F172A]">
+                  Student Developer · Hyderabad, India
                 </span>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { PROJECTS } from "@/data/projects";
 
 export function SelectedWork() {
   return (
-    <section id="work" className="py-20 sm:py-28 border-t border-[#E8E5DD]/70 scroll-mt-20">
+    <section id="work" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
       <Container>
         <SectionHeading
           number="02 / Selected Work"

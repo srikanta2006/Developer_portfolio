@@ -1,105 +1,95 @@
-export type TimelineCategory =
-  | "education"
-  | "training"
-  | "hackathons"
-  | "leadership";
+export type ExperienceType = "internship" | "education" | "achievement" | "leadership";
 
-export interface TimelineItem {
+export interface ExperienceItem {
   id: string;
-  category: TimelineCategory;
-  categoryLabel: string;
+  type: ExperienceType;
+  typeLabel: string;
   title: string;
   organization: string;
   period: string;
   location?: string;
   description: string;
   highlights?: string[];
-  verificationNeeded?: boolean;
+  metaBadge?: string;
 }
 
-export const TIMELINE_ITEMS: TimelineItem[] = [
+export const EXPERIENCES: ExperienceItem[] = [
   {
-    id: "agentathon-2025",
-    category: "hackathons",
-    categoryLabel: "Hackathons & Competitions",
-    title: "Participant & AI Builder",
-    organization: "Agentathon 2025",
-    period: "2025",
-    location: "National / Virtual",
+    id: "celebal-internship",
+    type: "internship",
+    typeLabel: "Professional Experience",
+    title: "Data Science Intern",
+    organization: "Celebal Technologies",
+    period: "May 2026 – July 2026",
+    location: "Remote",
+    metaBadge: "Internship",
     description:
-      "Built and presented autonomous agent workflows focusing on real-world multi-tool execution and reasoning capabilities.",
+      "Worked on end-to-end data science pipelines, from data preprocessing and feature engineering to classification model development using algorithms like XGBoost. Explored Retrieval-Augmented Generation (RAG) through hands-on GenAI mini-projects, gaining practical experience building LLM-powered applications.",
     highlights: [
-      "Prototyped multi-step agent reasoning pipeline using modern LLM APIs",
-      "Collaborated on agentic memory models and deterministic decision verification",
+      "Engineered automated data cleaning and feature extraction pipelines for machine learning models",
+      "Trained and evaluated classification models utilizing XGBoost and Scikit-learn",
+      "Built hands-on Retrieval-Augmented Generation (RAG) mini-projects combining vector search with LLMs",
+      "Technology areas: Python, Scikit-learn, Machine Learning, Deep Learning, RAG, Agentic AI",
     ],
-    verificationNeeded: true,
   },
   {
-    id: "sih-2024",
-    category: "hackathons",
-    categoryLabel: "Hackathons & Competitions",
-    title: "Screened Participant",
+    id: "cvr-education",
+    type: "education",
+    typeLabel: "Education",
+    title: "Bachelor of Technology — Computer Science and Engineering",
+    organization: "CVR College of Engineering",
+    period: "Expected May 2027",
+    location: "Hyderabad, Telangana, India",
+    metaBadge: "GPA: 8.74",
+    description:
+      "Pursuing Computer Science and Engineering with an academic GPA of 8.74. Focusing on Data Structures & Algorithms, Backend Engineering, System Design, and Applied Artificial Intelligence.",
+    highlights: [
+      "Current Academic Standing: 8.74 GPA",
+      "Deep practical focus on Backend Architecture, Distributed Systems, and Autonomous AI Agents",
+    ],
+  },
+  {
+    id: "sih-2024-winner",
+    type: "achievement",
+    typeLabel: "Hackathons & Achievements",
+    title: "First Place Winner & Team Lead",
     organization: "Smart India Hackathon (SIH) 2024",
     period: "2024",
-    location: "India",
+    location: "National Competition · India",
+    metaBadge: "1st Place Winner",
     description:
-      "Advanced through internal college screening rounds, developing solutions targeting national technical problem statements.",
+      "Led a cross-functional engineering team to secure 1st Place in Smart India Hackathon 2024, architecting and prototyping an end-to-end scalable solution for a real-world national problem statement.",
     highlights: [
-      "Engineered working MVP prototype under competitive screening timelines",
-      "Focused on architectural feasibility and clean presentation",
+      "Led cross-functional team through competitive multi-round national problem solving",
+      "Architected end-to-end scalable MVP balancing system design, clean UX, and algorithmic accuracy",
     ],
-    verificationNeeded: true,
   },
   {
-    id: "startup-party",
-    category: "hackathons",
-    categoryLabel: "Hackathons & Competitions",
-    title: "Participant / Selected Builder",
-    organization: "Startup Party",
-    period: "2024",
-    location: "Hyderabad, India",
-    description:
-      "Participated in fast-paced founder pitch and build events, collaborating with developers and founders on rapid software validation.",
-    verificationNeeded: true,
-  },
-  {
-    id: "tekworks-training",
-    category: "training",
-    categoryLabel: "Technical Training",
-    title: "Practical Technical Training",
-    organization: "TekWorks",
-    period: "2024",
-    location: "Hyderabad, India",
-    description:
-      "Hands-on technical training program focused on core software engineering practices, system programming fundamentals, and modern full-stack workflows.",
-    highlights: [
-      "Applied structured software design patterns and modular code organization",
-      "Practiced collaborative version control, debugging techniques, and deployment basics",
-    ],
-    verificationNeeded: true,
-  },
-  {
-    id: "btech-education",
-    category: "education",
-    categoryLabel: "Education",
-    title: "B.Tech in Computer Science & Engineering",
-    organization: "Undergraduate Degree Program",
-    period: "In Progress",
-    location: "Hyderabad, India",
-    description:
-      "Pursuing Bachelor of Technology with focus on data structures, algorithms, computer systems, and artificial intelligence fundamentals.",
-    verificationNeeded: true,
-  },
-  {
-    id: "community-leadership",
-    category: "leadership",
-    categoryLabel: "Leadership & Community",
-    title: "Technical Community Member & Mentor",
-    organization: "Peer Developer Initiatives",
+    id: "kalakriti-leadership",
+    type: "leadership",
+    typeLabel: "Leadership & Community",
+    title: "Operational Head & Event Management Lead",
+    organization: "Kalakriti Art Club",
     period: "2023 – Present",
-    location: "Hyderabad, India",
+    location: "CVR College of Engineering",
+    metaBadge: "Leadership",
     description:
-      "Active participant in collegiate technical clubs and open developer forums, assisting peers with debugging, Git workflows, and AI tool adoption.",
-    verificationNeeded: true,
+      "Spearheaded club operations and event management, orchestrating large-scale collegiate cultural and creative initiatives, coordinating logistics, and mentoring junior organizers.",
+    highlights: [
+      "Directed operational planning and cross-team execution for high-attendance campus events",
+      "Fostered collaborative environments and practical project coordination among student teams",
+    ],
+  },
+  {
+    id: "isf-2024-volunteer",
+    type: "leadership",
+    typeLabel: "Leadership & Community",
+    title: "Volunteer Coordinator",
+    organization: "International Startup Festival 2024",
+    period: "2024",
+    location: "Hyderabad, India",
+    metaBadge: "Volunteer",
+    description:
+      "Contributed to event management and founder coordination at the International Startup Festival 2024, engaging with startup founders, tech investors, and international builders.",
   },
 ];

@@ -16,6 +16,7 @@ export interface CaseStudy {
   tagline: string;
   category: string;
   role: string;
+  ownership: string;
   timeframe: string;
   heroImage: string;
   heroImageAlt: string;
@@ -25,7 +26,7 @@ export interface CaseStudy {
   constraints: string[];
   solution: string;
   keyFlows: string[];
-  architectureDiagramType: "biznexus" | "burst" | "hackos";
+  architectureDiagramType: "biznexus" | "burst" | "hackos" | "legal-arena";
   architectureDescription: string;
   technicalDecisions: TechnicalDecision[];
   challenges: ChallengeResolution[];
@@ -34,6 +35,7 @@ export interface CaseStudy {
     partiallyImplemented: string[];
     planned: string[];
   };
+  individualContribution?: string[];
   outcomesAndLearnings: string[];
   techStack: {
     category: string;
@@ -48,97 +50,98 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     slug: "biznexus",
     title: "BizNexus",
     number: "01",
-    tagline: "AI-powered business intelligence & multi-agent co-pilot",
-    category: "AI Engineering · Agentic Systems",
-    role: "Lead Engineer / AI Architect",
+    tagline: "AI-powered business management & analytics co-pilot for SMEs",
+    category: "Full-Stack Development · Applied AI",
+    role: "Full-Stack & AI Developer",
+    ownership: "Independent Project",
     timeframe: "2024 – 2025",
     heroImage: "/projects/placeholder-biznexus.svg",
     heroImageAlt: "BizNexus system architecture and dashboard preview",
     overview:
-      "BizNexus is an experimental business intelligence co-pilot designed to augment executive and operations teams. It coordinates multi-agent LLM pipelines to query corporate databases, reconcile conflicting reports, and generate traceable, cited executive summaries.",
+      "BizNexus is an AI-powered business management and analytics platform engineered specifically for small and medium-sized businesses (SMEs). It empowers business owners to monitor and coordinate business operations through intelligent operational visibility into inventory levels, sales metrics, profit margins, and customer communication.",
     problem:
-      "Modern SMBs and project teams often accumulate fragmented data across spreadsheets, databases, and reporting portals. Manually aggregating comparative data is time-consuming, while naive single-prompt LLM wrappers hallucinate figures and fail on complex multi-step reasoning.",
+      "Small-scale business owners frequently lack dedicated analytics staff and struggle to piece together fragmented data across inventory ledgers, billing spreadsheets, and customer logs. Traditional enterprise ERPs are overly complex and costly, while basic spreadsheets offer zero proactive operational intelligence.",
     goals: [
-      "Enable conversational queries against structured corporate data with deterministic calculations.",
-      "Isolate LLM reasoning from mathematical calculations using tool execution patterns.",
-      "Maintain citation and provenance tracking for every figure presented in summaries.",
+      "Provide centralized operational visibility into inventory, sales volumes, and profitability.",
+      "Deliver an intelligent natural language interface for instant retrieval of business performance metrics.",
+      "Automate customer communication workflows and summarize business health for non-technical owners.",
     ],
     constraints: [
-      "Operate within predictable API token budgets without runaway loop recursion.",
-      "Strict data privacy: no training on proprietary customer inputs.",
-      "Fast endpoint response times (<2s for query routing).",
+      "Intuitive UI that requires zero technical training for retail and small business owners.",
+      "Lightweight, predictable deployment footprint without costly cloud infrastructure requirements.",
+      "Accurate telemetry aggregation with zero hallucinated arithmetic figures.",
     ],
     solution:
-      "Architected a hub-and-spoke multi-agent system where a Query Planner breaks high-level business questions into discrete sub-tasks. Dedicated specialized agents execute database queries, statistical math, and document synthesis, while a Verifier Agent cross-checks outputs against raw telemetry before returning to the UI.",
+      "Designed and developed a cohesive full-stack platform pairing a clean web dashboard with an applied AI co-pilot. The system aggregates core operational metrics into an intuitive visual console, while an AI assistant enables owners to query sales data, generate restock reminders, and review customer communication logs.",
     keyFlows: [
-      "User submits comparative telemetry prompt (e.g., 'Compare Q3 vs Q4 churn rates').",
-      "Query Planner agent dispatches schema discovery and SQL generation tools.",
-      "Deterministic calculator agent executes exact arithmetic on returned rowsets.",
-      "Synthesis agent compiles markdown report with footnote citations to raw database rows.",
+      "Owner logs in to view unified dashboard showing real-time sales, profit margins, and low-inventory alerts.",
+      "Owner submits a natural-language query (e.g., 'What were our top 3 profitable items this month?').",
+      "Backend parses the query against structured SQLite records and returns exact metrics with explanatory context.",
+      "System flags inventory thresholds and drafts automated customer notifications for pending orders.",
     ],
     architectureDiagramType: "biznexus",
     architectureDescription:
-      "A layered multi-agent pipeline decoupling the user-facing React UI, an asynchronous FastAPI gateway, and specialized LLM worker agents orchestrated with strict schema validation.",
+      "A layered full-stack application decoupling a responsive web frontend, an asynchronous FastAPI backend service, and an intelligent query execution pipeline querying structured relational business records.",
     technicalDecisions: [
       {
-        decision: "Python + FastAPI over Node.js for backend orchestration",
-        rationale: "Rich native ecosystem for data analysis, vector operations, and async LLM streaming libraries.",
-        tradeoff: "Slightly higher server memory baseline compared to lightweight Go or Rust microservices.",
+        decision: "FastAPI + Python for backend services",
+        rationale: "Rapid endpoint development with native asynchronous execution and clean integration with AI/LLM libraries.",
+        tradeoff: "Requires careful process management compared to serverless functions.",
       },
       {
-        decision: "Deterministic math tool instead of LLM arithmetic",
-        rationale: "LLMs frequently hallucinate floating-point arithmetic and statistical summaries.",
-        tradeoff: "Required custom prompt engineering to force structured tool call emission.",
+        decision: "Relational storage for transactional business telemetry",
+        rationale: "Ensures strict ACID consistency for sales figures, price records, and inventory counts.",
+        tradeoff: "Schema migrations must be carefully managed as new business metrics are tracked.",
       },
       {
-        decision: "SQLite with strict schemas for local prototyping",
-        rationale: "Zero-dependency setup with rapid test iteration before cloud database migration.",
-        tradeoff: "Limited concurrent write throughput under high distributed loads.",
+        decision: "Component-driven dashboard with modular card telemetry",
+        rationale: "Allows business owners to prioritize widgets (e.g. sales vs inventory) according to their business model.",
+        tradeoff: "Requires thoughtful state management across interdependent dashboard cards.",
       },
     ],
     challenges: [
       {
-        challenge: "Agent hallucinations during multi-table SQL queries",
-        solution: "Implemented an iterative self-correction loop where SQL execution errors are fed back into the agent alongside table schema definitions for automatic re-planning.",
+        challenge: "Ensuring natural language queries produce verifiable, exact numbers without hallucination",
+        solution: "Separated natural language query translation from numeric calculation, forcing queries to execute exact SQL lookups against structured database records.",
       },
       {
-        challenge: "High latency on multi-step reasoning chains",
-        solution: "Parallelized independent tool queries using async asyncio.gather and streamed preliminary status indicators to the user interface.",
+        challenge: "Designing an interface that remains simple for non-technical business operators",
+        solution: "Conducted continuous UX refinement, replacing technical jargon with clear terminology like 'Gross Profit', 'Low Stock Alert', and 'Customer Responses'.",
       },
     ],
     featureStatus: {
       implemented: [
-        "Natural language to SQL query generation with schema grounding",
-        "Deterministic arithmetic verification via sandboxed Python tools",
-        "FastAPI async streaming endpoints with structured SSE events",
-        "Interactive React dashboard with markdown export and citation popovers",
+        "Interactive dashboard displaying sales, profits, and inventory telemetry",
+        "Natural-language query co-pilot for operational and metric inquiries",
+        "Inventory tracking with threshold-based restock indicators",
+        "Customer communication history and message log tracking",
       ],
       partiallyImplemented: [
-        "Automated PDF executive report generation",
-        "Vector document retrieval (RAG) for unstructured PDF knowledge bases",
+        "Automated multi-channel customer notification dispatch",
+        "Weekly automated business summary email generation",
       ],
       planned: [
-        "Multi-tenant role-based access control (RBAC)",
-        "Automated scheduled alerting via Slack and email webhooks",
+        "Multi-store inventory synchronization across branch locations",
+        "Direct point-of-sale (POS) hardware integration",
       ],
     },
     outcomesAndLearnings: [
-      "Demonstrated that multi-agent decomposition with tool execution eliminates arithmetic errors that plague single-shot LLM queries.",
-      "Gained hands-on expertise in asynchronous LLM stream handling, structured Pydantic schema validation, and prompt observability.",
-      "Recognized that deterministic software guardrails are more valuable than larger model parameter sizes for enterprise trust.",
+      "Demonstrated that combining full-stack development with applied AI solves concrete operational problems for small business owners.",
+      "Gained deep practical experience structuring clean API schemas with FastAPI and integrating LLM tool execution.",
+      "Reinforced the engineering principle that business software must be trustworthy, fast, and remarkably simple to use.",
     ],
     techStack: [
       {
-        category: "Backend & Orchestration",
-        items: ["Python", "FastAPI", "Pydantic", "Asyncio", "OpenAI / Anthropic APIs"],
+        category: "Backend & Applied AI",
+        items: ["Python", "FastAPI", "OpenAI API / Groq API", "Asyncio"],
       },
       {
         category: "Frontend & UI",
         items: ["React", "TypeScript", "Tailwind CSS", "Lucide React"],
       },
       {
-        category: "Storage & Tooling",
-        items: ["SQLite", "Git", "Docker", "REST APIs"],
+        category: "Database & Tooling",
+        items: ["SQLite", "Git", "RESTful APIs", "Vercel"],
       },
     ],
     githubUrl: "https://github.com/srikanta2006",
@@ -148,196 +151,319 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     slug: "burst",
     title: "Burst",
     number: "02",
-    tagline: "High-performance full-stack publishing & blogging application",
-    category: "Full-Stack Web Development",
+    tagline: "Full-stack multi-user blogging & content-sharing platform",
+    category: "Full-Stack Development · Web Applications",
     role: "Full-Stack Developer",
+    ownership: "Independently Designed & Built",
     timeframe: "2024",
     heroImage: "/projects/placeholder-burst.svg",
-    heroImageAlt: "Burst publishing application editorial layout and editor",
+    heroImageAlt: "Burst multi-user blogging application editorial interface and editor",
     overview:
-      "Burst is a modern, responsive publishing platform engineered for technical writers and editorial teams. It emphasizes distraction-free authoring, instantaneous markdown preview, robust draft workflows, and clean responsive typography.",
+      "Burst is a modern blogging and content-sharing platform built to provide writers and readers with a smooth, interactive publishing experience. Built from the ground up with React 19, Firebase, and Cloud Firestore, it features personalized global and following feeds, a custom rich-text editor, real-time social interactions, and a creator analytics dashboard.",
     problem:
-      "Many modern blogging platforms are either bloated with intrusive popups and trackers or require complex Git-based CI/CD workflows inaccessible to non-technical writers. Writers needed a fast, elegant publishing tool that respects typography and speed.",
+      "Most modern blogging platforms either enforce rigid paywalls, overwhelm readers with aggressive advertising, or rely on heavy third-party embedded editors that degrade mobile responsiveness. Writers needed an autonomous, lightning-fast platform that offers distraction-free authoring and real-time social engagement.",
     goals: [
-      "Sub-second page navigation and zero cumulative layout shift (CLS).",
-      "Real-time synchronized split-pane markdown editing with syntax highlighting.",
-      "Role-based draft publishing workflows with preview sharing.",
+      "Build a custom WYSIWYG editor without relying on third-party blackbox editors.",
+      "Implement client-side image compression using HTML5 Canvas to optimize storage and upload speeds.",
+      "Provide real-time social interactions (likes, comments, bookmarks, following) with Cloud Firestore.",
+      "Deliver a comprehensive creator analytics dashboard tracking multiple reader engagement metrics.",
     ],
     constraints: [
-      "Must run smoothly on mobile browsers and lower-power laptops.",
-      "Strict sanitization of user-submitted HTML/Markdown to prevent XSS attacks.",
-      "Lightweight database queries avoiding N+1 feed resolution issues.",
+      "Mobile-first responsive design supporting seamless reading across all screen sizes.",
+      "Instant reader preview with zero cumulative layout shifts (CLS).",
+      "Secure authenticated sessions and role-protected publishing controls.",
     ],
     solution:
-      "Engineered with Next.js App Router utilizing Server Components for cached, static-first public article delivery, while delegating interactive authoring to isolated client components. Implemented clean database relations and edge-cached feeds.",
+      "Independently engineered the entire full-stack application using React 19, Vite, and Firebase. Implemented a custom rich-text editor with instant preview, client-side canvas image compression, context-based profile caching, and real-time Firestore listeners for comments and likes.",
     keyFlows: [
-      "Author composes in split-view markdown editor with instant preview.",
-      "Drafts are autosaved locally with background synchronization to the backend.",
-      "Author submits draft for peer review or publishes immediately with slug validation.",
-      "Readers browse responsive, paginated feeds optimized for reading comfort.",
+      "User authenticates securely via Firebase Authentication (email/password or OAuth).",
+      "Writer authors content in custom rich-text editor, compresses featured images via HTML5 Canvas, and publishes instantly.",
+      "Readers discover content via personalized 'Global' and 'Following' feeds with category filtering.",
+      "Real-time social engagement (likes, comments, bookmarks) syncs immediately across open client sessions.",
+      "Creator monitors post performance, reader retention, and engagement in the analytics dashboard.",
     ],
     architectureDiagramType: "burst",
     architectureDescription:
-      "Next.js App Router hybrid architecture utilizing React Server Components for article feeds and client components for editor interactivity, backed by relational storage.",
+      "React 19 client application with Vite and CSS Modules, integrating Firebase Authentication, Cloud Firestore real-time subscriptions, and an HTML5 Canvas image preprocessing pipeline.",
     technicalDecisions: [
       {
-        decision: "Next.js App Router with Server Components for article views",
-        rationale: "Articles are static content that benefit from server prerendering, fast TTFB, and minimal client JS bundle size.",
-        tradeoff: "Requires clear separation of server-only and interactive client code boundaries.",
+        decision: "Custom WYSIWYG editor instead of embedded third-party library",
+        rationale: "Full control over DOM manipulation, clean markdown/HTML output, and zero unwanted external bundle bloat.",
+        tradeoff: "Required custom implementation of keyboard formatting shortcuts and selection ranges.",
       },
       {
-        decision: "Client-side markdown parsing with DOMPurify sanitization",
-        rationale: "Immediate visual feedback during typing without roundtripping every keystroke to the server.",
-        tradeoff: "Slight increase in client-side bundle size for the editor route.",
+        decision: "Client-side image compression via HTML5 Canvas",
+        rationale: "Drastically reduces image payload size before upload, accelerating publish speed and saving cloud bandwidth.",
+        tradeoff: "Compression CPU workload runs on the client device during upload.",
       },
       {
-        decision: "Tailwind Typography plugin for editorial rendering",
-        rationale: "Guarantees consistent, accessible font sizing, line height, and contrast out of the box.",
-        tradeoff: "Slight customization needed to match custom brand design tokens.",
+        decision: "Real-time Cloud Firestore synchronization",
+        rationale: "Instant UI updates for social interactions (likes, comments, follower counts) without manual polling.",
+        tradeoff: "Careful listener cleanup in React useEffect hooks to avoid memory leaks and runaway read counts.",
       },
     ],
     challenges: [
       {
-        challenge: "Scroll synchronization between raw markdown editor and preview pane",
-        solution: "Calculated proportional scroll offsets based on percentage heights rather than absolute pixel coordinates to account for rendered media variations.",
+        challenge: "Managing real-time comment and like counters without race conditions",
+        solution: "Implemented Firestore atomic increment transactions for likes and engagement tallies, ensuring consistent counters under concurrent interactions.",
       },
       {
-        challenge: "Preventing cross-site scripting (XSS) through custom markdown embeds",
-        solution: "Configured strict DOMPurify hook whitelist and blocked raw executable scripts inside markdown render blocks.",
+        challenge: "Maintaining smooth rich-text editing performance with embedded images",
+        solution: "Preprocessed images on an in-memory canvas and used asynchronous blob URLs for instant editor preview while uploading occurred in the background.",
       },
     ],
     featureStatus: {
       implemented: [
-        "Authenticated user sessions and profile management",
-        "Full-screen split-pane markdown editor with live syntax styling",
-        "Public publication feed with tag filtering and reading time estimation",
-        "Responsive editorial reader layout adhering to light theme tokens",
+        "Personalized Global and Following feeds with category and topic discovery",
+        "Firebase user authentication with protected routes and profile customization",
+        "Custom WYSIWYG rich-text post authoring and live reader preview",
+        "Client-side image compression via HTML5 Canvas",
+        "Real-time likes, threaded comments, bookmarks, and user following system",
+        "Creator analytics dashboard with multi-metric engagement visualizations",
+        "Responsive interface with dark and light theme support",
       ],
       partiallyImplemented: [
-        "Draft share link preview for unauthenticated reviewers",
-        "Image upload optimization and CDN hosting pipeline",
+        "In-app push notifications for new follower activities",
+        "Automated reading list recommendation engine",
       ],
       planned: [
-        "Newsletter email dispatch integration",
-        "Collaborative multi-cursor editing via WebSockets",
+        "Export articles to clean portable Markdown / PDF formats",
+        "Newsletter email digest generation for publication subscribers",
       ],
     },
     outcomesAndLearnings: [
-      "Deepened understanding of React 19 Server vs Client component boundaries.",
-      "Learned the critical value of input sanitization and secure session management in multi-user applications.",
-      "Delivered a publishing interface that proves web typography and fast load speeds create superior reading experiences.",
+      "Gained comprehensive experience taking a complex full-stack web application from initial concept to live production deployment.",
+      "Mastered real-time NoSQL state management, security rules, and client-side media manipulation with HTML5 Canvas.",
+      "Delivered a production application used by real readers: https://blogging-page-gamma.vercel.app/",
     ],
     techStack: [
       {
-        category: "Application Framework",
-        items: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        category: "Core Frontend & Styling",
+        items: ["React 19", "React Router", "Vite", "CSS Modules", "HTML5 Canvas"],
       },
       {
-        category: "Backend & Data",
-        items: ["Node.js", "Relational Database", "REST APIs"],
+        category: "Backend & Database",
+        items: ["Firebase Authentication", "Cloud Firestore", "Firebase Storage"],
       },
       {
-        category: "Authoring Tools",
-        items: ["Markdown Parser", "DOMPurify", "Lucide React"],
+        category: "UI & Hosting",
+        items: ["Lucide React", "Vercel Hosting", "Git / GitHub"],
       },
     ],
     githubUrl: "https://github.com/srikanta2006/Burst_Blogging",
+    liveUrl: "https://blogging-page-gamma.vercel.app/",
   },
 
   hackos: {
     slug: "hackos",
     title: "HackOS",
     number: "03",
-    tagline: "Productivity & telemetry workspace for hackathon sprint teams",
-    category: "Developer Tools · Productivity",
-    role: "Frontend & Systems Engineer",
+    tagline: "Post-hackathon centralized productivity workspace",
+    category: "Full-Stack Development · Productivity",
+    role: "Frontend & Systems Developer",
+    ownership: "Independently Built",
     timeframe: "2024",
     heroImage: "/projects/placeholder-hackos.svg",
-    heroImageAlt: "HackOS cockpit interface showing sprint timer, task board, and scratchpad",
+    heroImageAlt: "HackOS hackathon productivity cockpit interface",
     overview:
-      "HackOS is a focused productivity dashboard created to eliminate context switching during 24-to-48 hour hackathons. It integrates a live sprint countdown timer, milestone Kanban board, team scratchpad, and presentation quick links into a single unified browser workspace.",
+      "HackOS is a centralized productivity workspace engineered to help hackathon teams organize development activities and maintain razor-sharp focus. It consolidates essential development and project tools—including Trello, Figma, Draw.io, Notion, and Google Docs—alongside a dedicated Focus Mode and Groq-powered AI assistance into a single unified browser tab.",
     problem:
-      "During intensive hackathons, team members frequently lose focus jumping between separate timers, task boards, scattered code snippets, and pitch slide links. Existing enterprise project management tools are overly complex and require too much setup during tight deadlines.",
+      "During intensive 24-to-48 hour hackathons, developers waste critical cognitive energy constantly switching between task boards, diagramming canvases, slide drafts, and API documentation. This context-switching leads to fragmented communication and wasted sprint time.",
     goals: [
-      "Zero-setup onboarding: instant functionality in a single browser tab.",
-      "Offline-first persistence so network dropouts at crowded hackathon venues never lose notes.",
-      "Minimalist, low-latency UI that does not consume scarce laptop battery or CPU resources.",
+      "Bring essential hackathon tools into one unified, low-latency environment.",
+      "Provide a distraction-free Focus Mode that eliminates UI clutter during coding sprints.",
+      "Integrate high-speed Groq AI assistance for instant syntax, debugging, and ideation help.",
+      "Maintain zero-friction tool switching without tab explosion.",
     ],
     constraints: [
-      "Must operate entirely client-side with no mandatory backend dependency.",
-      "Instant loading (<300ms) with zero layout shifting.",
-      "Accessible keyboard shortcuts for rapid scratchpad access during coding sprints.",
+      "Fast load times with zero heavy desktop installation requirements.",
+      "Seamless embedded integration with major web productivity tools.",
+      "Lightweight resource consumption to preserve laptop battery at hackathon venues.",
     ],
     solution:
-      "Engineered an offline-first Single Page Application using React and TypeScript. State is managed through an optimized local event bus and synced to browser LocalStorage with schema validation. Features dedicated sprint tracking widgets and quick-capture notes.",
+      "Independently designed and built a browser-based operating cockpit using React and Tailwind CSS. The workspace houses modular tool docks for Trello, Figma, Draw.io, Google Docs, and Notion, backed by an ultra-fast Groq AI chat sidebar for on-demand engineering assistance.",
     keyFlows: [
-      "Team initializes sprint duration (e.g., 24h) and inputs core pitch milestones.",
-      "Developers use keyboard shortcuts to quickly jot architecture snippets and API endpoints.",
-      "Timer emits visual notifications at key milestones (H-12, H-4 code freeze, H-1 pitch rehearsal).",
-      "Export workspace telemetry as clean markdown for project submission forms.",
+      "Participant launches HackOS and connects sprint boards (Trello, Notion, Figma).",
+      "Team toggles 'Focus Mode' during deep coding blocks to minimize distracting elements.",
+      "Developer opens the Groq AI panel for rapid architectural advice or code snippet generation.",
+      "Team reviews embedded Draw.io architecture diagrams and Google Docs submission drafts in parallel.",
     ],
     architectureDiagramType: "hackos",
     architectureDescription:
-      "Client-side event-driven state architecture with localStorage persistence, modular widget components, and responsive grid layout.",
+      "Modular single-page application orchestrating external productivity embeds, a centralized state manager, and an asynchronous Groq API client interface.",
     technicalDecisions: [
       {
-        decision: "Zero-backend architecture with LocalStorage persistence",
-        rationale: "Guarantees 100% offline uptime in convention centers with unstable Wi-Fi.",
-        tradeoff: "Data is local to one browser unless exported manually as JSON/Markdown.",
+        decision: "Unified single-page workspace with embedded tool docks",
+        rationale: "Keeps all project resources visible and switchable within one tab, eliminating 20+ open browser windows.",
+        tradeoff: "Requires managing iframe sandboxing and responsive scaling across diverse external tools.",
       },
       {
-        decision: "Single-bundle React + Tailwind without heavy component libraries",
-        rationale: "Extremely fast execution, minimal memory consumption, and predictable rendering.",
-        tradeoff: "Custom building of modal dialogs and drag-and-drop task ordering.",
+        decision: "Groq API for integrated AI assistance",
+        rationale: "Near-instantaneous token generation speeds (500+ tokens/sec) provide instant feedback during tight hackathon deadlines.",
+        tradeoff: "Requires handling API key storage securely on the client.",
       },
       {
-        decision: "Keyboard-first navigation model",
-        rationale: "Developers hate leaving the keyboard to manage task timers while coding.",
-        tradeoff: "Required careful keyboard focus management to avoid accessibility conflicts.",
+        decision: "Tailwind CSS with minimal custom styling",
+        rationale: "Rapid component assembly with tiny production CSS bundle size and predictable layout behavior.",
+        tradeoff: "Requires strict consistency in utility classes across widget containers.",
       },
     ],
     challenges: [
       {
-        challenge: "Browser background throttling slowing down sprint countdown timer",
-        solution: "Implemented timestamp-difference delta calculations against performance.now() and Date.now() rather than relying on naive setInterval ticks.",
+        challenge: "Embedding multiple complex web tools without browser performance degradation",
+        solution: "Implemented lazy-loading on tool docks so heavy embeds (like Figma and Draw.io) only initialize when their respective tabs are activated.",
       },
       {
-        challenge: "Preventing data corruption when clearing browser caches",
-        solution: "Added an automated one-click 'Export Workspace Backup' JSON button and clear confirmation dialogs before reset.",
+        challenge: "Balancing feature richness with a truly distraction-free interface",
+        solution: "Designed a dedicated one-key 'Focus Mode' that collapses all tool docks into a minimal timer and scratchpad.",
       },
     ],
     featureStatus: {
       implemented: [
-        "Precision sprint countdown timer with drift compensation",
-        "Local milestone Kanban board with drag-and-drop progress columns",
-        "Quick-capture scratchpad with auto-saving and markdown export",
-        "Keyboard shortcut overlay for hands-free widget switching",
+        "Centralized multi-tool dock integrating Trello, Figma, Draw.io, Notion, and Google Docs",
+        "Distraction-free Focus Mode for dedicated coding sessions",
+        "High-speed AI assistant powered by the Groq API for instant engineering answers",
+        "Responsive workspace layout supporting dual-pane tool exploration",
       ],
       partiallyImplemented: [
-        "Peer-to-peer WebRTC state sync between teammates on local Wi-Fi",
+        "Customizable keyboard shortcuts for rapid tool docking",
+        "Local sprint countdown timer with auditory milestones",
       ],
       planned: [
-        "GitHub repository commit activity widget via public REST API",
-        "Integrated presentation slide timer with practice rehearsal mode",
+        "Shared team workspace rooms via WebSockets",
+        "Direct GitHub issue synchronization within the task panel",
       ],
     },
     outcomesAndLearnings: [
-      "Validated that eliminating friction and latency during high-stakes hackathons directly increases developer output.",
-      "Mastered resilient client-side state persistence and high-precision timing routines in JavaScript.",
-      "Reinforced the product philosophy that simplicity and speed always beat over-engineered feature bloat.",
+      "Validated the concept that consolidating developer tools into a single cockpit drastically reduces context switching.",
+      "Gained deep experience integrating the high-speed Groq API and managing multi-embed iframe state.",
+      "Created a tool born directly out of personal hackathon participation that solves real sprint pain points.",
     ],
     techStack: [
       {
-        category: "Client Architecture",
+        category: "Frontend Architecture",
         items: ["React", "TypeScript", "Tailwind CSS"],
       },
       {
-        category: "State & Storage",
-        items: ["Browser LocalStorage", "Custom Event Bus", "JSON Exporter"],
+        category: "AI & External Integrations",
+        items: ["Groq API", "Trello API", "Figma Embeds", "Draw.io", "Notion", "Google Docs"],
       },
       {
-        category: "Tooling",
-        items: ["Lucide React", "Vite / Next.js", "Vercel"],
+        category: "Tooling & Deployment",
+        items: ["Vite", "Lucide React", "Vercel", "Git"],
+      },
+    ],
+    githubUrl: "https://github.com/srikanta2006",
+  },
+
+  "legal-arena": {
+    slug: "legal-arena",
+    title: "LegalArena",
+    number: "04",
+    tagline: "AI-powered legal reasoning & multi-agent courtroom simulation",
+    category: "Agentic AI · Multi-Agent Systems · RAG",
+    role: "Agent Architecture & Orchestration Lead",
+    ownership: "Team Project (Architecture & Agent Lead)",
+    timeframe: "2024 – 2025",
+    heroImage: "/projects/placeholder-legalarena.svg",
+    heroImageAlt: "LegalArena AI multi-agent courtroom simulation interface",
+    overview:
+      "LegalArena is an AI-powered courtroom simulation system that uses specialized AI agents to simulate adversarial legal reasoning. Built as a team engineering project, it coordinates three specialized autonomous agents—Prosecution, Defence, and Judge—orchestrated through LangGraph to model multi-round adversarial debates grounded in case law retrieved from ChromaDB.",
+    problem:
+      "Legal preparation requires evaluating how arguments will be scrutinized from opposing perspectives. However, single-prompt LLMs struggle with complex multi-perspective debates: they conflate opposing positions, fail to identify argumentative fallacies, and lack structured grounding in relevant statutory precedents.",
+    goals: [
+      "Design a deterministic multi-agent courtroom simulation modeling adversarial legal argumentation.",
+      "Implement three specialized agents (Prosecution, Defence, Judge) with distinct role personas and objectives.",
+      "Orchestrate multi-round debate transitions and structured turn-taking using LangGraph.",
+      "Ground all legal arguments in relevant case law and statutory records using ChromaDB vector search.",
+      "Produce a reasoned, structured judicial verdict evaluating the strength of each side's arguments.",
+    ],
+    constraints: [
+      "Agents must maintain strict adversarial separation without bleeding into opposing arguments.",
+      "Arguments must cite retrieved case law precedents rather than inventing fictional case citations.",
+      "Debate workflows must terminate deterministically within a configured round limit without infinite loop recursion.",
+    ],
+    solution:
+      "Co-designed and implemented the complete multi-agent architecture. Specialized Prosecution and Defence agents were developed using LangChain to generate claims, challenge counterarguments, and cite precedents retrieved from ChromaDB. The entire debate state machine was orchestrated via LangGraph, concluding with an impartial Judge Agent that renders a structured verdict.",
+    keyFlows: [
+      "User submits a legal case brief with factual background and charges.",
+      "ChromaDB executes vector search to retrieve relevant statutory precedents and landmark rulings.",
+      "Prosecution Agent constructs initial legal charges supported by retrieved citations.",
+      "Defence Agent analyzes prosecution claims, identifies weaknesses, and presents counter-arguments.",
+      "LangGraph manages multi-round rebuttal cycles, updating shared debate state.",
+      "Judge Agent analyzes argument validity, cites precedent adherence, and produces a final reasoned verdict.",
+    ],
+    architectureDiagramType: "legal-arena",
+    architectureDescription:
+      "LangGraph cyclical state machine coordinating Prosecution and Defence LangChain agents over a ChromaDB vector store, mediated by an authoritative Judge Agent evaluating arguments.",
+    technicalDecisions: [
+      {
+        decision: "LangGraph for multi-agent state orchestration instead of linear chains",
+        rationale: "Courtroom debates are cyclical and stateful. LangGraph natively models conditional edges, multi-round turns, and deterministic termination.",
+        tradeoff: "Higher initial architectural complexity compared to simple LangChain SequentialChains.",
+      },
+      {
+        decision: "ChromaDB for statutory and case law vector storage",
+        rationale: "Fast local vector retrieval with minimal setup, ideal for embedding legal statutes and factual case files.",
+        tradeoff: "Requires chunking legal documents carefully to avoid splitting statutory definitions.",
+      },
+      {
+        decision: "Three specialized role-prompted agents instead of a single general LLM",
+        rationale: "Separating personas forces authentic adversarial rigor. The prosecution strictly argues guilt, the defence strictly defends, and the judge remains neutral.",
+        tradeoff: "Triples the token usage per debate round compared to a single aggregated prompt.",
+      },
+    ],
+    challenges: [
+      {
+        challenge: "Preventing opposing agents from conceding too early or repeating identical rebuttals",
+        solution: "Engineered strict role prompts with LangGraph state tracking that forces each agent to explicitly address points raised in the immediately preceding opponent turn.",
+      },
+      {
+        challenge: "Ensuring case law retrieval accurately aligns with specific legal claims",
+        solution: "Implemented metadata filtering in ChromaDB and similarity threshold gating, preventing agents from hallucinating case citations when no matching precedent exists.",
+      },
+    ],
+    featureStatus: {
+      implemented: [
+        "Three specialized autonomous legal agents (Prosecution, Defence, Judge) via LangChain",
+        "LangGraph state machine orchestrating multi-round adversarial debate loops",
+        "ChromaDB legal precedent retrieval pipeline (RAG) for grounded statutory citations",
+        "Structured judicial verdict generation evaluating argument strength and evidence",
+        "Real-time streaming of courtroom debate arguments to the web interface",
+      ],
+      partiallyImplemented: [
+        "User intervention mode allowing human attorneys to inject new evidence mid-debate",
+        "Exporting full courtroom transcripts to formal legal brief formats",
+      ],
+      planned: [
+        "Jurisdiction-specific statutory modules (e.g. Indian Penal Code vs Common Law)",
+        "Automated cross-examination agent for simulated witness questioning",
+      ],
+    },
+    individualContribution: [
+      "Designed the complete 3-agent adversarial architecture (Prosecution, Defence, Judge)",
+      "Defined individual agent responsibilities, prompting strategies, and adversarial constraints",
+      "Implemented the LangChain agent components with structured schema outputs",
+      "Engineered the cyclical LangGraph orchestration state machine and transition conditions",
+      "Coordinated multi-agent debate-state transitions and synchronized with backend API endpoints",
+    ],
+    outcomesAndLearnings: [
+      "Mastered multi-agent system design, cyclical state orchestration with LangGraph, and RAG architectures.",
+      "Demonstrated that adversarial multi-agent dynamics produce far deeper, more nuanced reasoning than single-prompt LLMs.",
+      "Proved the viability of applied AI simulations for professional legal analysis and student courtroom preparation.",
+    ],
+    techStack: [
+      {
+        category: "Agentic AI & Orchestration",
+        items: ["LangGraph", "LangChain", "OpenAI API", "Google Gemini API"],
+      },
+      {
+        category: "Vector Search & RAG",
+        items: ["ChromaDB", "Python Embeddings", "Document Ingestion Pipeline"],
+      },
+      {
+        category: "Full-Stack Web & API",
+        items: ["Python", "FastAPI", "Next.js", "TypeScript", "Tailwind CSS"],
       },
     ],
     githubUrl: "https://github.com/srikanta2006",

@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Terminal as TerminalIcon, CornerDownLeft } from "lucide-react";
 import { PROJECTS } from "@/data/projects";
-import { SKILL_GROUPS } from "@/data/skills";
+import { SKILL_CATEGORIES } from "@/data/skills";
 
 interface HistoryEntry {
   command: string;
@@ -28,11 +28,11 @@ export function Terminal() {
       command: "welcome",
       output: (
         <div className="space-y-1.5 text-xs leading-relaxed">
-          <p className="text-[#6D5DFB] font-semibold">
+          <p className="text-[#4F46E5] font-semibold">
             Srikanta Bellamkonda — Interactive Terminal v1.0.0
           </p>
-          <p className="text-[#8A8884]">
-            Type <span className="text-[#171717] font-semibold bg-[#E8E5DD]/70 px-1 rounded">help</span> to view available portfolio commands, or click the shortcuts below.
+          <p className="text-[#64748B]">
+            Type <span className="text-[#0F172A] font-semibold bg-[#F1F5F9] px-1 rounded border border-[#E2E8F0]">help</span> to view available portfolio commands, or click the shortcuts below.
           </p>
         </div>
       ),
@@ -96,13 +96,16 @@ export function Terminal() {
 
       case "about":
         output = (
-          <div className="space-y-1 text-xs text-[#171717] font-sans">
-            <p className="font-semibold text-[#171717]">Srikanta Bellamkonda</p>
-            <p className="text-[#706E6B]">
-              Creative Technologist · Software Developer · AI Builder based in Hyderabad, India.
+          <div className="space-y-1 text-xs text-[#0F172A] font-sans">
+            <p className="font-semibold text-[#0F172A]">Srikanta Bellamkonda</p>
+            <p className="text-[#475569]">
+              Student Developer · Software Engineer & Applied AI Engineer based in Hyderabad, India.
             </p>
-            <p className="text-[#706E6B]">
-              Focusing on modern web engineering, multi-agent LLM orchestration, and low-latency software.
+            <p className="text-[#475569]">
+              Computer Science undergraduate at CVR College of Engineering (GPA: 8.74, Expected May 2027).
+            </p>
+            <p className="text-[#475569]">
+              The Engineer Who Builds Intelligent Products. Combining full-stack web development, multi-agent AI systems, and RAG.
             </p>
           </div>
         );
@@ -112,19 +115,31 @@ export function Terminal() {
       case "work":
         output = (
           <div className="space-y-2 text-xs font-mono">
-            <p className="text-[#706E6B]">Featured Portfolio Projects:</p>
+            <p className="text-[#64748B]">Featured Portfolio Projects:</p>
             {PROJECTS.map((p) => (
-              <div key={p.id} className="p-2 rounded bg-[#F7F6F2] border border-[#E8E5DD] flex items-center justify-between">
-                <div>
-                  <span className="text-[#171717] font-semibold">{p.title}</span> —{" "}
-                  <span className="text-[#706E6B]">{p.tagline}</span>
+              <div key={p.id} className="p-2.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+                <div className="flex items-center justify-between">
+                  <span className="text-[#0F172A] font-semibold">{p.title}</span>
+                  <Link
+                    href={`/work/${p.slug}`}
+                    className="text-[#4F46E5] hover:underline shrink-0 ml-2 font-sans font-medium text-xs"
+                  >
+                    View Case Study →
+                  </Link>
                 </div>
-                <Link
-                  href={`/work/${p.slug}`}
-                  className="text-[#6D5DFB] hover:underline shrink-0 ml-2 font-sans font-medium"
-                >
-                  View Case Study →
-                </Link>
+                <div className="text-[#475569] text-[11px]">{p.tagline}</div>
+                {p.liveUrl && (
+                  <div className="text-[11px]">
+                    <a
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#059669] hover:underline"
+                    >
+                      Live Demo: {p.liveUrl}
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -134,11 +149,13 @@ export function Terminal() {
       case "skills":
         output = (
           <div className="space-y-2 text-xs font-mono">
-            <p className="text-[#706E6B]">Technical Capabilities by Discipline:</p>
-            {SKILL_GROUPS.map((s) => (
-              <div key={s.category}>
-                <span className="text-[#6D5DFB] font-semibold">{s.category}:</span>{" "}
-                <span className="text-[#171717]">{s.skills.join(", ")}</span>
+            <p className="text-[#64748B]">Technical Capabilities & Assessed Proficiencies:</p>
+            {SKILL_CATEGORIES.map((cat) => (
+              <div key={cat.category} className="space-y-0.5">
+                <span className="text-[#4F46E5] font-semibold">{cat.category}:</span>{" "}
+                <span className="text-[#0F172A]">
+                  {cat.skills.map((s) => `${s.name} (${s.proficiency})`).join(", ")}
+                </span>
               </div>
             ))}
           </div>
@@ -170,10 +187,12 @@ export function Terminal() {
       case "contact":
         output = (
           <div className="space-y-1 text-xs font-mono">
-            <p className="text-[#171717] font-semibold">Direct Communication:</p>
-            <p>Email: <a href="mailto:contact@srikanta.dev" className="text-[#6D5DFB] hover:underline">contact@srikanta.dev</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/srikanta-bellamkonda" target="_blank" rel="noopener noreferrer" className="text-[#6D5DFB] hover:underline">linkedin.com/in/srikanta-bellamkonda</a></p>
-            <p>GitHub: <a href="https://github.com/srikanta2006" target="_blank" rel="noopener noreferrer" className="text-[#6D5DFB] hover:underline">github.com/srikanta2006</a></p>
+            <p className="text-[#0F172A] font-semibold">Direct Communication:</p>
+            <p>Email: <a href="mailto:srikantabellamkonda@gmail.com" className="text-[#4F46E5] hover:underline">srikantabellamkonda@gmail.com</a></p>
+            <p>Phone: <a href="tel:+917337015933" className="text-[#059669] hover:underline">+91 7337015933</a></p>
+            <p>Location: Hyderabad, India</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/srikanta-bellamkonda" target="_blank" rel="noopener noreferrer" className="text-[#4F46E5] hover:underline">linkedin.com/in/srikanta-bellamkonda</a></p>
+            <p>GitHub: <a href="https://github.com/srikanta2006" target="_blank" rel="noopener noreferrer" className="text-[#4F46E5] hover:underline">github.com/srikanta2006</a></p>
           </div>
         );
         break;
@@ -181,13 +200,13 @@ export function Terminal() {
       case "resume":
         output = (
           <div className="space-y-1 text-xs font-mono">
-            <p className="text-[#171717] font-semibold">Curriculum Vitae / Resume:</p>
-            <p className="text-[#706E6B]">Request a verified copy of Srikanta&apos;s latest resume:</p>
+            <p className="text-[#0F172A] font-semibold">Curriculum Vitae / Resume:</p>
+            <p className="text-[#475569]">Request a verified copy of Srikanta&apos;s latest resume:</p>
             <a
-              href="mailto:contact@srikanta.dev?subject=Resume%20Request%20-%20Srikanta%20Bellamkonda"
-              className="text-[#6D5DFB] hover:underline"
+              href="mailto:srikantabellamkonda@gmail.com?subject=Resume%20Request%20-%20Srikanta%20Bellamkonda"
+              className="text-[#4F46E5] hover:underline"
             >
-              Email contact@srikanta.dev (Subject: Resume Request)
+              Email srikantabellamkonda@gmail.com (Subject: Resume Request)
             </a>
           </div>
         );
@@ -263,23 +282,23 @@ export function Terminal() {
   return (
     <div
       onClick={() => inputRef.current?.focus()}
-      className="rounded-2xl border border-[#E8E5DD] bg-white shadow-xs overflow-hidden cursor-text transition-all focus-within:border-[#6D5DFB]/40"
+      className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm overflow-hidden cursor-text transition-all focus-within:border-[#4F46E5]/40"
     >
       {/* Terminal Title Bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#E8E5DD] bg-[#F7F6F2]">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-[#E2E8F0] bg-[#F8FAFC]">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#E8E5DD] border border-[#D4CFBF]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#E8E5DD] border border-[#D4CFBF]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#E8E5DD] border border-[#D4CFBF]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E2E8F0] border border-[#CBD5E1]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E2E8F0] border border-[#CBD5E1]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#E2E8F0] border border-[#CBD5E1]" />
           </div>
-          <span className="font-mono text-xs text-[#706E6B] pl-2 flex items-center gap-1.5">
-            <TerminalIcon className="h-3 w-3" />
+          <span className="font-mono text-xs text-[#475569] pl-2 flex items-center gap-1.5">
+            <TerminalIcon className="h-3 w-3 text-[#4F46E5]" />
             guest@srikanta: ~
           </span>
         </div>
 
-        <span className="font-mono text-[11px] text-[#706E6B] hidden sm:inline">
+        <span className="font-mono text-[11px] text-[#64748B] hidden sm:inline">
           interactive portfolio shell
         </span>
       </div>
@@ -294,9 +313,9 @@ export function Terminal() {
         {history.map((entry, i) => (
           <div key={i} className="space-y-1.5">
             {entry.command !== "welcome" && (
-              <div className="flex items-center gap-2 text-[#706E6B]">
-                <span className="text-[#6D5DFB] font-bold">guest@srikanta:~$</span>
-                <span className="text-[#171717] font-semibold">{entry.command}</span>
+              <div className="flex items-center gap-2 text-[#64748B]">
+                <span className="text-[#4F46E5] font-bold">guest@srikanta:~$</span>
+                <span className="text-[#0F172A] font-semibold">{entry.command}</span>
               </div>
             )}
             <div className="pl-0 sm:pl-2">{entry.output}</div>
@@ -308,9 +327,9 @@ export function Terminal() {
       {/* Interactive Command Input Form */}
       <form
         onSubmit={handleSubmit}
-        className="flex items-center gap-2 px-5 py-3 border-t border-[#E8E5DD] bg-[#F7F6F2]/60"
+        className="flex items-center gap-2 px-5 py-3 border-t border-[#E2E8F0] bg-[#F8FAFC]/70"
       >
-        <span className="font-mono text-xs font-bold text-[#6D5DFB] shrink-0">
+        <span className="font-mono text-xs font-bold text-[#4F46E5] shrink-0">
           guest@srikanta:~$
         </span>
         <input
@@ -320,7 +339,7 @@ export function Terminal() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="type a command (e.g. help, projects, skills)..."
-          className="flex-1 bg-transparent font-mono text-xs text-[#171717] placeholder:text-[#8A8884] focus:outline-none"
+          className="flex-1 bg-transparent font-mono text-xs text-[#0F172A] placeholder:text-[#94A3B8] focus:outline-none"
           aria-label="Terminal input"
           autoComplete="off"
           autoCapitalize="off"
@@ -328,7 +347,7 @@ export function Terminal() {
         />
         <button
           type="submit"
-          className="p-1 rounded text-[#706E6B] hover:text-[#171717] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#6D5DFB]"
+          className="p-1 rounded text-[#64748B] hover:text-[#0F172A] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#4F46E5]"
           aria-label="Submit command"
         >
           <CornerDownLeft className="h-3.5 w-3.5" />
@@ -336,8 +355,8 @@ export function Terminal() {
       </form>
 
       {/* Mobile-Friendly Quick Command Buttons */}
-      <div className="px-5 py-2.5 border-t border-[#E8E5DD]/70 bg-white flex flex-wrap items-center gap-1.5">
-        <span className="font-mono text-[10px] uppercase tracking-wider text-[#706E6B] mr-1 hidden sm:inline">
+      <div className="px-5 py-2.5 border-t border-[#E2E8F0] bg-white flex flex-wrap items-center gap-1.5">
+        <span className="font-mono text-[10px] uppercase tracking-wider text-[#64748B] mr-1 hidden sm:inline">
           Quick commands:
         </span>
         {QUICK_COMMANDS.map((cmd) => (
@@ -345,7 +364,7 @@ export function Terminal() {
             key={cmd}
             type="button"
             onClick={() => handleCommand(cmd)}
-            className="font-mono text-[11px] px-2 py-0.5 rounded border border-[#E8E5DD] bg-[#F7F6F2] hover:bg-[#6D5DFB]/10 hover:border-[#6D5DFB]/40 hover:text-[#6D5DFB] text-[#171717] transition-colors cursor-pointer"
+            className="font-mono text-[11px] px-2 py-0.5 rounded border border-[#E2E8F0] bg-[#F8FAFC] hover:bg-[#EEF2FF] hover:border-[#C7D2FE] hover:text-[#4F46E5] text-[#0F172A] transition-colors cursor-pointer"
           >
             {cmd}
           </button>

@@ -33,7 +33,7 @@ const FALLBACK_PROFILE: GitHubProfile = {
   name: "Srikanta Bellamkonda",
   avatar_url: "https://avatars.githubusercontent.com/u/143273006?v=4",
   html_url: "https://github.com/srikanta2006",
-  bio: "Passionate innovator with a focus on AI, full-stack systems, and practical agent orchestration.",
+  bio: "Student Developer passionate about building intelligent products through software engineering and applied AI.",
   public_repos: 32,
   followers: 16,
   following: 13,

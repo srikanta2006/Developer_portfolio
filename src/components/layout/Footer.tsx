@@ -45,34 +45,36 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-[#E8E5DD] bg-[#F7F6F2] pt-14 pb-12 mt-20">
+    <footer className="w-full border-t border-[#E2E8F0] bg-white pt-14 pb-12 mt-20">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#E8E5DD]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#E2E8F0]">
           {/* Identity & Mission */}
           <div className="md:col-span-6 space-y-3">
             <Link
               href="/"
-              className="inline-block font-display text-xl font-medium tracking-tight text-[#171717] hover:opacity-85 transition-opacity"
+              className="inline-block font-heading text-xl font-bold tracking-tight text-[#0F172A] hover:opacity-85 transition-opacity"
             >
               Srikanta Bellamkonda
             </Link>
-            <p className="text-sm text-[#706E6B] leading-relaxed max-w-md">
-              Creative Technologist, Software Developer, and AI Builder.
-              Building intelligent products at the intersection of robust software
-              architecture and generative intelligence.
+            <p className="text-sm text-[#475569] leading-relaxed max-w-md">
+              Student Developer · Software Engineer & Applied AI Engineer.
+              Building intelligent products through software and AI with practical engineering rigor.
             </p>
+            <div className="text-xs font-mono text-[#64748B] pt-1">
+              Hyderabad, India · B.Tech CSE at CVR College of Engineering
+            </div>
           </div>
 
           {/* Quick Navigation */}
           <div className="md:col-span-3 space-y-3">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
               Navigation
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="#about"
-                  className="text-[#171717] hover:text-[#6D5DFB] transition-colors"
+                  className="text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                 >
                   About
                 </Link>
@@ -80,15 +82,23 @@ export function Footer() {
               <li>
                 <Link
                   href="#work"
-                  className="text-[#171717] hover:text-[#6D5DFB] transition-colors"
+                  className="text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                 >
                   Selected Work
                 </Link>
               </li>
               <li>
                 <Link
+                  href="#capabilities"
+                  className="text-[#0F172A] hover:text-[#4F46E5] transition-colors"
+                >
+                  Capabilities & Skills
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="#experience"
-                  className="text-[#171717] hover:text-[#6D5DFB] transition-colors"
+                  className="text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                 >
                   Experience & Journey
                 </Link>
@@ -96,7 +106,7 @@ export function Footer() {
               <li>
                 <Link
                   href="#contact"
-                  className="text-[#171717] hover:text-[#6D5DFB] transition-colors"
+                  className="text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                 >
                   Contact
                 </Link>
@@ -106,7 +116,7 @@ export function Footer() {
 
           {/* Connect & Social */}
           <div className="md:col-span-3 space-y-3">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
               Connect
             </h3>
             <ul className="space-y-2 text-sm">
@@ -115,58 +125,58 @@ export function Footer() {
                   href="https://github.com/srikanta2006"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#171717] hover:text-[#6D5DFB] transition-colors"
+                  className="inline-flex items-center gap-2 text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                   aria-label="GitHub profile (opens in new tab)"
                 >
                   <GitHubIcon className="h-4 w-4" />
-                  <span>GitHub</span>
+                  <span>github.com/srikanta2006</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/srikanta-bellamkonda"
+                  href="https://linkedin.com/in/srikanta-bellamkonda"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#171717] hover:text-[#6D5DFB] transition-colors"
+                  className="inline-flex items-center gap-2 text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                   aria-label="LinkedIn profile (opens in new tab)"
                 >
-                  <LinkedInIcon className="h-4 w-4" />
-                  <span>LinkedIn</span>
+                  <LinkedInIcon className="h-4 w-4 text-[#4F46E5]" />
+                  <span>linkedin.com/in/srikanta-bellamkonda</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:contact@srikanta.dev"
-                  className="inline-flex items-center gap-2 text-[#171717] hover:text-[#6D5DFB] transition-colors"
-                  aria-label="Send email"
+                  href="mailto:srikantabellamkonda@gmail.com"
+                  className="inline-flex items-center gap-2 text-[#0F172A] hover:text-[#4F46E5] transition-colors"
                 >
-                  <Mail className="h-4 w-4" aria-hidden="true" />
-                  <span>Email</span>
+                  <Mail className="h-4 w-4 text-[#4F46E5]" />
+                  <span>srikantabellamkonda@gmail.com</span>
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Editorial Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-[#706E6B]">
-          <p>
-            ©{" "}
-            <Suspense fallback={<span>2026</span>}>
-              <DynamicYear />
-            </Suspense>{" "}
-            Srikanta Bellamkonda. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <span>Minimal Editorial · Next.js & Tailwind CSS</span>
+        {/* Legal & System Verification Footer Note */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+          <div className="flex items-center gap-2">
+            <span>
+              &copy; <Suspense fallback={<span>2026</span>}><DynamicYear /></Suspense> Srikanta Bellamkonda.
+            </span>
+            <span>All rights reserved.</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[11px] text-[#059669]">
+              Built with Next.js & Tailwind CSS
+            </span>
             <button
-              type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1 hover:text-[#171717] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB] rounded"
-              aria-label="Back to top"
+              className="inline-flex items-center gap-1 text-[#0F172A] hover:text-[#4F46E5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded p-1"
+              aria-label="Scroll back to top"
             >
+              <ArrowUp className="h-3.5 w-3.5" />
               <span>Back to top</span>
-              <ArrowUp className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
           </div>
         </div>

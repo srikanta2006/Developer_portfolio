@@ -24,25 +24,25 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-sans font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none";
+      "inline-flex items-center justify-center font-sans font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none active:scale-[0.98]";
 
     const variantStyles = {
       primary:
-        "bg-[#171717] text-white hover:bg-[#2b2b2b] active:bg-[#000000] border border-[#171717]",
+        "bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-sm hover:shadow border border-[#0F172A]",
       secondary:
-        "bg-white text-[#171717] hover:bg-[#F7F6F2] active:bg-[#E8E5DD] border border-[#E8E5DD]",
+        "bg-white text-[#0F172A] hover:bg-[#F8FAFC] shadow-2xs hover:shadow-xs border border-[#E2E8F0]",
       accent:
-        "bg-[#6D5DFB] text-white hover:bg-[#5A49E6] active:bg-[#4C3DD4] border border-[#6D5DFB]",
+        "bg-[#4F46E5] text-white hover:bg-[#4338CA] shadow-sm hover:shadow-md hover:shadow-indigo-500/20 border border-[#4F46E5]",
       ghost:
-        "bg-transparent text-[#171717] hover:bg-[#E8E5DD]/40 active:bg-[#E8E5DD]/70 border border-transparent",
+        "bg-transparent text-[#0F172A] hover:bg-[#F1F5F9] border border-transparent",
       outline:
-        "bg-transparent text-[#171717] hover:bg-white active:bg-[#F7F6F2] border border-[#E8E5DD]",
+        "bg-transparent text-[#0F172A] hover:bg-white active:bg-[#F8FAFC] border border-[#CBD5E1]",
     };
 
     const sizeStyles = {
-      sm: "h-8 px-3 text-xs rounded-md gap-1.5",
-      md: "h-10 px-4 text-sm rounded-lg gap-2",
-      lg: "h-12 px-6 text-base rounded-lg gap-2.5",
+      sm: "h-8 px-3 text-xs rounded-lg gap-1.5",
+      md: "h-10 px-4 text-sm rounded-xl gap-2",
+      lg: "h-12 px-6 text-base rounded-xl gap-2.5",
     };
 
     const combinedClassName = cn(

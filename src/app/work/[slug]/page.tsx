@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { CASE_STUDIES } from "@/data/caseStudies";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/Badge";
@@ -17,6 +17,7 @@ export function generateStaticParams() {
     { slug: "biznexus" },
     { slug: "burst" },
     { slug: "hackos" },
+    { slug: "legal-arena" },
   ];
 }
 
@@ -71,8 +72,8 @@ export default async function CaseStudyPage({
   const project = CASE_STUDIES[slug];
   if (!project) notFound();
 
-  // Project navigation sequence
-  const projectKeys = ["biznexus", "burst", "hackos"];
+  // Project navigation sequence across all 4 projects
+  const projectKeys = ["biznexus", "burst", "hackos", "legal-arena"];
   const currentIndex = projectKeys.indexOf(slug);
   const prevSlug =
     projectKeys[(currentIndex - 1 + projectKeys.length) % projectKeys.length];
@@ -87,7 +88,7 @@ export default async function CaseStudyPage({
         <div className="space-y-6">
           <Link
             href="/#work"
-            className="inline-flex items-center gap-2 text-xs font-mono text-[#706E6B] hover:text-[#171717] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-mono text-[#64748B] hover:text-[#0F172A] transition-colors"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Back to Selected Work</span>
@@ -96,64 +97,76 @@ export default async function CaseStudyPage({
           {/* Project Title & Metadata Bar */}
           <div className="space-y-4">
             <div className="flex flex-wrap items-center gap-2.5">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
-                Case Study {project.number}
+              <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
+                Project {project.number}
               </span>
-              <span className="text-[#E8E5DD]" aria-hidden="true">/</span>
+              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
               <Badge variant="accent">{project.category}</Badge>
+              <Badge variant="neutral">{project.ownership}</Badge>
             </div>
 
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#171717] leading-[1.15]">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#0F172A] leading-[1.15]">
               {project.title}
             </h1>
 
-            <p className="font-sans text-lg sm:text-xl text-[#706E6B] max-w-3xl leading-relaxed">
+            <p className="font-sans text-lg sm:text-xl text-[#475569] max-w-3xl leading-relaxed">
               {project.tagline}
             </p>
 
             {/* Quick Meta Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-y border-[#E8E5DD] py-4 text-xs">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-y border-[#E2E8F0] py-4 text-xs">
               <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#706E6B] block">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#64748B] block">
                   Role
                 </span>
-                <span className="font-medium text-[#171717] block pt-0.5">
+                <span className="font-semibold text-[#0F172A] block pt-0.5">
                   {project.role}
                 </span>
               </div>
               <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#706E6B] block">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#64748B] block">
                   Timeline
                 </span>
-                <span className="font-medium text-[#171717] block pt-0.5">
+                <span className="font-semibold text-[#0F172A] block pt-0.5">
                   {project.timeframe}
                 </span>
               </div>
               <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#706E6B] block">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#64748B] block">
                   Discipline
                 </span>
-                <span className="font-medium text-[#171717] block pt-0.5">
+                <span className="font-semibold text-[#0F172A] block pt-0.5">
                   {project.category}
                 </span>
               </div>
               <div>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#706E6B] block">
-                  Repository
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#64748B] block">
+                  Links
                 </span>
-                {project.githubUrl ? (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 font-medium text-[#6D5DFB] hover:underline pt-0.5"
-                  >
-                    <span>View GitHub</span>
-                    <ArrowUpRight className="h-3 w-3" />
-                  </a>
-                ) : (
-                  <span className="text-[#706E6B] pt-0.5 block">Internal</span>
-                )}
+                <div className="flex items-center gap-3 pt-0.5">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-semibold text-[#059669] hover:underline"
+                    >
+                      <span>Live App</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-semibold text-[#4F46E5] hover:underline"
+                    >
+                      <span>GitHub</span>
+                      <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -162,8 +175,8 @@ export default async function CaseStudyPage({
 
       {/* 2. Visual Media Frame */}
       <Container>
-        <div className="relative aspect-[16/10] w-full rounded-2xl border border-[#E8E5DD] bg-white p-3 sm:p-4 shadow-xs overflow-hidden">
-          <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#F7F6F2]">
+        <div className="relative aspect-[16/10] w-full rounded-2xl border border-[#E2E8F0] bg-white p-3 sm:p-4 shadow-sm overflow-hidden">
+          <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#F8FAFC]">
             <Image
               src={project.heroImage}
               alt={project.heroImageAlt}
@@ -179,24 +192,24 @@ export default async function CaseStudyPage({
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           <div className="lg:col-span-6 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#4F46E5] font-semibold">
               01 / Overview
             </span>
-            <h2 className="font-display text-2xl font-normal text-[#171717]">
+            <h2 className="font-heading text-2xl font-bold text-[#0F172A]">
               Project Background & Goals
             </h2>
-            <p className="text-sm sm:text-base text-[#706E6B] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
               {project.overview}
             </p>
 
             <div className="space-y-2 pt-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#171717] block">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#0F172A] font-semibold block">
                 Primary Engineering Goals:
               </span>
-              <ul className="space-y-2 text-xs sm:text-sm text-[#706E6B]">
+              <ul className="space-y-2 text-xs sm:text-sm text-[#475569]">
                 {project.goals.map((goal, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#6D5DFB] font-bold" aria-hidden="true">✓</span>
+                    <span className="text-[#4F46E5] font-bold" aria-hidden="true">✓</span>
                     <span>{goal}</span>
                   </li>
                 ))}
@@ -205,24 +218,24 @@ export default async function CaseStudyPage({
           </div>
 
           <div className="lg:col-span-6 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#4F46E5] font-semibold">
               02 / The Challenge
             </span>
-            <h2 className="font-display text-2xl font-normal text-[#171717]">
-              Context & Technical Constraints
+            <h2 className="font-heading text-2xl font-bold text-[#0F172A]">
+              Context & Operating Constraints
             </h2>
-            <p className="text-sm sm:text-base text-[#706E6B] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
               {project.problem}
             </p>
 
             <div className="space-y-2 pt-3">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#171717] block">
-                Operating Constraints:
+              <span className="font-mono text-xs uppercase tracking-wider text-[#0F172A] font-semibold block">
+                Technical Constraints:
               </span>
-              <ul className="space-y-2 text-xs sm:text-sm text-[#706E6B]">
+              <ul className="space-y-2 text-xs sm:text-sm text-[#475569]">
                 {project.constraints.map((constraint, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#171717] font-bold" aria-hidden="true">—</span>
+                    <span className="text-[#0F172A] font-bold" aria-hidden="true">—</span>
                     <span>{constraint}</span>
                   </li>
                 ))}
@@ -234,26 +247,26 @@ export default async function CaseStudyPage({
 
       {/* 4. Solution & User Flows */}
       <Container>
-        <div className="rounded-2xl border border-[#E8E5DD] bg-white p-6 sm:p-10 shadow-xs space-y-6">
+        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-10 shadow-xs space-y-6">
           <div className="max-w-3xl space-y-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
-              03 / Solution
+            <span className="font-mono text-xs uppercase tracking-widest text-[#4F46E5] font-semibold">
+              03 / Solution Architecture
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-normal text-[#171717]">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0F172A]">
               Engineered Solution & Key User Flows
             </h2>
-            <p className="text-sm sm:text-base text-[#706E6B] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
               {project.solution}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#E8E5DD]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#E2E8F0]">
             {project.keyFlows.map((flow, idx) => (
-              <div key={idx} className="p-4 rounded-xl border border-[#E8E5DD] bg-[#F7F6F2] space-y-1.5">
-                <span className="font-mono text-[11px] text-[#6D5DFB] uppercase tracking-wider">
+              <div key={idx} className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] space-y-1.5">
+                <span className="font-mono text-[11px] text-[#4F46E5] font-semibold uppercase tracking-wider">
                   Flow Step 0{idx + 1}
                 </span>
-                <p className="text-xs text-[#171717] leading-relaxed">
+                <p className="text-xs text-[#0F172A] leading-relaxed">
                   {flow}
                 </p>
               </div>
@@ -265,13 +278,13 @@ export default async function CaseStudyPage({
       {/* 5. System Architecture Diagram */}
       <Container>
         <div className="space-y-4">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
-            04 / Architecture
+          <span className="font-mono text-xs uppercase tracking-widest text-[#4F46E5] font-semibold">
+            04 / Systems Design
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl font-normal text-[#171717]">
+          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0F172A]">
             System Architecture Diagram
           </h2>
-          <p className="text-sm text-[#706E6B] max-w-2xl leading-relaxed">
+          <p className="text-sm text-[#475569] max-w-2xl leading-relaxed">
             {project.architectureDescription}
           </p>
 
@@ -282,38 +295,63 @@ export default async function CaseStudyPage({
         </div>
       </Container>
 
-      {/* 6. Engineering Decisions & Trade-offs */}
+      {/* 6. Individual Contribution (if applicable) */}
+      {project.individualContribution && project.individualContribution.length > 0 && (
+        <Container>
+          <div className="rounded-2xl border border-[#C7D2FE] bg-[#EEF2FF]/40 p-6 sm:p-8 space-y-4 shadow-xs">
+            <div className="flex items-center gap-2">
+              <Badge variant="accent">Team Project Leadership</Badge>
+              <span className="font-mono text-xs text-[#4338CA] font-semibold">
+                Srikanta&apos;s Specific Contributions
+              </span>
+            </div>
+            <h3 className="font-heading text-xl font-bold text-[#0F172A]">
+              Agent Architecture & Orchestration Implementation
+            </h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+              {project.individualContribution.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#334155]">
+                  <span className="text-[#4F46E5] font-bold" aria-hidden="true">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Container>
+      )}
+
+      {/* 7. Engineering Decisions & Trade-offs */}
       <Container>
         <DecisionsTable decisions={project.technicalDecisions} />
       </Container>
 
-      {/* 7. Challenges & How They Were Solved */}
+      {/* 8. Challenges & How They Were Solved */}
       <Container>
         <div className="space-y-6">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
-            05 / Engineering Challenges
+          <span className="font-mono text-xs uppercase tracking-widest text-[#4F46E5] font-semibold">
+            05 / Technical Hurdles
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl font-normal text-[#171717]">
-            Technical Challenges & Concrete Solutions
+          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#0F172A]">
+            Engineering Challenges & Concrete Resolutions
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {project.challenges.map((item, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-[#E8E5DD] bg-white p-6 space-y-3 shadow-xs"
+                className="rounded-2xl border border-[#E2E8F0] bg-white p-6 space-y-3 shadow-xs"
               >
-                <span className="font-mono text-xs text-[#706E6B] uppercase tracking-wider">
-                  Challenge {idx + 1}
+                <span className="font-mono text-xs text-[#64748B] uppercase tracking-wider">
+                  Challenge 0{idx + 1}
                 </span>
-                <h4 className="font-sans text-base font-semibold text-[#171717]">
+                <h4 className="font-heading text-base font-semibold text-[#0F172A]">
                   {item.challenge}
                 </h4>
-                <div className="pt-2 border-t border-[#E8E5DD]">
-                  <span className="font-mono text-[11px] text-[#4F5B40] uppercase tracking-wider block mb-1">
-                    Solution Implemented
+                <div className="pt-2 border-t border-[#E2E8F0]">
+                  <span className="font-mono text-[11px] text-[#059669] uppercase tracking-wider block mb-1 font-semibold">
+                    Resolution Applied
                   </span>
-                  <p className="text-xs text-[#706E6B] leading-relaxed">
+                  <p className="text-xs text-[#475569] leading-relaxed">
                     {item.solution}
                   </p>
                 </div>
@@ -323,26 +361,26 @@ export default async function CaseStudyPage({
         </div>
       </Container>
 
-      {/* 8. Feature Status: Implemented vs Planned */}
+      {/* 9. Feature Status: Implemented vs Planned */}
       <Container>
         <FeatureStatusList status={project.featureStatus} />
       </Container>
 
-      {/* 9. Outcomes, Learnings & Technology Stack */}
+      {/* 10. Outcomes & Technology Stack */}
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Outcomes & Learnings */}
           <div className="lg:col-span-7 space-y-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#4F46E5] font-semibold">
               06 / Outcomes & Learnings
             </span>
-            <h2 className="font-display text-2xl font-normal text-[#171717]">
-              Key Engineering Learnings
+            <h2 className="font-heading text-2xl font-bold text-[#0F172A]">
+              Key Engineering Takeaways
             </h2>
-            <ul className="space-y-3 text-sm text-[#706E6B]">
+            <ul className="space-y-3 text-sm text-[#475569]">
               {project.outcomesAndLearnings.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2.5">
-                  <span className="text-[#6D5DFB] font-bold text-base" aria-hidden="true">
+                  <span className="text-[#4F46E5] font-bold text-base" aria-hidden="true">
                     —
                   </span>
                   <span className="leading-relaxed">{item}</span>
@@ -352,14 +390,14 @@ export default async function CaseStudyPage({
           </div>
 
           {/* Technology Stack Inventory */}
-          <div className="lg:col-span-5 rounded-xl border border-[#E8E5DD] bg-white p-6 space-y-4 shadow-xs">
-            <h3 className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+          <div className="lg:col-span-5 rounded-2xl border border-[#E2E8F0] bg-white p-6 space-y-4 shadow-xs">
+            <h3 className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
               Technology Stack
             </h3>
             <div className="space-y-3">
               {project.techStack.map((group) => (
                 <div key={group.category} className="space-y-1.5">
-                  <span className="font-mono text-[11px] text-[#171717] font-semibold uppercase block">
+                  <span className="font-mono text-[11px] text-[#0F172A] font-semibold uppercase block">
                     {group.category}
                   </span>
                   <div className="flex flex-wrap gap-1.5">
@@ -373,10 +411,22 @@ export default async function CaseStudyPage({
               ))}
             </div>
 
-            {project.githubUrl && (
-              <div className="pt-4 border-t border-[#E8E5DD]">
+            <div className="pt-4 border-t border-[#E2E8F0] flex flex-col gap-2">
+              {project.liveUrl && (
                 <Button
-                  variant="primary"
+                  variant="accent"
+                  size="sm"
+                  href={project.liveUrl}
+                  isExternal
+                  className="w-full justify-center gap-2"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  <span>Launch Live Application</span>
+                </Button>
+              )}
+              {project.githubUrl && (
+                <Button
+                  variant="secondary"
                   size="sm"
                   href={project.githubUrl}
                   isExternal
@@ -385,13 +435,13 @@ export default async function CaseStudyPage({
                   <GitHubIcon className="h-4 w-4" />
                   <span>View Repository on GitHub</span>
                 </Button>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </Container>
 
-      {/* 10. Previous & Next Project Navigation */}
+      {/* 11. Previous & Next Project Navigation */}
       <Container>
         <ProjectNavigation
           previousProject={{

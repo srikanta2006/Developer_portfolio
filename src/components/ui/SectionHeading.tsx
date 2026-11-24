@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
   number?: string;
+  badge?: string;
   title: string;
   description?: string | ReactNode;
   className?: string;
@@ -11,6 +12,7 @@ interface SectionHeadingProps {
 
 export function SectionHeading({
   number,
+  badge,
   title,
   description,
   className,
@@ -24,19 +26,25 @@ export function SectionHeading({
         className
       )}
     >
-      {number && (
-        <div className="flex items-center gap-2">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
-            {number}
-          </span>
-          <div className="h-px w-8 bg-[#E8E5DD]" aria-hidden="true" />
+      {(number || badge) && (
+        <div className={cn("flex items-center gap-2.5", align === "center" && "justify-center")}>
+          {number && (
+            <span className="font-mono text-xs font-semibold tracking-wider text-[#4F46E5] bg-[#EEF2FF] px-2 py-0.5 rounded border border-[#C7D2FE]">
+              {number}
+            </span>
+          )}
+          {badge && (
+            <span className="font-mono text-xs font-medium tracking-wide text-[#64748B]">
+              {badge}
+            </span>
+          )}
         </div>
       )}
-      <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-[#171717]">
+      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A]">
         {title}
       </h2>
       {description && (
-        <p className="text-sm sm:text-base text-[#706E6B] leading-relaxed max-w-2xl">
+        <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-2xl">
           {description}
         </p>
       )}

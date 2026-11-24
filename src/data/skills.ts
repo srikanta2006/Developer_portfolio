@@ -1,45 +1,92 @@
-export interface SkillGroup {
-  category: string;
-  description: string;
-  skills: string[];
+export type ProficiencyLevel = "Advanced" | "Intermediate" | "Beginner";
+export type SkillProficiency = ProficiencyLevel;
+
+export interface SkillItem {
+  name: string;
+  proficiency: ProficiencyLevel;
 }
 
-export const SKILL_GROUPS: SkillGroup[] = [
+export interface SkillCategoryGroup {
+  category: string;
+  description: string;
+  skills: SkillItem[];
+}
+
+export const SKILL_CATEGORIES: SkillCategoryGroup[] = [
   {
     category: "Programming Languages",
-    description: "Core languages used across system architecture, algorithms, and applications.",
-    skills: ["Python", "C++", "Java", "JavaScript", "C", "TypeScript"],
+    description: "Core languages used across system architecture, algorithms, and application backends.",
+    skills: [
+      { name: "Python", proficiency: "Advanced" },
+      { name: "C++", proficiency: "Intermediate" },
+      { name: "JavaScript", proficiency: "Intermediate" },
+      { name: "C", proficiency: "Intermediate" },
+      { name: "Java", proficiency: "Beginner" },
+    ],
   },
   {
-    category: "AI & Machine Learning",
-    description: "Generative AI, computer vision, deep learning, and agentic systems.",
+    category: "Applied AI & Machine Learning",
+    description: "Agentic orchestration, retrieval pipelines, LLMs, and computer vision models.",
     skills: [
-      "Agentic AI",
-      "LLM Orchestration",
-      "Deep Learning",
-      "YOLOv8",
-      "Computer Vision",
-      "NLP",
+      { name: "LangChain", proficiency: "Intermediate" },
+      { name: "ChromaDB", proficiency: "Intermediate" },
+      { name: "Groq API", proficiency: "Intermediate" },
+      { name: "Google Gemini API", proficiency: "Intermediate" },
+      { name: "OpenAI API", proficiency: "Intermediate" },
+      { name: "Scikit-learn", proficiency: "Intermediate" },
+      { name: "YOLOv8", proficiency: "Intermediate" },
+      { name: "LangGraph", proficiency: "Beginner" },
+      { name: "Hugging Face", proficiency: "Beginner" },
+      { name: "TensorFlow / Keras", proficiency: "Beginner" },
+      { name: "PyTorch", proficiency: "Beginner" },
     ],
   },
   {
     category: "Frontend Development",
-    description: "Modern, accessible, component-driven web user interfaces.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+    description: "Component architectures, responsive web interfaces, and modern styling.",
+    skills: [
+      { name: "HTML5", proficiency: "Advanced" },
+      { name: "React.js", proficiency: "Intermediate" },
+      { name: "CSS3", proficiency: "Intermediate" },
+      { name: "Tailwind CSS", proficiency: "Beginner" },
+    ],
   },
   {
-    category: "Backend & APIs",
-    description: "Server architecture, microservices, and asynchronous API design.",
-    skills: ["FastAPI", "Flask", "Node.js", "RESTful APIs"],
+    category: "Backend Development",
+    description: "API design, asynchronous servers, and full-stack runtime systems.",
+    skills: [
+      { name: "FastAPI", proficiency: "Intermediate" },
+      { name: "Node.js", proficiency: "Intermediate" },
+      { name: "Express.js", proficiency: "Beginner" },
+    ],
   },
   {
-    category: "Data & Storage",
-    description: "Databases, cloud persistence, and data pipelines.",
-    skills: ["SQLite", "Firebase", "Supabase", "Azure"],
+    category: "Databases & Cloud",
+    description: "Relational, document, and cloud databases with deployment platforms.",
+    skills: [
+      { name: "PostgreSQL", proficiency: "Intermediate" },
+      { name: "SQLite", proficiency: "Intermediate" },
+      { name: "Firebase", proficiency: "Intermediate" },
+      { name: "Supabase", proficiency: "Intermediate" },
+      { name: "Vercel", proficiency: "Intermediate" },
+      { name: "MongoDB", proficiency: "Beginner" },
+      { name: "MySQL", proficiency: "Beginner" },
+      { name: "Google Cloud Platform", proficiency: "Beginner" },
+    ],
   },
   {
-    category: "DevOps & Tooling",
-    description: "Version control, containerization, automation, and hosting platforms.",
-    skills: ["Git", "Docker", "Linux", "Jenkins", "Vercel"],
+    category: "Developer Tools & Workflows",
+    description: "Version control, code environments, notebook experimentation, and developer utilities.",
+    skills: [
+      { name: "VS Code", proficiency: "Advanced" },
+      { name: "Git", proficiency: "Intermediate" },
+      { name: "GitHub", proficiency: "Intermediate" },
+      { name: "Jupyter Notebook", proficiency: "Intermediate" },
+      { name: "NPM", proficiency: "Intermediate" },
+      { name: "Linux", proficiency: "Beginner" },
+      { name: "Command Line / Terminal", proficiency: "Beginner" },
+      { name: "Postman", proficiency: "Beginner" },
+      { name: "GitHub Actions", proficiency: "Beginner" },
+    ],
   },
 ];

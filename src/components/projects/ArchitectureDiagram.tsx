@@ -1,87 +1,183 @@
 interface ArchitectureDiagramProps {
-  type: "biznexus" | "burst" | "hackos";
+  type: "biznexus" | "burst" | "hackos" | "legal-arena";
   title: string;
 }
 
 export function ArchitectureDiagram({ type, title }: ArchitectureDiagramProps) {
-  if (type === "biznexus") {
+  if (type === "legal-arena") {
     return (
-      <div className="rounded-xl border border-[#E8E5DD] bg-white p-6 sm:p-8 shadow-xs space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E8E5DD] pb-3">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+      <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E2E8F0] pb-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
             System Architecture · {title}
           </span>
-          <span className="font-mono text-[11px] text-[#6D5DFB] bg-[#F0EEFE] px-2 py-0.5 rounded">
-            Decoupled Multi-Agent Pipeline
+          <span className="font-mono text-[11px] text-[#4F46E5] bg-[#EEF2FF] px-2.5 py-0.5 rounded-full border border-[#C7D2FE]">
+            LangGraph Multi-Agent Cyclical State Machine
           </span>
         </div>
 
         <svg
-          viewBox="0 0 880 340"
+          viewBox="0 0 900 360"
+          className="w-full h-auto text-xs"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Web Client Tier */}
+          <rect x="20" y="40" width="160" height="280" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+          <text x="100" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            WEB INTERFACE
+          </text>
+          <rect x="35" y="95" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="100" y="125" fill="#0F172A" text-anchor="middle" font-family="monospace">Next.js UI</text>
+          <rect x="35" y="160" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="100" y="190" fill="#475569" text-anchor="middle" font-family="monospace">Debate Stream</text>
+          <rect x="35" y="225" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="100" y="255" fill="#475569" text-anchor="middle" font-family="monospace">Verdict Modal</text>
+
+          {/* Connection to Gateway */}
+          <path d="M180 120 L230 120" stroke="#4F46E5" stroke-width="2" />
+          <path d="M230 185 L180 185" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4 4" />
+
+          {/* FastAPI Gateway */}
+          <rect x="230" y="40" width="160" height="280" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+          <text x="310" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            FASTAPI GATEWAY
+          </text>
+          <rect x="245" y="95" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="310" y="125" fill="#0F172A" text-anchor="middle" font-family="monospace">Case Ingestion</text>
+          <rect x="245" y="160" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="310" y="190" fill="#475569" text-anchor="middle" font-family="monospace">SSE Streamer</text>
+          <rect x="245" y="225" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="310" y="255" fill="#475569" text-anchor="middle" font-family="monospace">State Manager</text>
+
+          {/* Connection to LangGraph */}
+          <path d="M390 120 L440 120" stroke="#4F46E5" stroke-width="2" />
+
+          {/* LangGraph Orchestrator & 3 Agents */}
+          <rect x="440" y="40" width="270" height="280" rx="10" fill="#EEF2FF" stroke="#C7D2FE" />
+          <text x="575" y="70" fill="#4338CA" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            LANGGRAPH ORCHESTRATION
+          </text>
+
+          {/* Prosecution Agent */}
+          <rect x="455" y="90" width="240" height="55" rx="6" fill="#FFFFFF" stroke="#C7D2FE" />
+          <text x="575" y="115" fill="#4338CA" font-weight="600" text-anchor="middle" font-family="sans-serif">
+            1. Prosecution Agent (LangChain)
+          </text>
+          <text x="575" y="133" fill="#64748B" font-size="10" text-anchor="middle" font-family="monospace">
+            Constructs charges & cites precedent
+          </text>
+
+          {/* Defence Agent */}
+          <rect x="455" y="155" width="240" height="55" rx="6" fill="#FFFFFF" stroke="#A7F3D0" />
+          <text x="575" y="180" fill="#065F46" font-weight="600" text-anchor="middle" font-family="sans-serif">
+            2. Defence Agent (LangChain)
+          </text>
+          <text x="575" y="198" fill="#64748B" font-size="10" text-anchor="middle" font-family="monospace">
+            Challenges claims & counters arguments
+          </text>
+
+          {/* Judge Agent */}
+          <rect x="455" y="220" width="240" height="55" rx="6" fill="#FFFFFF" stroke="#CBD5E1" />
+          <text x="575" y="245" fill="#0F172A" font-weight="600" text-anchor="middle" font-family="sans-serif">
+            3. Judge Agent (Evaluator)
+          </text>
+          <text x="575" y="263" fill="#64748B" font-size="10" text-anchor="middle" font-family="monospace">
+            Evaluates debate & issues verdict
+          </text>
+
+          {/* Connection to ChromaDB */}
+          <path d="M710 120 L760 120" stroke="#4F46E5" stroke-width="2" />
+          <path d="M710 180 L760 180" stroke="#059669" stroke-width="2" />
+
+          {/* Vector Store (ChromaDB) */}
+          <rect x="760" y="40" width="120" height="280" rx="10" fill="#ECFDF5" stroke="#A7F3D0" />
+          <text x="820" y="70" fill="#065F46" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            RAG / DB
+          </text>
+          <rect x="770" y="95" width="100" height="60" rx="6" fill="#FFFFFF" stroke="#A7F3D0" />
+          <text x="820" y="125" fill="#065F46" font-weight="600" text-anchor="middle" font-family="monospace">ChromaDB</text>
+          <text x="820" y="142" fill="#64748B" font-size="9" text-anchor="middle" font-family="sans-serif">Vector Search</text>
+
+          <rect x="770" y="170" width="100" height="60" rx="6" fill="#FFFFFF" stroke="#A7F3D0" />
+          <text x="820" y="200" fill="#065F46" font-weight="600" text-anchor="middle" font-family="monospace">Case Law</text>
+          <text x="820" y="217" fill="#64748B" font-size="9" text-anchor="middle" font-family="sans-serif">Statutory Precedents</text>
+        </svg>
+      </div>
+    );
+  }
+
+  if (type === "biznexus") {
+    return (
+      <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E2E8F0] pb-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
+            System Architecture · {title}
+          </span>
+          <span className="font-mono text-[11px] text-[#4F46E5] bg-[#EEF2FF] px-2.5 py-0.5 rounded-full border border-[#C7D2FE]">
+            Decoupled Co-Pilot & Metric Ingestion Architecture
+          </span>
+        </div>
+
+        <svg
+          viewBox="0 0 880 320"
           className="w-full h-auto text-xs"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Layer 1: Client UI */}
-          <rect x="20" y="40" width="160" height="260" rx="8" fill="#F7F6F2" stroke="#E8E5DD" />
-          <text x="100" y="70" fill="#171717" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            CLIENT TIER
+          <rect x="20" y="40" width="160" height="250" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+          <text x="100" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            WEB CLIENT
           </text>
-          <rect x="35" y="95" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="100" y="125" fill="#171717" text-anchor="middle" font-family="monospace">React UI</text>
-          <rect x="35" y="160" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="100" y="190" fill="#706E6B" text-anchor="middle" font-family="monospace">SSE Stream Reader</text>
-          <rect x="35" y="225" width="130" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="100" y="255" fill="#706E6B" text-anchor="middle" font-family="monospace">Citation Viewer</text>
+          <rect x="35" y="95" width="130" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="100" y="122" fill="#0F172A" text-anchor="middle" font-family="monospace">React UI</text>
+          <rect x="35" y="150" width="130" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="100" y="177" fill="#475569" text-anchor="middle" font-family="monospace">Metrics Cards</text>
+          <rect x="35" y="205" width="130" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="100" y="232" fill="#475569" text-anchor="middle" font-family="monospace">Co-Pilot Chat</text>
 
-          {/* Connection Arrow 1 */}
-          <path d="M180 120 L230 120" stroke="#6D5DFB" stroke-width="2" marker-end="url(#arrow)" />
-          <path d="M230 185 L180 185" stroke="#706E6B" stroke-width="2" stroke-dasharray="4 4" />
+          <path d="M180 120 L230 120" stroke="#4F46E5" stroke-width="2" />
 
           {/* Layer 2: API Gateway */}
-          <rect x="230" y="40" width="170" height="260" rx="8" fill="#F7F6F2" stroke="#E8E5DD" />
-          <text x="315" y="70" fill="#171717" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            FASTAPI GATEWAY
+          <rect x="230" y="40" width="170" height="250" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+          <text x="315" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            FASTAPI BACKEND
           </text>
-          <rect x="245" y="95" width="140" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="315" y="125" fill="#171717" text-anchor="middle" font-family="monospace">REST API Router</text>
-          <rect x="245" y="160" width="140" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="315" y="190" fill="#706E6B" text-anchor="middle" font-family="monospace">Pydantic Schemas</text>
-          <rect x="245" y="225" width="140" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="315" y="255" fill="#706E6B" text-anchor="middle" font-family="monospace">Auth & Rate Guard</text>
+          <rect x="245" y="95" width="140" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="315" y="122" fill="#0F172A" text-anchor="middle" font-family="monospace">REST API Layer</text>
+          <rect x="245" y="150" width="140" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="315" y="177" fill="#475569" text-anchor="middle" font-family="monospace">Pydantic Models</text>
+          <rect x="245" y="205" width="140" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="315" y="232" fill="#475569" text-anchor="middle" font-family="monospace">Analytics Service</text>
 
-          {/* Connection Arrow 2 */}
-          <path d="M400 120 L450 120" stroke="#6D5DFB" stroke-width="2" />
+          <path d="M400 120 L450 120" stroke="#4F46E5" stroke-width="2" />
 
-          {/* Layer 3: Agent Orchestrator */}
-          <rect x="450" y="40" width="220" height="260" rx="8" fill="#F0EEFE" stroke="#6D5DFB" stroke-opacity="0.3" />
-          <text x="560" y="70" fill="#6D5DFB" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            AGENT ORCHESTRATION
+          {/* Layer 3: AI Co-Pilot Pipeline */}
+          <rect x="450" y="40" width="220" height="250" rx="10" fill="#EEF2FF" stroke="#C7D2FE" />
+          <text x="560" y="70" fill="#4338CA" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            APPLIED AI CO-PILOT
           </text>
-          <rect x="465" y="95" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="560" y="120" fill="#171717" text-anchor="middle" font-family="monospace">1. Query Planner Agent</text>
-          <rect x="465" y="145" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="560" y="170" fill="#171717" text-anchor="middle" font-family="monospace">2. SQL & Math Tools</text>
-          <rect x="465" y="195" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="560" y="220" fill="#171717" text-anchor="middle" font-family="monospace">3. Verifier / Critic</text>
-          <rect x="465" y="245" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="560" y="270" fill="#706E6B" text-anchor="middle" font-family="monospace">4. Synthesis Engine</text>
+          <rect x="465" y="95" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="560" y="120" fill="#0F172A" text-anchor="middle" font-family="monospace">Natural Query Parser</text>
+          <rect x="465" y="145" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="560" y="170" fill="#0F172A" text-anchor="middle" font-family="monospace">Metric Extraction</text>
+          <rect x="465" y="195" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="560" y="220" fill="#475569" text-anchor="middle" font-family="monospace">Executive Summarizer</text>
 
-          {/* Connection Arrow 3 */}
-          <path d="M670 120 L720 120" stroke="#6D5DFB" stroke-width="2" />
-          <path d="M670 165 L720 225" stroke="#706E6B" stroke-width="2" />
+          <path d="M670 120 L720 120" stroke="#4F46E5" stroke-width="2" />
 
-          {/* Layer 4: Storage & Foundation */}
-          <rect x="720" y="40" width="140" height="260" rx="8" fill="#F2F5EF" stroke="#B8C6A5" />
-          <text x="790" y="70" fill="#4F5B40" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            DATA & MODELS
+          {/* Layer 4: Storage */}
+          <rect x="720" y="40" width="140" height="250" rx="10" fill="#F1F5F9" stroke="#CBD5E1" />
+          <text x="790" y="70" fill="#334155" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            DATABASE
           </text>
-          <rect x="730" y="95" width="120" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="790" y="125" fill="#171717" text-anchor="middle" font-family="monospace">LLM APIs</text>
-          <rect x="730" y="160" width="120" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="790" y="190" fill="#171717" text-anchor="middle" font-family="monospace">SQLite DB</text>
-          <rect x="730" y="225" width="120" height="50" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="790" y="255" fill="#706E6B" text-anchor="middle" font-family="monospace">Vector Index</text>
+          <rect x="730" y="95" width="120" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="790" y="122" fill="#0F172A" text-anchor="middle" font-family="monospace">SQLite Database</text>
+          <rect x="730" y="150" width="120" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="790" y="177" fill="#475569" text-anchor="middle" font-family="monospace">Sales & Profits</text>
+          <rect x="730" y="205" width="120" height="45" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="790" y="232" fill="#475569" text-anchor="middle" font-family="monospace">Inventory Logs</text>
         </svg>
       </div>
     );
@@ -89,63 +185,61 @@ export function ArchitectureDiagram({ type, title }: ArchitectureDiagramProps) {
 
   if (type === "burst") {
     return (
-      <div className="rounded-xl border border-[#E8E5DD] bg-white p-6 sm:p-8 shadow-xs space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E8E5DD] pb-3">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+      <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E2E8F0] pb-3">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
             System Architecture · {title}
           </span>
-          <span className="font-mono text-[11px] text-[#4F5B40] bg-[#F2F5EF] px-2 py-0.5 rounded">
-            Next.js App Router Hybrid Architecture
+          <span className="font-mono text-[11px] text-[#059669] bg-[#ECFDF5] px-2.5 py-0.5 rounded-full border border-[#A7F3D0]">
+            React 19 + Firebase Real-Time Architecture
           </span>
         </div>
 
         <svg
-          viewBox="0 0 880 300"
+          viewBox="0 0 880 280"
           className="w-full h-auto text-xs"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Client Components */}
-          <rect x="30" y="40" width="220" height="220" rx="8" fill="#F7F6F2" stroke="#E8E5DD" />
-          <text x="140" y="70" fill="#171717" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            CLIENT (INTERACTION)
+          <rect x="30" y="40" width="230" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+          <text x="145" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            REACT 19 + VITE CLIENT
           </text>
-          <rect x="45" y="95" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="140" y="120" fill="#171717" text-anchor="middle" font-family="monospace">Split Markdown Editor</text>
-          <rect x="45" y="145" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="140" y="170" fill="#706E6B" text-anchor="middle" font-family="monospace">DOMPurify Sanitizer</text>
-          <rect x="45" y="195" width="190" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="140" y="220" fill="#706E6B" text-anchor="middle" font-family="monospace">Autosave Local Buffer</text>
+          <rect x="45" y="95" width="200" height="35" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="145" y="118" fill="#0F172A" text-anchor="middle" font-family="monospace">Custom WYSIWYG Editor</text>
+          <rect x="45" y="140" width="200" height="35" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="145" y="163" fill="#475569" text-anchor="middle" font-family="monospace">HTML5 Canvas Image Compression</text>
+          <rect x="45" y="185" width="200" height="35" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="145" y="208" fill="#475569" text-anchor="middle" font-family="monospace">Global & Following Feeds</text>
 
-          {/* Connection */}
-          <path d="M250 145 L320 145" stroke="#6D5DFB" stroke-width="2" />
+          <path d="M260 145 L320 145" stroke="#4F46E5" stroke-width="2" />
 
-          {/* Server / Next.js Tier */}
-          <rect x="320" y="40" width="260" height="220" rx="8" fill="#F0EEFE" stroke="#6D5DFB" stroke-opacity="0.3" />
-          <text x="450" y="70" fill="#6D5DFB" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            NEXT.JS APP ROUTER CORE
+          {/* Firebase Authentication & Services */}
+          <rect x="320" y="40" width="240" height="210" rx="10" fill="#EEF2FF" stroke="#C7D2FE" />
+          <text x="440" y="70" fill="#4338CA" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            FIREBASE SERVICES
           </text>
-          <rect x="340" y="95" width="220" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="450" y="120" fill="#171717" text-anchor="middle" font-family="monospace">Server Component Feeds</text>
-          <rect x="340" y="145" width="220" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="450" y="170" fill="#171717" text-anchor="middle" font-family="monospace">Server Actions (Publish/Draft)</text>
-          <rect x="340" y="195" width="220" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="450" y="220" fill="#706E6B" text-anchor="middle" font-family="monospace">Session Auth Guard</text>
+          <rect x="335" y="95" width="210" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="440" y="120" fill="#0F172A" text-anchor="middle" font-family="monospace">Firebase Authentication</text>
+          <rect x="335" y="145" width="210" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="440" y="170" fill="#4338CA" text-anchor="middle" font-family="monospace">Cloud Firestore (Real-Time)</text>
+          <rect x="335" y="195" width="210" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="440" y="220" fill="#64748B" text-anchor="middle" font-family="monospace">Firebase Storage (Media)</text>
 
-          {/* Connection */}
-          <path d="M580 145 L650 145" stroke="#6D5DFB" stroke-width="2" />
+          <path d="M560 145 L620 145" stroke="#059669" stroke-width="2" />
 
-          {/* Database Tier */}
-          <rect x="650" y="40" width="200" height="220" rx="8" fill="#F2F5EF" stroke="#B8C6A5" />
-          <text x="750" y="70" fill="#4F5B40" font-weight="600" text-anchor="middle" font-family="sans-serif">
-            DATA LAYER
+          {/* Analytics & Hosting */}
+          <rect x="620" y="40" width="230" height="210" rx="10" fill="#ECFDF5" stroke="#A7F3D0" />
+          <text x="735" y="70" fill="#065F46" font-weight="700" text-anchor="middle" font-family="sans-serif">
+            ANALYTICS & HOSTING
           </text>
-          <rect x="670" y="95" width="160" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="750" y="120" fill="#171717" text-anchor="middle" font-family="monospace">Users & Sessions</text>
-          <rect x="670" y="145" width="160" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="750" y="170" fill="#171717" text-anchor="middle" font-family="monospace">Posts & Tags</text>
-          <rect x="670" y="195" width="160" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-          <text x="750" y="220" fill="#706E6B" text-anchor="middle" font-family="monospace">Draft Revisions</text>
+          <rect x="635" y="95" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="735" y="120" fill="#0F172A" text-anchor="middle" font-family="monospace">Creator Dashboard</text>
+          <rect x="635" y="145" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="735" y="170" fill="#065F46" text-anchor="middle" font-family="monospace">Engagement Metrics</text>
+          <rect x="635" y="195" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+          <text x="735" y="220" fill="#64748B" text-anchor="middle" font-family="monospace">Vercel Edge Deployment</text>
         </svg>
       </div>
     );
@@ -153,13 +247,13 @@ export function ArchitectureDiagram({ type, title }: ArchitectureDiagramProps) {
 
   // HackOS Architecture Diagram
   return (
-    <div className="rounded-xl border border-[#E8E5DD] bg-white p-6 sm:p-8 shadow-xs space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E8E5DD] pb-3">
-        <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B]">
+    <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-8 shadow-xs space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E2E8F0] pb-3">
+        <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
           System Architecture · {title}
         </span>
-        <span className="font-mono text-[11px] text-[#171717] bg-[#E8E5DD]/50 px-2 py-0.5 rounded">
-          Offline-First Client Event Bus
+        <span className="font-mono text-[11px] text-[#0F172A] bg-[#F1F5F9] px-2.5 py-0.5 rounded-full border border-[#CBD5E1]">
+          Centralized Post-Hackathon Cockpit & Groq Integration
         </span>
       </div>
 
@@ -170,44 +264,45 @@ export function ArchitectureDiagram({ type, title }: ArchitectureDiagramProps) {
         xmlns="http://www.w3.org/2000/svg"
       >
         {/* Core State Bus */}
-        <rect x="40" y="40" width="240" height="200" rx="8" fill="#F0EEFE" stroke="#6D5DFB" stroke-opacity="0.3" />
-        <text x="160" y="70" fill="#6D5DFB" font-weight="600" text-anchor="middle" font-family="sans-serif">
-          REACT STATE ENGINE
+        <rect x="30" y="40" width="230" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+        <text x="145" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+          HACKOS COCKPIT
         </text>
-        <rect x="60" y="95" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="160" y="120" fill="#171717" text-anchor="middle" font-family="monospace">Event Dispatcher</text>
-        <rect x="60" y="145" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="160" y="170" fill="#706E6B" text-anchor="middle" font-family="monospace">Drift-Free Delta Timer</text>
-        <rect x="60" y="195" width="200" height="30" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="160" y="215" fill="#706E6B" text-anchor="middle" font-family="monospace">Keyboard Listener</text>
+        <rect x="45" y="95" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="145" y="120" fill="#0F172A" text-anchor="middle" font-family="monospace">Focus Mode Controller</text>
+        <rect x="45" y="145" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="145" y="170" fill="#475569" text-anchor="middle" font-family="monospace">Tool Dock Switcher</text>
+        <rect x="45" y="195" width="200" height="40" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="145" y="220" fill="#475569" text-anchor="middle" font-family="monospace">Resource Manager</text>
 
-        {/* Sync Arrow */}
-        <path d="M280 140 L340 140" stroke="#6D5DFB" stroke-width="2" />
+        <path d="M260 145 L320 145" stroke="#4F46E5" stroke-width="2" />
 
-        {/* Modular Widgets */}
-        <rect x="340" y="40" width="280" height="200" rx="8" fill="#F7F6F2" stroke="#E8E5DD" />
-        <text x="480" y="70" fill="#171717" font-weight="600" text-anchor="middle" font-family="sans-serif">
-          MODULAR COCKPIT WIDGETS
+        {/* Embedded External Tools */}
+        <rect x="320" y="40" width="280" height="210" rx="10" fill="#F8FAFC" stroke="#E2E8F0" />
+        <text x="460" y="70" fill="#0F172A" font-weight="700" text-anchor="middle" font-family="sans-serif">
+          CONNECTED SPRINT TOOLS
         </text>
-        <rect x="360" y="95" width="240" height="30" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="480" y="115" fill="#171717" text-anchor="middle" font-family="monospace">Countdown Sprint Chrono</text>
-        <rect x="360" y="135" width="240" height="30" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="480" y="155" fill="#171717" text-anchor="middle" font-family="monospace">Milestone Kanban Matrix</text>
-        <rect x="360" y="175" width="240" height="30" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="480" y="195" fill="#706E6B" text-anchor="middle" font-family="monospace">Quick Scratchpad Buffer</text>
+        <rect x="340" y="95" width="240" height="32" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="460" y="116" fill="#0F172A" text-anchor="middle" font-family="monospace">Trello & Notion Boards</text>
+        <rect x="340" y="132" width="240" height="32" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="460" y="153" fill="#0F172A" text-anchor="middle" font-family="monospace">Figma & Draw.io Embeds</text>
+        <rect x="340" y="169" width="240" height="32" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="460" y="190" fill="#475569" text-anchor="middle" font-family="monospace">Google Docs Integration</text>
 
-        {/* Sync Arrow */}
-        <path d="M620 140 L680 140" stroke="#6D5DFB" stroke-width="2" />
+        <path d="M600 145 L660 145" stroke="#4F46E5" stroke-width="2" />
 
-        {/* Storage */}
-        <rect x="680" y="40" width="160" height="200" rx="8" fill="#F2F5EF" stroke="#B8C6A5" />
-        <text x="760" y="70" fill="#4F5B40" font-weight="600" text-anchor="middle" font-family="sans-serif">
-          OFFLINE STORAGE
+        {/* AI & Intelligence */}
+        <rect x="660" y="40" width="190" height="210" rx="10" fill="#EEF2FF" stroke="#C7D2FE" />
+        <text x="755" y="70" fill="#4338CA" font-weight="700" text-anchor="middle" font-family="sans-serif">
+          AI ASSISTANCE
         </text>
-        <rect x="695" y="105" width="130" height="45" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="760" y="132" fill="#171717" text-anchor="middle" font-family="monospace">LocalStorage</text>
-        <rect x="695" y="165" width="130" height="45" rx="6" fill="#FFFFFF" stroke="#E8E5DD" />
-        <text x="760" y="192" fill="#706E6B" text-anchor="middle" font-family="monospace">JSON Exporter</text>
+        <rect x="675" y="95" width="160" height="50" rx="6" fill="#FFFFFF" stroke="#C7D2FE" />
+        <text x="755" y="125" fill="#4338CA" font-weight="600" text-anchor="middle" font-family="monospace">Groq API</text>
+        <text x="755" y="140" fill="#64748B" font-size="9" text-anchor="middle" font-family="sans-serif">Ultra Low-Latency LLM</text>
+
+        <rect x="675" y="155" width="160" height="50" rx="6" fill="#FFFFFF" stroke="#E2E8F0" />
+        <text x="755" y="185" fill="#0F172A" text-anchor="middle" font-family="monospace">Context Assistant</text>
+        <text x="755" y="200" fill="#64748B" font-size="9" text-anchor="middle" font-family="sans-serif">Instant Syntax & Code</text>
       </svg>
     </div>
   );

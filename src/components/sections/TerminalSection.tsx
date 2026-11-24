@@ -4,7 +4,7 @@ import { Terminal } from "@/components/terminal/Terminal";
 
 export function TerminalSection() {
   return (
-    <section id="terminal" className="py-20 sm:py-28 border-t border-[#E8E5DD]/70 scroll-mt-20">
+    <section id="terminal" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
       <Container>
         <SectionHeading
           number="06 / Interactive Shell"

@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const caseStudies = ["biznexus", "burst", "hackos"].map((slug) => ({
+  const caseStudies = ["biznexus", "burst", "hackos", "legal-arena"].map((slug) => ({
     url: `${baseUrl}/work/${slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.8,

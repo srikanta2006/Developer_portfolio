@@ -7,6 +7,7 @@ export interface Project {
   category: string;
   timeframe: string;
   role: string;
+  ownership: string;
   summary: string;
   tags: string[];
   image: string;
@@ -15,6 +16,7 @@ export interface Project {
   liveUrl?: string;
   isVerifiedDemo?: boolean;
   highlights: string[];
+  individualContribution?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -23,29 +25,30 @@ export const PROJECTS: Project[] = [
     slug: "biznexus",
     number: "01",
     title: "BizNexus",
-    tagline: "AI-powered business intelligence & co-pilot platform",
-    category: "AI Engineering · Agentic Systems",
+    tagline: "AI-powered business management & analytics co-pilot for SMEs",
+    category: "Full-Stack Development · Applied AI",
     timeframe: "2024 – 2025",
-    role: "Lead Engineer / AI Architect",
+    role: "Full-Stack & AI Developer",
+    ownership: "Independent Project",
     summary:
-      "An intelligent business co-pilot that orchestrates multi-agent LLM workflows to ingest corporate data, perform comparative analytics, and generate actionable executive summaries.",
+      "An AI-powered business management and analytics platform engineered for small and medium-sized businesses. Helps owners monitor business operations through intelligent insights into inventory, sales, profitability, and customer communication.",
     tags: [
       "Python",
       "FastAPI",
-      "Agentic AI",
-      "LLM Orchestration",
+      "Applied AI",
       "React",
       "SQLite",
+      "LLM Integration",
     ],
     image: "/projects/placeholder-biznexus.svg",
-    imageAlt: "BizNexus AI Business Intelligence interface screenshot placeholder",
+    imageAlt: "BizNexus AI Business Intelligence interface preview",
     githubUrl: "https://github.com/srikanta2006",
     liveUrl: undefined,
     isVerifiedDemo: false,
     highlights: [
-      "Designed deterministic multi-agent orchestration for business telemetry queries",
-      "Implemented vectorized document ingestion pipeline with strict citation tracking",
-      "Engineered low-latency REST endpoints using FastAPI and async background workers",
+      "Operational visibility across inventory tracking, sales trends, and profit margins",
+      "Intelligent natural language query interface for instant business metric retrieval",
+      "Actionable automated executive summaries for SMB owners and teams",
     ],
   },
   {
@@ -53,28 +56,31 @@ export const PROJECTS: Project[] = [
     slug: "burst",
     number: "02",
     title: "Burst",
-    tagline: "High-performance full-stack publishing & blogging application",
-    category: "Full-Stack Web Development",
+    tagline: "Full-stack multi-user blogging & content-sharing platform",
+    category: "Full-Stack Development · Web Applications",
     timeframe: "2024",
     role: "Full-Stack Developer",
+    ownership: "Independently Designed & Built",
     summary:
-      "A fast, distraction-free publishing platform engineered with clean content feeds, role-based draft reviews, markdown authoring, and responsive editorial layout.",
+      "A modern, responsive blogging platform featuring personalized global/following feeds, custom WYSIWYG rich-text authoring, client-side image compression, real-time social interactions, and a creator analytics dashboard.",
     tags: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "Tailwind CSS",
-      "PostgreSQL / Database",
+      "React 19",
+      "Vite",
+      "Firebase Auth",
+      "Cloud Firestore",
+      "HTML5 Canvas",
+      "CSS Modules",
+      "Lucide React",
     ],
     image: "/projects/placeholder-burst.svg",
-    imageAlt: "Burst multi-user blogging platform preview placeholder",
+    imageAlt: "Burst multi-user blogging platform preview",
     githubUrl: "https://github.com/srikanta2006/Burst_Blogging",
-    liveUrl: undefined,
-    isVerifiedDemo: false,
+    liveUrl: "https://blogging-page-gamma.vercel.app/",
+    isVerifiedDemo: true,
     highlights: [
-      "Engineered secure session management and role-based publishing controls",
-      "Implemented real-time markdown preview with client-side syntax highlighting",
-      "Designed responsive editorial grid with sub-second page transitions",
+      "Engineered custom WYSIWYG editor instead of relying on third-party blackbox editors",
+      "Implemented client-side image compression using HTML5 Canvas before Firestore upload",
+      "Real-time Firestore synchronization for likes, comments, following, and creator analytics",
     ],
   },
   {
@@ -82,27 +88,62 @@ export const PROJECTS: Project[] = [
     slug: "hackos",
     number: "03",
     title: "HackOS",
-    tagline: "Productivity & telemetry workspace for hackathon teams",
-    category: "Developer Tools · Productivity",
+    tagline: "Post-hackathon centralized productivity workspace",
+    category: "Full-Stack Development · Productivity",
     timeframe: "2024",
-    role: "Frontend & Systems Engineer",
+    role: "Frontend & Systems Developer",
+    ownership: "Independently Built",
     summary:
-      "A dedicated operating cockpit built for high-pressure hackathon sprints, consolidating milestone tracking, team task synchronization, and focused scratchpads into a single unified tab.",
+      "A centralized productivity operating workspace designed to help hackathon teams organize development activities without context-switching. Integrates Focus Mode, Trello, Figma, Draw.io, Notion, Google Docs, and Groq-powered AI assistance.",
     tags: [
       "React",
       "TypeScript",
+      "Groq API",
       "Tailwind CSS",
-      "Local State Architecture",
+      "Trello & Figma Integrations",
     ],
     image: "/projects/placeholder-hackos.svg",
-    imageAlt: "HackOS hackathon productivity cockpit interface placeholder",
+    imageAlt: "HackOS hackathon productivity cockpit interface",
     githubUrl: "https://github.com/srikanta2006",
     liveUrl: undefined,
     isVerifiedDemo: false,
     highlights: [
-      "Constructed modular dashboard widgets with offline-first local persistence",
-      "Integrated sprint countdown timer, milestone board, and scratchpad tools",
-      "Maintained zero-dependency minimalist UI optimized for low latency and zero layout shift",
+      "Consolidates Trello, Figma, Draw.io, Notion, and Google Docs into one distraction-free tab",
+      "Dedicated Focus Mode minimizing mental friction during high-pressure coding sprints",
+      "Integrated Groq-powered high-speed AI assistance for fast syntax and architectural queries",
+    ],
+  },
+  {
+    id: "legal-arena",
+    slug: "legal-arena",
+    number: "04",
+    title: "LegalArena",
+    tagline: "AI-powered legal reasoning & multi-agent courtroom simulation",
+    category: "Agentic AI · Multi-Agent Systems · RAG",
+    timeframe: "2024 – 2025",
+    role: "Agent Architecture & Orchestration Lead",
+    ownership: "Team Project (Architecture & Agent Lead)",
+    individualContribution: "Designed the three-agent architecture (Prosecution, Defence, Judge) and orchestrated adversarial legal debate workflows using LangGraph and ChromaDB.",
+    summary:
+      "An AI-powered courtroom simulation system that uses specialized AI agents to simulate adversarial legal reasoning. Features Prosecution, Defence, and Judge agents orchestrated via LangGraph, with legal document retrieval powered by ChromaDB.",
+    tags: [
+      "Python",
+      "LangChain",
+      "LangGraph",
+      "ChromaDB",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+    ],
+    image: "/projects/placeholder-legalarena.svg",
+    imageAlt: "LegalArena multi-agent courtroom reasoning system preview",
+    githubUrl: "https://github.com/srikanta2006",
+    liveUrl: undefined,
+    isVerifiedDemo: false,
+    highlights: [
+      "Designed the 3-agent adversarial architecture: Prosecution, Defence, and Judge Agents",
+      "Orchestrated multi-round legal debate workflows and state transitions using LangGraph",
+      "Implemented Retrieval-Augmented Generation (RAG) over case law using ChromaDB vector search",
     ],
   },
 ];
