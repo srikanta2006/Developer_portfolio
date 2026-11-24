@@ -74,11 +74,10 @@ export function Capabilities() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id as FilterTab)}
-                className={`px-3 py-1.5 rounded-xl font-medium transition-all cursor-pointer ${
-                  activeTab === tab.id
-                    ? "bg-[#6366F1] text-white shadow-xs font-semibold shadow-indigo-500/25"
-                    : "text-slate-400 hover:text-white"
-                }`}
+                className={`px-3 py-1.5 rounded-xl font-medium transition-all cursor-pointer ${activeTab === tab.id
+                  ? "bg-[#6366F1] text-white shadow-xs font-semibold shadow-indigo-500/25"
+                  : "text-slate-400 hover:text-white"
+                  }`}
               >
                 {tab.label}
               </button>
@@ -101,11 +100,10 @@ export function Capabilities() {
             <button
               type="button"
               onClick={() => setOnlyStrong(!onlyStrong)}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium transition-colors cursor-pointer shrink-0 ${
-                onlyStrong
-                  ? "bg-[#6366F1]/20 text-[#A5B4FC] border-[#6366F1] font-semibold"
-                  : "bg-white/[0.04] text-slate-300 border-white/10 hover:text-white hover:bg-white/[0.08]"
-              }`}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium transition-colors cursor-pointer shrink-0 ${onlyStrong
+                ? "bg-[#6366F1]/20 text-[#A5B4FC] border-[#6366F1] font-semibold"
+                : "bg-white/[0.04] text-slate-300 border-white/10 hover:text-white hover:bg-white/[0.08]"
+                }`}
               title="Show Advanced & Intermediate proficiencies only"
             >
               <Sparkles className="h-3.5 w-3.5 text-[#818CF8]" />
@@ -166,10 +164,9 @@ export function Capabilities() {
                       className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-medium text-slate-200 hover:border-indigo-400/40 hover:bg-white/[0.08] hover:scale-105 transition-all duration-200 cursor-default"
                     >
                       <span
-                        className={`h-1.5 w-1.5 rounded-full shrink-0 ${
-                          skill.proficiency === "Advanced"
-                            ? "bg-[#10B981]"
-                            : skill.proficiency === "Intermediate"
+                        className={`h-1.5 w-1.5 rounded-full shrink-0 ${skill.proficiency === "Advanced"
+                          ? "bg-[#10B981]"
+                          : skill.proficiency === "Intermediate"
                             ? "bg-[#6366F1]"
                             : "bg-slate-500"
                           }`}
