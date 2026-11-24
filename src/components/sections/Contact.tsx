@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { CopyButton } from "@/components/ui/CopyButton";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 function GitHubIcon({ className }: { className?: string }) {
@@ -31,22 +32,28 @@ export function Contact() {
       <Container>
         <div className="max-w-2xl mx-auto rounded-2xl border border-[#E2E8F0] bg-white p-8 sm:p-12 shadow-sm text-center space-y-6">
           <SectionHeading
-            number="05 / Contact"
+            number="07 / Contact"
             title="Let's build something intelligent."
-            description="I am always interested in discussing software engineering challenges, multi-agent AI systems, full-stack product ideas, or internship & full-time opportunities."
+            description="Open for software engineering challenges, multi-agent AI systems, and internship or full-time opportunities."
             className="text-center mx-auto"
           />
 
-          <div className="pt-2">
+          {/* Effortless Contact Options */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button
               variant="primary"
               size="lg"
               href={`mailto:${emailAddress}`}
-              className="gap-2 text-base px-6 py-3"
+              className="gap-2 text-sm sm:text-base px-6 py-3 w-full sm:w-auto"
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
-              <span>{emailAddress}</span>
+              <span>Send Email</span>
             </Button>
+            <CopyButton
+              text={emailAddress}
+              label="Copy Email"
+              className="py-3 px-4 text-sm w-full sm:w-auto justify-center"
+            />
           </div>
 
           <div className="pt-6 border-t border-[#E2E8F0] flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-[#475569]">

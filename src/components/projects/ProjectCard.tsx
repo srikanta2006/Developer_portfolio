@@ -1,9 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 import { Project } from "@/data/projects";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { LegalArenaSimulator } from "@/components/projects/LegalArenaSimulator";
 
 interface ProjectCardProps {
   project: Project;
@@ -11,6 +15,9 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const isLegalArena = project.slug === "legal-arena";
+  const [showSimulator, setShowSimulator] = useState<boolean>(isLegalArena);
+
   return (
     <article className="group relative rounded-2xl border border-[#E2E8F0] bg-white transition-all duration-300 hover:border-[#4F46E5]/40 hover:shadow-md overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
@@ -63,8 +70,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
             {/* Individual Contribution Note if present */}
             {project.individualContribution && (
-              <div className="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#334155]">
-                <strong className="text-[#0F172A]">My Role & Contribution:</strong>{" "}
+              <div className="p-3 rounded-lg bg-[#EEF2FF]/60 border border-[#C7D2FE] text-xs text-[#312E81]">
+                <strong className="text-[#1E1B4B]">My Architecture Contribution:</strong>{" "}
                 {project.individualContribution}
               </div>
             )}
@@ -116,9 +123,26 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 isExternal
                 className="gap-1.5"
               >
+                <span className="h-2 w-2 rounded-full bg-[#059669] animate-pulse" />
                 <span>Live Application</span>
                 <ExternalLink className="h-3.5 w-3.5 text-[#059669]" aria-hidden="true" />
               </Button>
+            )}
+
+            {isLegalArena && (
+              <button
+                type="button"
+                onClick={() => setShowSimulator(!showSimulator)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#C7D2FE] bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4338CA] text-xs font-semibold transition-colors cursor-pointer"
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>{showSimulator ? "Hide Live Simulator" : "Try Interactive Simulator"}</span>
+                {showSimulator ? (
+                  <ChevronUp className="h-3.5 w-3.5" />
+                ) : (
+                  <ChevronDown className="h-3.5 w-3.5" />
+                )}
+              </button>
             )}
 
             {project.githubUrl && (
@@ -136,6 +160,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </div>
+
+      {/* Interactive Courtroom Debate Widget (Proof in Action!) */}
+      {isLegalArena && showSimulator && (
+        <div className="p-6 sm:p-8 border-t border-[#E2E8F0] bg-[#FAFAFC]/60">
+          <LegalArenaSimulator />
+        </div>
+      )}
     </article>
   );
 }

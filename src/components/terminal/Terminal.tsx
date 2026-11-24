@@ -13,6 +13,7 @@ interface HistoryEntry {
 
 const QUICK_COMMANDS = [
   "help",
+  "arena",
   "about",
   "projects",
   "skills",
@@ -66,30 +67,57 @@ export function Terminal() {
             <p className="text-[#706E6B]">Available deterministic commands:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1">
               <div>
-                <span className="text-[#6D5DFB] font-semibold">about</span>: Brief professional bio
+                <span className="text-[#4F46E5] font-semibold">arena</span>: Multi-agent AI courtroom simulation
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">projects</span>: List featured work & case studies
+                <span className="text-[#4F46E5] font-semibold">about</span>: Brief professional bio
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">skills</span>: Technical capabilities inventory
+                <span className="text-[#4F46E5] font-semibold">projects</span>: List featured work & case studies
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">github</span>: Public GitHub profile information
+                <span className="text-[#4F46E5] font-semibold">skills</span>: Technical capabilities inventory
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">contact</span>: Direct communication channels
+                <span className="text-[#4F46E5] font-semibold">github</span>: Public GitHub profile information
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">resume</span>: Request resume link
+                <span className="text-[#4F46E5] font-semibold">contact</span>: Direct communication channels
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">whoami</span>: Display session identity
+                <span className="text-[#4F46E5] font-semibold">resume</span>: Request resume link
               </div>
               <div>
-                <span className="text-[#6D5DFB] font-semibold">clear</span>: Clear terminal display
+                <span className="text-[#4F46E5] font-semibold">clear</span>: Clear terminal display
               </div>
             </div>
+          </div>
+        );
+        break;
+
+      case "arena":
+      case "debate":
+      case "legal":
+        output = (
+          <div className="space-y-2 text-xs font-mono p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+            <div className="text-[#0F172A] font-bold flex items-center justify-between">
+              <span>⚖️ LegalArena Multi-Agent Courtroom Simulation (LangChain + LangGraph)</span>
+              <span className="text-[10px] text-[#059669] bg-[#ECFDF5] px-2 py-0.5 rounded border border-[#A7F3D0]">ACTIVE</span>
+            </div>
+            <div className="space-y-1.5 pt-1 border-t border-[#E2E8F0] text-[11px]">
+              <p>
+                <span className="text-[#DC2626] font-semibold">PROSECUTION AGENT:</span> &ldquo;The defendant model deployed unsupervised neural weights into high-frequency trading without verifiable circuit breakers.&rdquo;
+              </p>
+              <p>
+                <span className="text-[#2563EB] font-semibold">DEFENCE AGENT:</span> &ldquo;Objection. Rigorous vector sandboxing and human-in-the-loop guardrails were validated in pre-production benchmarks.&rdquo;
+              </p>
+              <p>
+                <span className="text-[#7C3AED] font-semibold">JUDGE AGENT:</span> &ldquo;Verdict: Defence establishes compliance protocol. Partial fine assessed for audit logging latency. LangGraph state transitions completed in 240ms.&rdquo;
+              </p>
+            </div>
+            <p className="text-[10px] text-[#64748B] pt-1">
+              💡 Tip: Scroll to <strong>Featured Projects &rarr; LegalArena</strong> to test the full visual interactive simulator on this page!
+            </p>
           </div>
         );
         break;

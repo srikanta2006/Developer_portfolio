@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { ArrowDown, Mail, MapPin, Sparkles } from "lucide-react";
+import { ArrowDown, MapPin, Sparkles, Trophy, Bot, Code, GraduationCap } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { CopyButton } from "@/components/ui/CopyButton";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -41,15 +42,15 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Main Hero Copy (Left Column) */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Status & Location Meta Badges */}
+            {/* Status & Live Availability */}
             <div className="flex flex-wrap items-center gap-2.5">
               <Badge variant="accent" className="gap-1.5 py-1">
                 <Sparkles className="h-3 w-3" aria-hidden="true" />
                 <span>Student Developer · Software & Applied AI</span>
               </Badge>
-              <div className="inline-flex items-center gap-1.5 text-xs text-[#475569] font-mono">
-                <MapPin className="h-3.5 w-3.5 text-[#475569]" aria-hidden="true" />
-                <span>Hyderabad, India</span>
+              <div className="inline-flex items-center gap-1.5 text-xs text-[#059669] font-medium bg-[#ECFDF5] px-2.5 py-0.5 rounded-full border border-[#A7F3D0]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#059669] animate-pulse" />
+                <span>Open for Engineering & AI Roles</span>
               </div>
             </div>
 
@@ -59,16 +60,53 @@ export function Hero() {
                 Building intelligent products through software and AI.
               </h1>
               <p className="font-sans text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl">
-                I&apos;m a Computer Science student and developer passionate about building intelligent products through software engineering and applied AI. I enjoy turning ideas into practical applications by combining full-stack development, AI-powered systems, and problem-solving.
+                Computer Science student at CVR College of Engineering turning ideas into production-ready software, backend architectures, and multi-agent AI systems.
               </p>
             </div>
 
-            {/* Primary CTA */}
-            <div className="pt-2">
+            {/* Visual Proof Highlights Bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#D97706]">
+                  <Trophy className="h-3.5 w-3.5" />
+                  <span>SIH 2024</span>
+                </div>
+                <div className="text-[11px] font-medium text-[#0F172A]">1st Place Winner</div>
+              </div>
+
+              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#4F46E5]">
+                  <Bot className="h-3.5 w-3.5" />
+                  <span>Agentic AI</span>
+                </div>
+                <div className="text-[11px] font-medium text-[#0F172A]">LangGraph & RAG</div>
+              </div>
+
+              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#059669]">
+                  <Code className="h-3.5 w-3.5" />
+                  <span>Full-Stack</span>
+                </div>
+                <div className="text-[11px] font-medium text-[#0F172A]">FastAPI & React</div>
+              </div>
+
+              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#475569]">
+                  <GraduationCap className="h-3.5 w-3.5 text-[#4F46E5]" />
+                  <span>Education</span>
+                </div>
+                <div className="text-[11px] font-medium text-[#0F172A]">CVR CSE &apos;27</div>
+              </div>
+            </div>
+
+            {/* Primary CTA & Interactive 1-Click Copy */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <Button variant="primary" size="lg" href="#work" className="gap-2">
                 <span>Explore Featured Projects</span>
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </Button>
+
+              <CopyButton text="srikantacvr@gmail.com" label="Copy Email" className="py-2.5 px-3.5 text-xs font-medium rounded-lg" />
             </div>
 
             {/* Verified Public Channels */}
@@ -94,13 +132,10 @@ export function Hero() {
                 <span>LinkedIn</span>
               </a>
               <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
-              <a
-                href="mailto:srikantacvr@gmail.com"
-                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
-              >
-                <Mail className="h-4 w-4 text-[#4F46E5]" />
-                <span>srikantacvr@gmail.com</span>
-              </a>
+              <div className="inline-flex items-center gap-1.5 text-[#475569] font-mono text-xs">
+                <MapPin className="h-3.5 w-3.5 text-[#4F46E5]" />
+                <span>Hyderabad, India</span>
+              </div>
             </div>
           </div>
 
