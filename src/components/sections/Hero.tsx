@@ -186,7 +186,7 @@ export function Hero() {
                 {/* Inner Image Frame */}
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#0B0F19] border border-white/10">
                   <Image
-                    src="/images/portrait.jpg"
+                    src="/images/portrait-v2.jpg"
                     alt="Srikanta Bellamkonda — Student Developer & Applied AI Engineer"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 380px, 440px"
