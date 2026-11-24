@@ -30,11 +30,11 @@ export function Terminal() {
       command: "welcome",
       output: (
         <div className="space-y-1.5 text-xs leading-relaxed">
-          <p className="text-[#4F46E5] font-semibold">
-            Srikanta Bellamkonda — Interactive Terminal v1.0.0
+          <p className="text-[#818CF8] font-semibold">
+            Srikanta Bellamkonda &mdash; Interactive Terminal v2.0.0
           </p>
-          <p className="text-[#64748B]">
-            Type <span className="text-[#0F172A] font-semibold bg-[#F1F5F9] px-1 rounded border border-[#E2E8F0]">help</span> to view available portfolio commands, or click the shortcuts below.
+          <p className="text-slate-400">
+            Type <span className="text-white font-semibold bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/10 font-mono">help</span> to view available portfolio commands, or click the shortcuts below.
           </p>
         </div>
       ),
@@ -64,35 +64,35 @@ export function Terminal() {
     switch (cmd) {
       case "help":
         output = (
-          <div className="space-y-1.5 text-xs text-[#171717] font-mono">
-            <p className="text-[#706E6B]">Available deterministic commands:</p>
+          <div className="space-y-1.5 text-xs text-slate-200 font-mono">
+            <p className="text-slate-400">Available deterministic commands:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1">
               <div>
-                <span className="text-[#4F46E5] font-semibold">arena</span>: Multi-agent AI courtroom simulation
+                <span className="text-[#818CF8] font-semibold">arena</span>: Multi-agent AI courtroom simulation
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">hackathons</span>: 7+ hackathons, tech events & SIH log
+                <span className="text-[#818CF8] font-semibold">hackathons</span>: 7+ hackathons, tech events &amp; SIH log
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">about</span>: Brief professional bio
+                <span className="text-[#818CF8] font-semibold">about</span>: Brief professional bio
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">projects</span>: List featured work & case studies
+                <span className="text-[#818CF8] font-semibold">projects</span>: List featured work &amp; case studies
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">skills</span>: Technical capabilities inventory
+                <span className="text-[#818CF8] font-semibold">skills</span>: Technical capabilities inventory
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">github</span>: Public GitHub profile information
+                <span className="text-[#818CF8] font-semibold">github</span>: Public GitHub profile information
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">contact</span>: Direct communication channels
+                <span className="text-[#818CF8] font-semibold">contact</span>: Direct communication channels
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">resume</span>: Request resume link
+                <span className="text-[#818CF8] font-semibold">resume</span>: Request resume link
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">clear</span>: Clear terminal display
+                <span className="text-[#818CF8] font-semibold">clear</span>: Clear terminal display
               </div>
             </div>
           </div>
@@ -103,24 +103,24 @@ export function Terminal() {
       case "debate":
       case "legal":
         output = (
-          <div className="space-y-2 text-xs font-mono p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
-            <div className="text-[#0F172A] font-bold flex items-center justify-between">
+          <div className="space-y-2 text-xs font-mono p-3.5 rounded-xl bg-[#0F1626] border border-white/10">
+            <div className="text-white font-bold flex items-center justify-between">
               <span>⚖️ LegalArena Multi-Agent Courtroom Simulation (LangChain + LangGraph)</span>
-              <span className="text-[10px] text-[#059669] bg-[#ECFDF5] px-2 py-0.5 rounded border border-[#A7F3D0]">ACTIVE</span>
+              <span className="text-[10px] text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">ACTIVE</span>
             </div>
-            <div className="space-y-1.5 pt-1 border-t border-[#E2E8F0] text-[11px]">
+            <div className="space-y-1.5 pt-1 border-t border-white/10 text-[11px]">
               <p>
-                <span className="text-[#DC2626] font-semibold">PROSECUTION AGENT:</span> &ldquo;The defendant model deployed unsupervised neural weights into high-frequency trading without verifiable circuit breakers.&rdquo;
+                <span className="text-red-400 font-semibold">PROSECUTION AGENT:</span> &ldquo;The defendant model deployed unsupervised neural weights into high-frequency trading without verifiable circuit breakers.&rdquo;
               </p>
               <p>
-                <span className="text-[#2563EB] font-semibold">DEFENCE AGENT:</span> &ldquo;Objection. Rigorous vector sandboxing and human-in-the-loop guardrails were validated in pre-production benchmarks.&rdquo;
+                <span className="text-blue-400 font-semibold">DEFENCE AGENT:</span> &ldquo;Objection. Rigorous vector sandboxing and human-in-the-loop guardrails were validated in pre-production benchmarks.&rdquo;
               </p>
               <p>
-                <span className="text-[#7C3AED] font-semibold">JUDGE AGENT:</span> &ldquo;Verdict: Defence establishes compliance protocol. Partial fine assessed for audit logging latency. LangGraph state transitions completed in 240ms.&rdquo;
+                <span className="text-purple-300 font-semibold">JUDGE AGENT:</span> &ldquo;Verdict: Defence establishes compliance protocol. Partial fine assessed for audit logging latency. LangGraph state transitions completed in 240ms.&rdquo;
               </p>
             </div>
-            <p className="text-[10px] text-[#64748B] pt-1">
-              💡 Tip: Scroll to <strong>Featured Projects &rarr; LegalArena</strong> to test the full visual interactive simulator on this page!
+            <p className="text-[10px] text-slate-400 pt-1">
+              💡 Tip: Check out the <strong>Interactive Architecture Blueprint</strong> on the LegalArena card!
             </p>
           </div>
         );
@@ -129,17 +129,17 @@ export function Terminal() {
       case "hackathons":
       case "hackathon":
         output = (
-          <div className="space-y-2 text-xs font-mono p-3 rounded-lg bg-[#FFFBEB] border border-[#FDE68A]">
-            <div className="text-[#0F172A] font-bold flex items-center justify-between">
+          <div className="space-y-2 text-xs font-mono p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25">
+            <div className="text-white font-bold flex items-center justify-between">
               <span>🏆 7+ Hackathons &amp; Tech Events Log</span>
-              <span className="text-[10px] text-[#B45309] bg-white px-2 py-0.5 rounded border border-[#FDE68A]">1st Place Internal SIH</span>
+              <span className="text-[10px] text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/30">1st Place Internal SIH</span>
             </div>
-            <div className="space-y-1.5 pt-1 border-t border-[#FDE68A] text-[11px] text-[#78350F]">
+            <div className="space-y-1.5 pt-1 border-t border-amber-500/20 text-[11px] text-amber-100/90">
               <p>• <strong>Smart India Hackathon (SIH) Internal Screening:</strong> 1st Place Winner &amp; Team Lead.</p>
               <p>• <strong>Collegiate &amp; National Competitions:</strong> Competed in 7 hackathons plus collegiate tech events across 2023–Present.</p>
               <p>• <strong>Core Takeaway:</strong> 250+ sprint hours mastering high-pressure zero-to-one prototyping and zero-distraction tooling (directly inspired HackOS).</p>
             </div>
-            <p className="text-[10px] text-[#B45309] pt-1">
+            <p className="text-[10px] text-amber-300 pt-1">
               💡 Tip: Check out the <strong>7+ Hackathons &amp; Tech Events</strong> section on the portfolio!
             </p>
           </div>
@@ -148,15 +148,15 @@ export function Terminal() {
 
       case "about":
         output = (
-          <div className="space-y-1 text-xs text-[#0F172A] font-sans">
-            <p className="font-semibold text-[#0F172A]">Srikanta Bellamkonda</p>
-            <p className="text-[#475569]">
-              Student Developer · Software Engineer & Applied AI Engineer based in Hyderabad, India.
+          <div className="space-y-1 text-xs text-slate-200 font-sans">
+            <p className="font-semibold text-white">Srikanta Bellamkonda</p>
+            <p className="text-slate-300">
+              Student Developer · Software Engineer &amp; Applied AI Engineer based in Hyderabad, India.
             </p>
-            <p className="text-[#475569]">
+            <p className="text-slate-300">
               Computer Science undergraduate at CVR College of Engineering (Expected May 2027).
             </p>
-            <p className="text-[#475569]">
+            <p className="text-slate-300">
               The Engineer Who Builds Intelligent Products. Combining full-stack web development, multi-agent AI systems, and RAG.
             </p>
           </div>
@@ -167,26 +167,26 @@ export function Terminal() {
       case "work":
         output = (
           <div className="space-y-2 text-xs font-mono">
-            <p className="text-[#64748B]">Featured Portfolio Projects:</p>
+            <p className="text-slate-400">Featured Portfolio Projects:</p>
             {PROJECTS.map((p) => (
-              <div key={p.id} className="p-2.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+              <div key={p.id} className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-[#0F172A] font-semibold">{p.title}</span>
+                  <span className="text-white font-semibold">{p.title}</span>
                   <Link
                     href={`/work/${p.slug}`}
-                    className="text-[#4F46E5] hover:underline shrink-0 ml-2 font-sans font-medium text-xs"
+                    className="text-[#818CF8] hover:underline shrink-0 ml-2 font-sans font-medium text-xs"
                   >
-                    View Case Study →
+                    View Case Study &rarr;
                   </Link>
                 </div>
-                <div className="text-[#475569] text-[11px]">{p.tagline}</div>
+                <div className="text-slate-400 text-[11px]">{p.tagline}</div>
                 {p.liveUrl && (
                   <div className="text-[11px]">
                     <a
                       href={p.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#059669] hover:underline"
+                      className="text-emerald-400 hover:underline"
                     >
                       Live Demo: {p.liveUrl}
                     </a>
@@ -201,11 +201,11 @@ export function Terminal() {
       case "skills":
         output = (
           <div className="space-y-2 text-xs font-mono">
-            <p className="text-[#64748B]">Technical Capabilities & Assessed Proficiencies:</p>
+            <p className="text-slate-400">Technical Capabilities &amp; Assessed Proficiencies:</p>
             {SKILL_CATEGORIES.map((cat) => (
               <div key={cat.category} className="space-y-0.5">
-                <span className="text-[#4F46E5] font-semibold">{cat.category}:</span>{" "}
-                <span className="text-[#0F172A]">
+                <span className="text-[#818CF8] font-semibold">{cat.category}:</span>{" "}
+                <span className="text-slate-200">
                   {cat.skills.map((s) => `${s.name} (${s.proficiency})`).join(", ")}
                 </span>
               </div>
@@ -217,8 +217,8 @@ export function Terminal() {
       case "github":
         output = (
           <div className="space-y-1.5 text-xs font-mono">
-            <p className="text-[#171717] font-semibold">GitHub Profile: srikanta2006</p>
-            <p className="text-[#706E6B]">
+            <p className="text-white font-semibold">GitHub Profile: srikanta2006</p>
+            <p className="text-slate-400">
               Public Repositories: 32 · Followers: 16
             </p>
             <p>
@@ -227,7 +227,7 @@ export function Terminal() {
                 href="https://github.com/srikanta2006"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#6D5DFB] hover:underline"
+                className="text-[#818CF8] hover:underline"
               >
                 https://github.com/srikanta2006
               </a>
@@ -239,11 +239,11 @@ export function Terminal() {
       case "contact":
         output = (
           <div className="space-y-1 text-xs font-mono">
-            <p className="text-[#0F172A] font-semibold">Direct Communication:</p>
-            <p>Email: <a href="mailto:srikantacvr@gmail.com" className="text-[#4F46E5] hover:underline">srikantacvr@gmail.com</a></p>
+            <p className="text-white font-semibold">Direct Communication:</p>
+            <p>Email: <a href="mailto:srikantacvr@gmail.com" className="text-[#818CF8] hover:underline">srikantacvr@gmail.com</a></p>
             <p>Location: Hyderabad, India</p>
-            <p>LinkedIn: <a href="https://linkedin.com/in/srikanta-bellamkonda" target="_blank" rel="noopener noreferrer" className="text-[#4F46E5] hover:underline">linkedin.com/in/srikanta-bellamkonda</a></p>
-            <p>GitHub: <a href="https://github.com/srikanta2006" target="_blank" rel="noopener noreferrer" className="text-[#4F46E5] hover:underline">github.com/srikanta2006</a></p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/srikanta-bellamkonda" target="_blank" rel="noopener noreferrer" className="text-[#818CF8] hover:underline">linkedin.com/in/srikanta-bellamkonda</a></p>
+            <p>GitHub: <a href="https://github.com/srikanta2006" target="_blank" rel="noopener noreferrer" className="text-[#818CF8] hover:underline">github.com/srikanta2006</a></p>
           </div>
         );
         break;
@@ -251,11 +251,11 @@ export function Terminal() {
       case "resume":
         output = (
           <div className="space-y-1 text-xs font-mono">
-            <p className="text-[#0F172A] font-semibold">Curriculum Vitae / Resume:</p>
-            <p className="text-[#475569]">Request a verified copy of Srikanta&apos;s latest resume:</p>
+            <p className="text-white font-semibold">Curriculum Vitae / Resume:</p>
+            <p className="text-slate-300">Request a verified copy of Srikanta&apos;s latest resume:</p>
             <a
               href="mailto:srikantacvr@gmail.com?subject=Resume%20Request%20-%20Srikanta%20Bellamkonda"
-              className="text-[#4F46E5] hover:underline"
+              className="text-[#818CF8] hover:underline"
             >
               Email srikantacvr@gmail.com (Subject: Resume Request)
             </a>
@@ -270,7 +270,7 @@ export function Terminal() {
 
       case "whoami":
         output = (
-          <p className="text-xs font-mono text-[#4F5B40]">
+          <p className="text-xs font-mono text-emerald-400">
             guest@portfolio (a welcome visitor exploring Srikanta&apos;s work)
           </p>
         );
@@ -278,24 +278,16 @@ export function Terminal() {
 
       case "sudo":
         output = (
-          <p className="text-xs font-mono text-[#D9534F]">
+          <p className="text-xs font-mono text-rose-400">
             permission denied: guest is not in the sudoers file. This incident will be reported to Srikanta ☕
-          </p>
-        );
-        break;
-
-      case "date":
-        output = (
-          <p className="text-xs font-mono text-[#171717]">
-            {new Date().toUTCString()}
           </p>
         );
         break;
 
       default:
         output = (
-          <p className="text-xs font-mono text-[#706E6B]">
-            command not found: <span className="text-[#171717]">{trimmed}</span>. Type <span className="text-[#6D5DFB]">help</span> to see supported commands.
+          <p className="text-xs font-mono text-slate-400">
+            command not found: <span className="text-white">{trimmed}</span>. Type <span className="text-[#818CF8]">help</span> to see supported commands.
           </p>
         );
     }
@@ -333,30 +325,30 @@ export function Terminal() {
   return (
     <div
       onClick={() => inputRef.current?.focus()}
-      className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm overflow-hidden cursor-text transition-all focus-within:border-[#4F46E5]/40"
+      className="rounded-3xl border border-white/10 bg-[#090D16] shadow-2xl overflow-hidden cursor-text transition-all focus-within:border-indigo-500/50"
     >
       {/* Terminal Title Bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[#E2E8F0] bg-[#F8FAFC]">
+      <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.08] bg-[#0E1322]">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#E2E8F0] border border-[#CBD5E1]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#E2E8F0] border border-[#CBD5E1]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#E2E8F0] border border-[#CBD5E1]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-rose-500/80 border border-rose-400/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80 border border-amber-400/40" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80 border border-emerald-400/40" />
           </div>
-          <span className="font-mono text-xs text-[#475569] pl-2 flex items-center gap-1.5">
-            <TerminalIcon className="h-3 w-3 text-[#4F46E5]" />
+          <span className="font-mono text-xs text-slate-300 pl-2 flex items-center gap-1.5">
+            <TerminalIcon className="h-3 w-3 text-[#818CF8]" />
             guest@srikanta: ~
           </span>
         </div>
 
-        <span className="font-mono text-[11px] text-[#64748B] hidden sm:inline">
+        <span className="font-mono text-[11px] text-slate-500 hidden sm:inline">
           interactive portfolio shell
         </span>
       </div>
 
       {/* Terminal Content Buffer */}
       <div
-        className="p-5 sm:p-6 font-mono text-xs max-h-[380px] overflow-y-auto space-y-4"
+        className="p-5 sm:p-6 font-mono text-xs max-h-[420px] overflow-y-auto space-y-4"
         role="region"
         aria-live="polite"
         aria-label="Terminal output stream"
@@ -364,9 +356,9 @@ export function Terminal() {
         {history.map((entry, i) => (
           <div key={i} className="space-y-1.5">
             {entry.command !== "welcome" && (
-              <div className="flex items-center gap-2 text-[#64748B]">
-                <span className="text-[#4F46E5] font-bold">guest@srikanta:~$</span>
-                <span className="text-[#0F172A] font-semibold">{entry.command}</span>
+              <div className="flex items-center gap-2 text-slate-400">
+                <span className="text-[#818CF8] font-bold">guest@srikanta:~$</span>
+                <span className="text-white font-semibold">{entry.command}</span>
               </div>
             )}
             <div className="pl-0 sm:pl-2">{entry.output}</div>
@@ -378,9 +370,9 @@ export function Terminal() {
       {/* Interactive Command Input Form */}
       <form
         onSubmit={handleSubmit}
-        className="flex items-center gap-2 px-5 py-3 border-t border-[#E2E8F0] bg-[#F8FAFC]/70"
+        className="flex items-center gap-2 px-5 py-3 border-t border-white/[0.08] bg-[#0D121F]"
       >
-        <span className="font-mono text-xs font-bold text-[#4F46E5] shrink-0">
+        <span className="font-mono text-xs font-bold text-[#818CF8] shrink-0">
           guest@srikanta:~$
         </span>
         <input
@@ -389,8 +381,8 @@ export function Terminal() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="type a command (e.g. help, projects, skills)..."
-          className="flex-1 bg-transparent font-mono text-xs text-[#0F172A] placeholder:text-[#94A3B8] focus:outline-none"
+          placeholder="type a command (e.g. arena, hackathons, projects, skills)..."
+          className="flex-1 bg-transparent font-mono text-xs text-white placeholder:text-slate-500 focus:outline-none"
           aria-label="Terminal input"
           autoComplete="off"
           autoCapitalize="off"
@@ -398,7 +390,7 @@ export function Terminal() {
         />
         <button
           type="submit"
-          className="p-1 rounded text-[#64748B] hover:text-[#0F172A] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#4F46E5]"
+          className="p-1 rounded text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#6366F1]"
           aria-label="Submit command"
         >
           <CornerDownLeft className="h-3.5 w-3.5" />
@@ -406,8 +398,8 @@ export function Terminal() {
       </form>
 
       {/* Mobile-Friendly Quick Command Buttons */}
-      <div className="px-5 py-2.5 border-t border-[#E2E8F0] bg-white flex flex-wrap items-center gap-1.5">
-        <span className="font-mono text-[10px] uppercase tracking-wider text-[#64748B] mr-1 hidden sm:inline">
+      <div className="px-5 py-2.5 border-t border-white/[0.08] bg-[#090D16] flex flex-wrap items-center gap-1.5">
+        <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 mr-1 hidden sm:inline">
           Quick commands:
         </span>
         {QUICK_COMMANDS.map((cmd) => (
@@ -415,7 +407,7 @@ export function Terminal() {
             key={cmd}
             type="button"
             onClick={() => handleCommand(cmd)}
-            className="font-mono text-[11px] px-2 py-0.5 rounded border border-[#E2E8F0] bg-[#F8FAFC] hover:bg-[#EEF2FF] hover:border-[#C7D2FE] hover:text-[#4F46E5] text-[#0F172A] transition-colors cursor-pointer"
+            className="font-mono text-[11px] px-2.5 py-0.5 rounded-lg border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] hover:border-indigo-400/50 hover:text-white text-slate-300 transition-colors cursor-pointer"
           >
             {cmd}
           </button>

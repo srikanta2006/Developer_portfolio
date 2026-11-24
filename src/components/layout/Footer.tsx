@@ -14,16 +14,16 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full border-t border-[#E2E8F0] bg-[#FAFAFC] py-8">
+    <footer className="w-full border-t border-white/[0.08] bg-[#090D16] py-8">
       <Container>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>
             &copy; <Suspense fallback={<span>2026</span>}><DynamicYear /></Suspense> Srikanta Bellamkonda. All rights reserved.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors p-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5]"
+            className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white font-medium transition-colors p-1.5 rounded-lg hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1]"
             aria-label="Scroll back to top"
           >
             <ArrowUp className="h-3.5 w-3.5" />

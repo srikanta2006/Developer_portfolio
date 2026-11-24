@@ -29,22 +29,22 @@ export function SectionHeading({
       {(number || badge) && (
         <div className={cn("flex items-center gap-2.5", align === "center" && "justify-center")}>
           {number && (
-            <span className="font-mono text-xs font-semibold tracking-wider text-[#4F46E5] bg-[#EEF2FF] px-2 py-0.5 rounded border border-[#C7D2FE]">
+            <span className="font-mono text-xs font-semibold tracking-wider text-[#A5B4FC] bg-[#6366F1]/15 px-2.5 py-0.5 rounded-full border border-[#6366F1]/30">
               {number}
             </span>
           )}
           {badge && (
-            <span className="font-mono text-xs font-medium tracking-wide text-[#64748B]">
+            <span className="font-mono text-xs font-medium tracking-wide text-[#94A3B8]">
               {badge}
             </span>
           )}
         </div>
       )}
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A]">
+      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
         {title}
       </h2>
       {description && (
-        <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-2xl">
+        <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed max-w-2xl">
           {description}
         </p>
       )}

@@ -83,7 +83,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-[#FAFAFC] text-[#0F172A] antialiased selection:bg-indigo-500/15 selection:text-indigo-900">
+      <body className="min-h-screen flex flex-col bg-[#0B0F19] text-[#F8FAFC] antialiased selection:bg-indigo-500/30 selection:text-white">
         <Header />
         <main id="main-content" className="flex-1">
           {children}

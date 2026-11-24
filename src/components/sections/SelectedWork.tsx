@@ -18,7 +18,7 @@ export function SelectedWork() {
   });
 
   return (
-    <section id="work" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
+    <section id="work" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20">
       <Container>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <SectionHeading
@@ -29,14 +29,14 @@ export function SelectedWork() {
           />
 
           {/* Interactive Filter Pills */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#F1F5F9] border border-[#E2E8F0] text-xs font-medium self-start sm:self-auto shrink-0">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#111827]/80 border border-white/10 text-xs font-medium self-start sm:self-auto shrink-0 shadow-lg">
             <button
               type="button"
               onClick={() => setFilter("all")}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === "all"
-                  ? "bg-white text-[#0F172A] font-semibold shadow-2xs"
-                  : "text-[#64748B] hover:text-[#0F172A]"
+                  ? "bg-white text-[#0B0F19] font-bold shadow-xs"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
               All ({PROJECTS.length})
@@ -46,8 +46,8 @@ export function SelectedWork() {
               onClick={() => setFilter("ai")}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === "ai"
-                  ? "bg-white text-[#4F46E5] font-semibold shadow-2xs"
-                  : "text-[#64748B] hover:text-[#4F46E5]"
+                  ? "bg-[#6366F1] text-white font-bold shadow-xs shadow-indigo-500/20"
+                  : "text-slate-400 hover:text-[#A5B4FC]"
               }`}
             >
               Applied AI (2)
@@ -57,8 +57,8 @@ export function SelectedWork() {
               onClick={() => setFilter("fullstack")}
               className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
                 filter === "fullstack"
-                  ? "bg-white text-[#059669] font-semibold shadow-2xs"
-                  : "text-[#64748B] hover:text-[#059669]"
+                  ? "bg-[#10B981] text-white font-bold shadow-xs shadow-emerald-500/20"
+                  : "text-slate-400 hover:text-[#6EE7B7]"
               }`}
             >
               Full-Stack Web (2)

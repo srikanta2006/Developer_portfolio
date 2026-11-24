@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-
 interface ProjectNavigationProps {
   previousProject?: {
     slug: string;
@@ -22,22 +21,22 @@ export function ProjectNavigation({
   return (
     <nav
       aria-label="Previous and Next Project Navigation"
-      className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-12 border-t border-[#E2E8F0]"
+      className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-12 border-t border-white/10"
     >
       {previousProject ? (
         <Link
           href={`/work/${previousProject.slug}`}
-          className="group p-6 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#4F46E5]/40 hover:bg-[#F8FAFC] transition-all text-left flex flex-col justify-between"
+          className="group p-6 rounded-2xl border border-white/10 bg-[#0D121F]/80 backdrop-blur-xl hover:border-indigo-500/40 hover:bg-[#111827] transition-all text-left flex flex-col justify-between"
         >
-          <div className="flex items-center gap-1.5 text-xs font-mono text-[#64748B] mb-2">
-            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1 text-[#4F46E5]" />
+          <div className="flex items-center gap-1.5 text-xs font-mono text-slate-400 mb-2">
+            <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1 text-indigo-400" />
             <span>Previous Case Study</span>
           </div>
           <div>
-            <h4 className="font-heading text-lg font-bold text-[#0F172A] group-hover:text-[#4F46E5] transition-colors">
+            <h4 className="font-heading text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">
               {previousProject.title}
             </h4>
-            <p className="text-xs text-[#475569] line-clamp-1">
+            <p className="text-xs text-slate-400 line-clamp-1">
               {previousProject.tagline}
             </p>
           </div>
@@ -49,17 +48,17 @@ export function ProjectNavigation({
       {nextProject ? (
         <Link
           href={`/work/${nextProject.slug}`}
-          className="group p-6 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#4F46E5]/40 hover:bg-[#F8FAFC] transition-all text-right flex flex-col justify-between sm:items-end"
+          className="group p-6 rounded-2xl border border-white/10 bg-[#0D121F]/80 backdrop-blur-xl hover:border-indigo-500/40 hover:bg-[#111827] transition-all text-right flex flex-col justify-between sm:items-end"
         >
-          <div className="flex items-center gap-1.5 text-xs font-mono text-[#64748B] mb-2">
+          <div className="flex items-center gap-1.5 text-xs font-mono text-slate-400 mb-2">
             <span>Next Case Study</span>
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 text-[#4F46E5]" />
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 text-indigo-400" />
           </div>
           <div>
-            <h4 className="font-heading text-lg font-bold text-[#0F172A] group-hover:text-[#4F46E5] transition-colors">
+            <h4 className="font-heading text-lg font-bold text-white group-hover:text-indigo-400 transition-colors">
               {nextProject.title}
             </h4>
-            <p className="text-xs text-[#475569] line-clamp-1">
+            <p className="text-xs text-slate-400 line-clamp-1">
               {nextProject.tagline}
             </p>
           </div>

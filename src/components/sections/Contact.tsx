@@ -28,9 +28,13 @@ export function Contact() {
   const emailAddress = "srikantacvr@gmail.com";
 
   return (
-    <section id="contact" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
+    <section id="contact" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20">
       <Container>
-        <div className="max-w-2xl mx-auto rounded-2xl border border-[#E2E8F0] bg-white p-8 sm:p-12 shadow-sm text-center space-y-6">
+        <div className="relative max-w-2xl mx-auto rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-8 sm:p-12 shadow-2xl text-center space-y-6 overflow-hidden">
+          {/* Subtle Ambient Radial Glow */}
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
           <SectionHeading
             number="05 / Contact"
             title="Let's build something intelligent."
@@ -56,35 +60,35 @@ export function Contact() {
             />
           </div>
 
-          <div className="pt-6 border-t border-[#E2E8F0] flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-[#475569]">
+          <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-400">
             <a
               href="https://github.com/srikanta2006"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors"
             >
               <GitHubIcon className="h-4 w-4" />
               <span>GitHub</span>
-              <ArrowUpRight className="h-3 w-3 text-[#64748B]" />
+              <ArrowUpRight className="h-3 w-3 text-slate-500" />
             </a>
 
-            <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
+            <span className="text-white/20" aria-hidden="true">/</span>
 
             <a
               href="https://linkedin.com/in/srikanta-bellamkonda"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors"
             >
-              <LinkedInIcon className="h-4 w-4 text-[#4F46E5]" />
+              <LinkedInIcon className="h-4 w-4 text-[#818CF8]" />
               <span>LinkedIn</span>
-              <ArrowUpRight className="h-3 w-3 text-[#64748B]" />
+              <ArrowUpRight className="h-3 w-3 text-slate-500" />
             </a>
 
-            <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
+            <span className="text-white/20" aria-hidden="true">/</span>
 
-            <span className="inline-flex items-center gap-1.5 text-[#64748B] font-mono text-xs">
-              <MapPin className="h-3.5 w-3.5 text-[#4F46E5]" />
+            <span className="inline-flex items-center gap-1.5 text-slate-400 font-mono text-xs">
+              <MapPin className="h-3.5 w-3.5 text-[#818CF8]" />
               <span>Hyderabad, India</span>
             </span>
           </div>

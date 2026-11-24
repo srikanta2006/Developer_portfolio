@@ -24,17 +24,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const blueprint = PROJECT_BLUEPRINTS[project.slug];
 
   return (
-    <article className="group relative rounded-2xl border border-[#E2E8F0] bg-white transition-all duration-300 hover:border-[#4F46E5]/40 hover:shadow-md overflow-hidden">
+    <article className="group relative rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl transition-all duration-300 hover:border-indigo-500/40 hover:shadow-[0_0_40px_rgba(99,102,241,0.12)] overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
         {/* Project Visual / Image Frame */}
-        <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto min-h-[260px] sm:min-h-[320px] bg-[#F8FAFC] border-b lg:border-b-0 lg:border-r border-[#E2E8F0] overflow-hidden flex items-center justify-center p-6">
-          <div className="relative w-full h-full max-h-[320px] rounded-lg border border-[#E2E8F0] bg-white shadow-xs overflow-hidden transition-transform duration-300 group-hover:scale-[1.01]">
+        <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto min-h-[260px] sm:min-h-[320px] bg-[#0B0F19] border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden flex items-center justify-center p-6">
+          <div className="relative w-full h-full max-h-[320px] rounded-2xl border border-white/10 bg-[#0E1424] shadow-xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.01]">
             <Image
               src={project.image}
               alt={project.imageAlt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top"
+              className="object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
             />
           </div>
         </div>
@@ -43,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#94A3B8]">
                 Project {project.number} · {project.timeframe}
               </span>
               <div className="flex items-center gap-1.5">
@@ -59,37 +59,37 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
 
             <div>
-              <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-[#0F172A] group-hover:text-[#4F46E5] transition-colors">
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#A5B4FC] transition-colors">
                 <Link href={`/work/${project.slug}`}>
                   {project.title}
                 </Link>
               </h3>
-              <p className="font-sans text-sm font-medium text-[#475569] pt-1">
+              <p className="font-sans text-sm font-medium text-[#94A3B8] pt-1">
                 {project.tagline}
               </p>
             </div>
 
-            <p className="text-sm text-[#475569] leading-relaxed">
+            <p className="text-sm text-slate-300 leading-relaxed">
               {project.summary}
             </p>
 
             {/* Individual Contribution Note if present */}
             {project.individualContribution && (
-              <div className="p-3 rounded-lg bg-[#EEF2FF]/60 border border-[#C7D2FE] text-xs text-[#312E81]">
-                <strong className="text-[#1E1B4B]">My Architecture Contribution:</strong>{" "}
+              <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-200">
+                <strong className="text-white">My Architecture Contribution:</strong>{" "}
                 {project.individualContribution}
               </div>
             )}
 
             {/* Key Engineering Highlights */}
             <div className="space-y-2 pt-1">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-[#64748B]">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-[#94A3B8]">
                 Architecture Highlights
               </span>
-              <ul className="space-y-1.5 text-xs text-[#0F172A]">
+              <ul className="space-y-1.5 text-xs text-slate-200">
                 {project.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="text-[#4F46E5] font-bold" aria-hidden="true">
+                    <span className="text-[#818CF8] font-bold" aria-hidden="true">
                       —
                     </span>
                     <span>{highlight}</span>
@@ -109,7 +109,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-2.5 pt-4 border-t border-[#E2E8F0]">
+          <div className="flex flex-wrap items-center gap-2.5 pt-4 border-t border-white/[0.08]">
             <Button
               variant="primary"
               size="sm"
@@ -128,9 +128,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 isExternal
                 className="gap-1.5"
               >
-                <span className="h-2 w-2 rounded-full bg-[#059669] animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-[#10B981] animate-pulse" />
                 <span>Live Demo</span>
-                <ExternalLink className="h-3.5 w-3.5 text-[#059669]" aria-hidden="true" />
+                <ExternalLink className="h-3.5 w-3.5 text-[#34D399]" aria-hidden="true" />
               </Button>
             )}
 
@@ -141,11 +141,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 onClick={() => setShowBlueprint(!showBlueprint)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors cursor-pointer ${
                   showBlueprint
-                    ? "bg-[#EEF2FF] text-[#4F46E5] border-[#C7D2FE]"
-                    : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#0F172A]"
+                    ? "bg-[#6366F1]/20 text-[#A5B4FC] border-[#6366F1]/50"
+                    : "bg-white/[0.06] text-slate-300 border-white/10 hover:bg-white/[0.1] hover:text-white"
                 }`}
               >
-                <Network className="h-3.5 w-3.5 text-[#4F46E5]" />
+                <Network className="h-3.5 w-3.5 text-[#A5B4FC]" />
                 <span>{showBlueprint ? "Hide Blueprint" : "Architecture Blueprint"}</span>
                 {showBlueprint ? (
                   <ChevronUp className="h-3.5 w-3.5" />
@@ -159,7 +159,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <button
                 type="button"
                 onClick={() => setShowSimulator(!showSimulator)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#C7D2FE] bg-[#EEF2FF] hover:bg-[#E0E7FF] text-[#4338CA] text-xs font-semibold transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-indigo-500/30 bg-indigo-500/15 hover:bg-indigo-500/25 text-[#A5B4FC] text-xs font-semibold transition-colors cursor-pointer"
               >
                 <Sparkles className="h-3.5 w-3.5" />
                 <span>{showSimulator ? "Hide Live Simulator" : "Try Interactive Simulator"}</span>
@@ -189,14 +189,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Interactive Architecture Blueprint Pipeline View */}
       {blueprint && showBlueprint && (
-        <div className="p-6 sm:p-8 border-t border-[#E2E8F0] bg-white animate-in fade-in duration-200">
+        <div className="p-6 sm:p-8 border-t border-white/10 bg-[#0B0F19]/90 animate-in fade-in duration-200">
           <ArchitectureBlueprint projectId={project.slug} nodes={blueprint} />
         </div>
       )}
 
       {/* Interactive Courtroom Debate Widget (Proof in Action!) */}
       {isLegalArena && showSimulator && (
-        <div className="p-6 sm:p-8 border-t border-[#E2E8F0] bg-[#FAFAFC]/60">
+        <div className="p-6 sm:p-8 border-t border-white/10 bg-[#0B0F19]/90">
           <LegalArenaSimulator />
         </div>
       )}

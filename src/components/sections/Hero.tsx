@@ -39,7 +39,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 export function Hero() {
   return (
-    <section className="pt-8 sm:pt-14 pb-16 sm:pb-24 border-b border-[#E2E8F0]">
+    <section className="pt-28 sm:pt-36 pb-16 sm:pb-24 border-b border-white/[0.08]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Main Hero Copy (Left Column) */}
@@ -47,57 +47,57 @@ export function Hero() {
             {/* Status & Live Availability */}
             <div className="flex flex-wrap items-center gap-2.5">
               <Badge variant="accent" className="gap-1.5 py-1">
-                <Sparkles className="h-3 w-3" aria-hidden="true" />
+                <Sparkles className="h-3 w-3 text-[#A5B4FC]" aria-hidden="true" />
                 <span>Student Developer · Software & Applied AI</span>
               </Badge>
-              <div className="inline-flex items-center gap-1.5 text-xs text-[#059669] font-medium bg-[#ECFDF5] px-2.5 py-0.5 rounded-full border border-[#A7F3D0]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#059669] animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 text-xs text-[#34D399] font-medium bg-[#10B981]/15 px-2.5 py-0.5 rounded-full border border-[#10B981]/30">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#34D399] animate-pulse" />
                 <span>Open for Engineering & AI Roles</span>
               </div>
             </div>
 
-            {/* Typography-Led Headline */}
+            {/* Monumental Gradient Headline */}
             <div className="space-y-3">
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-[#0F172A] leading-[1.14]">
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 leading-[1.12]">
                 Building intelligent products through software and AI.
               </h1>
-              <p className="font-sans text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl">
+              <p className="font-sans text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-2xl">
                 Computer Science student at CVR College of Engineering turning ideas into production-ready software, backend architectures, and multi-agent AI systems.
               </p>
             </div>
 
             {/* Visual Proof Highlights Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
-              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#D97706]">
+              <div className="p-2.5 rounded-xl border border-white/10 bg-[#111827]/60 backdrop-blur-md shadow-2xs space-y-1 hover:border-amber-400/30 transition-all">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#FBBF24]">
                   <Trophy className="h-3.5 w-3.5" />
                   <span>7+ Hackathons</span>
                 </div>
-                <div className="text-[11px] font-medium text-[#0F172A] truncate">+ Tech Events · SIH Win</div>
+                <div className="text-[11px] font-medium text-white truncate">+ Tech Events · SIH Win</div>
               </div>
 
-              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#4F46E5]">
+              <div className="p-2.5 rounded-xl border border-white/10 bg-[#111827]/60 backdrop-blur-md shadow-2xs space-y-1 hover:border-indigo-400/30 transition-all">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#A5B4FC]">
                   <Bot className="h-3.5 w-3.5" />
                   <span>Agentic AI</span>
                 </div>
-                <div className="text-[11px] font-medium text-[#0F172A]">LangGraph & RAG</div>
+                <div className="text-[11px] font-medium text-white">LangGraph & RAG</div>
               </div>
 
-              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#059669]">
+              <div className="p-2.5 rounded-xl border border-white/10 bg-[#111827]/60 backdrop-blur-md shadow-2xs space-y-1 hover:border-emerald-400/30 transition-all">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#34D399]">
                   <Code className="h-3.5 w-3.5" />
                   <span>Full-Stack</span>
                 </div>
-                <div className="text-[11px] font-medium text-[#0F172A]">FastAPI & React</div>
+                <div className="text-[11px] font-medium text-white">FastAPI & React</div>
               </div>
 
-              <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-[#475569]">
-                  <GraduationCap className="h-3.5 w-3.5 text-[#4F46E5]" />
+              <div className="p-2.5 rounded-xl border border-white/10 bg-[#111827]/60 backdrop-blur-md shadow-2xs space-y-1 hover:border-slate-400/30 transition-all">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#CBD5E1]">
+                  <GraduationCap className="h-3.5 w-3.5 text-[#818CF8]" />
                   <span>Education</span>
                 </div>
-                <div className="text-[11px] font-medium text-[#0F172A]">CVR CSE &apos;27</div>
+                <div className="text-[11px] font-medium text-white">CVR CSE &apos;27</div>
               </div>
             </div>
 
@@ -108,45 +108,45 @@ export function Hero() {
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </Button>
 
-              <CopyButton text="srikantacvr@gmail.com" label="Copy Email" className="py-2.5 px-3.5 text-xs font-medium rounded-lg" />
+              <CopyButton text="srikantacvr@gmail.com" label="Copy Email" className="py-3 px-4 text-xs font-medium rounded-xl" />
             </div>
 
-            {/* Verified Public Channels */}
-            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#475569]">
+            {/* Verified Public Channels & Live Hyderabad Clock */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#94A3B8]">
               <span className="font-mono text-xs uppercase tracking-wider text-[#64748B]">Connect:</span>
               <a
                 href="https://github.com/srikanta2006"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
+                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
               >
                 <GitHubIcon className="h-4 w-4" />
                 <span>GitHub</span>
               </a>
-              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
+              <span className="text-white/20" aria-hidden="true">/</span>
               <a
                 href="https://linkedin.com/in/srikanta-bellamkonda"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
+                className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] rounded"
               >
-                <LinkedInIcon className="h-4 w-4" />
+                <LinkedInIcon className="h-4 w-4 text-[#818CF8]" />
                 <span>LinkedIn</span>
               </a>
-              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
-              <div className="inline-flex items-center gap-1.5 text-[#475569] font-mono text-xs">
-                <MapPin className="h-3.5 w-3.5 text-[#4F46E5]" />
+              <span className="text-white/20" aria-hidden="true">/</span>
+              <div className="inline-flex items-center gap-1.5 text-[#CBD5E1] font-mono text-xs">
+                <MapPin className="h-3.5 w-3.5 text-[#818CF8]" />
                 <span>Hyderabad, India</span>
               </div>
-              <span className="text-[#CBD5E1]" aria-hidden="true">·</span>
+              <span className="text-white/20" aria-hidden="true">·</span>
               <LiveClock />
             </div>
           </div>
 
           {/* Supporting Visual / Portrait Frame (Right Column) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-2xl border border-[#E2E8F0] bg-white p-3 shadow-sm">
-              <div className="relative w-full h-full rounded-xl overflow-hidden bg-[#F8FAFC]">
+            <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-3xl border border-white/10 bg-[#111827]/80 backdrop-blur-xl p-3 shadow-2xl shadow-black/80 hover:border-indigo-500/30 transition-all">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[#0B0F19]">
                 <Image
                   src="/images/placeholder-portrait.svg"
                   alt="Srikanta Bellamkonda professional portrait placeholder"
@@ -157,8 +157,8 @@ export function Hero() {
               </div>
 
               {/* Status Caption Tag */}
-              <div className="absolute -bottom-3 -right-2 bg-white border border-[#E2E8F0] rounded-lg px-3 py-1.5 shadow-sm hidden sm:block">
-                <span className="font-mono text-[11px] font-semibold text-[#0F172A]">
+              <div className="absolute -bottom-3 -right-2 bg-[#0D121F]/90 backdrop-blur-md border border-white/10 rounded-xl px-3 py-1.5 shadow-xl hidden sm:block">
+                <span className="font-mono text-[11px] font-semibold text-slate-200">
                   Student Developer · Hyderabad, India
                 </span>
               </div>
@@ -167,7 +167,7 @@ export function Hero() {
         </div>
 
         {/* Interactive Recruiter Perspective Lens */}
-        <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
+        <div className="mt-12 pt-8 border-t border-white/[0.08]">
           <RecruiterLens />
         </div>
       </Container>

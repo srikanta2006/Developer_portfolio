@@ -51,17 +51,17 @@ export function RecruiterLens() {
   const currentLensInfo = LENSES.find((l) => l.id === activeLens) || LENSES[0];
 
   return (
-    <div className="rounded-2xl border border-[#C7D2FE] bg-gradient-to-r from-[#EEF2FF]/95 via-[#F8FAFC] to-[#EEF2FF]/70 p-4 sm:p-5 shadow-xs space-y-3">
+    <div className="rounded-2xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-4 sm:p-5 shadow-2xl space-y-3">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className="flex h-2 w-2 rounded-full bg-[#4F46E5] animate-ping" />
-          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#4338CA]">
+          <span className="flex h-2 w-2 rounded-full bg-[#818CF8] animate-ping" />
+          <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#A5B4FC]">
             Recruiter Perspective Lens:
           </span>
         </div>
 
         {/* Lens Switcher Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-white border border-[#E2E8F0] shadow-2xs">
+        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#0B0F19]/80 border border-white/10 shadow-inner">
           {LENSES.map((lens) => {
             const Icon = lens.icon;
             const isSelected = activeLens === lens.id;
@@ -72,11 +72,11 @@ export function RecruiterLens() {
                 onClick={() => setActiveLens(lens.id)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-[#4F46E5] text-white shadow-xs font-semibold"
-                    : "text-[#64748B] hover:text-[#0F172A] hover:bg-[#F8FAFC]"
+                    ? "bg-[#6366F1] text-white shadow-md shadow-indigo-500/25 font-semibold"
+                    : "text-[#94A3B8] hover:text-white hover:bg-white/[0.06]"
                 }`}
               >
-                <Icon className={`h-3.5 w-3.5 ${isSelected ? "text-white" : "text-[#4F46E5]"}`} />
+                <Icon className={`h-3.5 w-3.5 ${isSelected ? "text-white" : "text-[#818CF8]"}`} />
                 <span>{lens.label}</span>
               </button>
             );
@@ -85,15 +85,15 @@ export function RecruiterLens() {
       </div>
 
       {/* Dynamic Recruiter Briefing Banner */}
-      <div className="pt-2 border-t border-[#E0E7FF] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-        <p className="text-[#312E81] font-medium leading-relaxed">
-          <strong className="text-[#1E1B4B]">{currentLensInfo.tagline}</strong> &mdash;{" "}
-          <span className="text-[#4338CA]">{currentLensInfo.matchReason}</span>
+      <div className="pt-2 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <p className="text-[#E2E8F0] font-medium leading-relaxed">
+          <strong className="text-white font-semibold">{currentLensInfo.tagline}</strong> &mdash;{" "}
+          <span className="text-[#A5B4FC]">{currentLensInfo.matchReason}</span>
         </p>
 
         <Link
           href={currentLensInfo.targetAnchor}
-          className="inline-flex items-center gap-1 font-mono text-xs font-bold text-[#4F46E5] hover:text-[#3730A3] hover:underline shrink-0"
+          className="inline-flex items-center gap-1 font-mono text-xs font-bold text-[#818CF8] hover:text-white hover:underline shrink-0"
         >
           <span>{currentLensInfo.ctaText}</span>
           <ArrowRight className="h-3 w-3" />

@@ -17,13 +17,13 @@ export function Badge({
     "inline-flex items-center font-mono font-medium transition-colors select-none";
 
   const variantStyles = {
-    default: "bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0]",
-    neutral: "bg-white text-[#475569] border border-[#E2E8F0] shadow-2xs",
-    accent: "bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE]",
-    emerald: "bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]",
-    sage: "bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0]",
-    amber: "bg-[#FFFBEB] text-[#D97706] border border-[#FDE68A]",
-    outline: "bg-transparent text-[#334155] border border-[#CBD5E1]",
+    default: "bg-white/[0.06] text-[#E2E8F0] border border-white/10",
+    neutral: "bg-[#1E293B]/70 text-[#CBD5E1] border border-white/[0.08] shadow-2xs",
+    accent: "bg-[#6366F1]/15 text-[#A5B4FC] border border-[#6366F1]/30",
+    emerald: "bg-[#10B981]/15 text-[#6EE7B7] border border-[#10B981]/30",
+    sage: "bg-[#10B981]/15 text-[#6EE7B7] border border-[#10B981]/30",
+    amber: "bg-[#F59E0B]/15 text-[#FCD34D] border border-[#F59E0B]/30",
+    outline: "bg-transparent text-[#94A3B8] border border-white/15",
   };
 
   const sizeStyles = {

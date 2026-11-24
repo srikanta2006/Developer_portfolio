@@ -24,19 +24,19 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-sans font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none active:scale-[0.98]";
+      "inline-flex items-center justify-center font-sans font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F19] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none active:scale-[0.98]";
 
     const variantStyles = {
       primary:
-        "bg-[#0F172A] text-white hover:bg-[#1E293B] shadow-sm hover:shadow border border-[#0F172A]",
+        "bg-white text-[#0B0F19] hover:bg-slate-200 shadow-md hover:shadow-lg border border-white font-semibold",
       secondary:
-        "bg-white text-[#0F172A] hover:bg-[#F8FAFC] shadow-2xs hover:shadow-xs border border-[#E2E8F0]",
+        "bg-white/[0.06] text-white hover:bg-white/[0.12] shadow-2xs border border-white/15 backdrop-blur-md",
       accent:
-        "bg-[#4F46E5] text-white hover:bg-[#4338CA] shadow-sm hover:shadow-md hover:shadow-indigo-500/20 border border-[#4F46E5]",
+        "bg-[#6366F1] text-white hover:bg-[#4F46E5] shadow-md hover:shadow-indigo-500/25 border border-[#6366F1]",
       ghost:
-        "bg-transparent text-[#0F172A] hover:bg-[#F1F5F9] border border-transparent",
+        "bg-transparent text-[#CBD5E1] hover:bg-white/[0.06] border border-transparent hover:text-white",
       outline:
-        "bg-transparent text-[#0F172A] hover:bg-white active:bg-[#F8FAFC] border border-[#CBD5E1]",
+        "bg-transparent text-[#CBD5E1] hover:bg-white/[0.06] border border-white/15 hover:border-white/30 hover:text-white",
     };
 
     const sizeStyles = {

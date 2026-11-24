@@ -20,16 +20,16 @@ export default function ErrorBoundary({
   return (
     <div className="min-h-[70vh] flex items-center justify-center py-20">
       <Container size="narrow">
-        <div className="rounded-2xl border border-[#E8E5DD] bg-white p-8 sm:p-12 text-center space-y-6 shadow-xs">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#D9534F] bg-[#FDF2F2] px-3 py-1 rounded-full border border-[#F8D7DA]">
+        <div className="rounded-2xl border border-white/10 bg-[#0D121F]/80 backdrop-blur-xl p-8 sm:p-12 text-center space-y-6 shadow-2xl">
+          <span className="font-mono text-xs uppercase tracking-widest text-red-400 bg-red-950/40 px-3 py-1 rounded-full border border-red-500/30">
             Rendering Issue Encountered
           </span>
 
-          <h1 className="font-display text-3xl font-medium tracking-tight text-[#171717]">
+          <h1 className="font-heading text-3xl font-bold tracking-tight text-white">
             Something unexpected occurred.
           </h1>
 
-          <p className="font-sans text-sm text-[#706E6B] leading-relaxed max-w-md mx-auto">
+          <p className="font-sans text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
             An isolated component error occurred during rendering. You can attempt to re-render the view or return to the portfolio home.
           </p>
 

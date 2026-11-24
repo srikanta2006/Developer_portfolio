@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-page: #FAFAFC;
-  --color-surface: #FFFFFF;
-  --color-primary: #0F172A;
-  --color-secondary: #475569;
+  --color-page: #0B0F19;
+  --color-surface: #111827;
+  --color-primary: #F8FAFC;
+  --color-secondary: #94A3B8;
   --color-muted: #64748B;
-  --color-accent: #4F46E5;
-  --color-accent-hover: #4338CA;
-  --color-accent-subtle: #EEF2FF;
-  --color-emerald-accent: #059669;
-  --color-emerald-subtle: #ECFDF5;
-  --color-border: #E2E8F0;
-  --color-border-subtle: #F1F5F9;
+  --color-accent: #6366F1;
+  --color-accent-hover: #4F46E5;
+  --color-accent-subtle: rgba(99, 102, 241, 0.1);
+  --color-emerald-accent: #10B981;
+  --color-emerald-subtle: rgba(16, 185, 129, 0.1);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.04);
 
   --font-heading: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -20,13 +20,14 @@
 }
 
 :root {
-  --background: #FAFAFC;
-  --foreground: #0F172A;
+  --background: #0B0F19;
+  --foreground: #F8FAFC;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6rem;
+  color-scheme: dark;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,10 +48,47 @@ body {
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 60%, rgba(139, 92, 246, 0.08), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Framer-style subtle glow cards */
+.glass-panel {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.15);
+}
+
+/* Custom scrollbar for dark canvas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 9999px;
+  border: 2px solid #0B0F19;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
 
 /* High-craft focus state */
 :focus-visible {
-  outline: 2px solid #4F46E5;
+  outline: 2px solid #6366F1;
   outline-offset: 2px;
 }

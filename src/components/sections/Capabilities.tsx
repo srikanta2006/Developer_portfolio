@@ -48,7 +48,7 @@ export function Capabilities() {
   }, [filteredCategories]);
 
   return (
-    <section id="capabilities" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
+    <section id="capabilities" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20">
       <Container>
         <SectionHeading
           number="03 / Capabilities"
@@ -59,7 +59,7 @@ export function Capabilities() {
         {/* Interactive Controls Bar */}
         <div className="mt-8 mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Category Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-[#111827]/80 border border-white/10 text-xs shadow-lg">
             {(
               [
                 { label: "All", id: "All" },
@@ -74,10 +74,10 @@ export function Capabilities() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id as FilterTab)}
-                className={`px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-xl font-medium transition-all cursor-pointer ${
                   activeTab === tab.id
-                    ? "bg-white text-[#4F46E5] shadow-xs font-semibold border border-[#E2E8F0]"
-                    : "text-[#64748B] hover:text-[#0F172A]"
+                    ? "bg-[#6366F1] text-white shadow-xs font-semibold shadow-indigo-500/25"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
                 {tab.label}
@@ -88,27 +88,27 @@ export function Capabilities() {
           {/* Quick Search & Strong Skills Toggle */}
           <div className="flex items-center gap-3">
             <div className="relative flex-1 sm:w-56">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#94A3B8]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search skills (e.g. Python, LangChain)..."
-                className="w-full pl-8 pr-3 py-1.5 rounded-lg border border-[#E2E8F0] bg-white text-xs text-[#0F172A] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#4F46E5]"
+                className="w-full pl-8 pr-3 py-1.5 rounded-xl border border-white/10 bg-[#0B0F19] text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-[#6366F1]"
               />
             </div>
 
             <button
               type="button"
               onClick={() => setOnlyStrong(!onlyStrong)}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer shrink-0 ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium transition-colors cursor-pointer shrink-0 ${
                 onlyStrong
-                  ? "bg-[#EEF2FF] text-[#4F46E5] border-[#C7D2FE] font-semibold"
-                  : "bg-white text-[#64748B] border-[#E2E8F0] hover:text-[#0F172A]"
+                  ? "bg-[#6366F1]/20 text-[#A5B4FC] border-[#6366F1] font-semibold"
+                  : "bg-white/[0.04] text-slate-300 border-white/10 hover:text-white hover:bg-white/[0.08]"
               }`}
               title="Show Advanced & Intermediate proficiencies only"
             >
-              <Sparkles className="h-3.5 w-3.5 text-[#4F46E5]" />
+              <Sparkles className="h-3.5 w-3.5 text-[#818CF8]" />
               <span className="hidden sm:inline">Core Strengths Only</span>
               <span className="sm:hidden">Core</span>
             </button>
@@ -116,31 +116,31 @@ export function Capabilities() {
         </div>
 
         {/* Legend & Count Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 text-xs text-[#64748B] pb-3 border-b border-[#E2E8F0]">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 text-xs text-slate-400 pb-3 border-b border-white/[0.08]">
           <div className="flex items-center gap-4">
-            <span className="font-mono text-xs uppercase tracking-wider">Proficiency:</span>
+            <span className="font-mono text-xs uppercase tracking-wider text-slate-500">Proficiency:</span>
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#059669]" />
-              <span>Advanced</span>
+              <span className="h-2 w-2 rounded-full bg-[#10B981]" />
+              <span className="text-slate-300">Advanced</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#4F46E5]" />
-              <span>Intermediate</span>
+              <span className="h-2 w-2 rounded-full bg-[#6366F1]" />
+              <span className="text-slate-300">Intermediate</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#94A3B8]" />
-              <span>Beginner</span>
+              <span className="h-2 w-2 rounded-full bg-slate-500" />
+              <span className="text-slate-300">Beginner</span>
             </div>
           </div>
 
-          <div className="font-mono text-[11px] text-[#475569]">
-            Showing <span className="font-bold text-[#0F172A]">{totalVisibleSkills}</span> skills
+          <div className="font-mono text-[11px] text-slate-400">
+            Showing <span className="font-bold text-white">{totalVisibleSkills}</span> skills
           </div>
         </div>
 
         {/* Grid of Skill Categories */}
         {filteredCategories.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-[#CBD5E1] p-8 text-center text-sm text-[#64748B]">
+          <div className="rounded-2xl border border-dashed border-white/15 p-8 text-center text-sm text-slate-400">
             No skills found matching &ldquo;{searchQuery}&rdquo;. Try clearing your search.
           </div>
         ) : (
@@ -148,30 +148,30 @@ export function Capabilities() {
             {filteredCategories.map((category) => (
               <div
                 key={category.category}
-                className="rounded-xl border border-[#E2E8F0] bg-white p-5 space-y-3 shadow-2xs hover:border-[#4F46E5]/40 transition-colors"
+                className="rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 space-y-3 shadow-xl hover:border-indigo-500/40 transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="font-heading text-sm font-bold text-[#0F172A]">
+                  <h3 className="font-heading text-sm font-bold text-white">
                     {category.category}
                   </h3>
-                  <span className="font-mono text-[11px] text-[#64748B] bg-[#F1F5F9] px-2 py-0.5 rounded-full border border-[#E2E8F0]">
+                  <span className="font-mono text-[11px] text-slate-400 bg-white/[0.06] px-2.5 py-0.5 rounded-full border border-white/10">
                     {category.skills.length}
                   </span>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#E2E8F0]">
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
                   {category.skills.map((skill) => (
                     <span
                       key={skill.name}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-medium text-[#0F172A] hover:border-[#CBD5E1] transition-colors"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-medium text-slate-200 hover:border-white/20 transition-colors"
                     >
                       <span
                         className={`h-1.5 w-1.5 rounded-full shrink-0 ${
                           skill.proficiency === "Advanced"
-                            ? "bg-[#059669]"
+                            ? "bg-[#10B981]"
                             : skill.proficiency === "Intermediate"
-                            ? "bg-[#4F46E5]"
-                            : "bg-[#94A3B8]"
+                            ? "bg-[#6366F1]"
+                            : "bg-slate-500"
                         }`}
                         aria-hidden="true"
                       />

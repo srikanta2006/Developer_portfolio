@@ -16,13 +16,13 @@ export function About() {
         {/* Bento Proof Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-4">
           {/* Card 1: 🏆 7+ Hackathons & Tech Events & Internal SIH Win (Top Proof, Span 7) */}
-          <div className="md:col-span-7 rounded-2xl border-2 border-[#FDE68A] bg-gradient-to-br from-[#FFFBEB] via-white to-[#FEF3C7]/30 p-6 sm:p-8 space-y-4 shadow-xs hover:border-[#F59E0B] transition-colors">
+          <div className="md:col-span-7 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#111827]/80 to-[#111827]/50 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-amber-400/50 transition-all">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-[#FEF3C7] text-[#D97706]">
+                <div className="p-2 rounded-xl bg-amber-500/20 text-[#FBBF24]">
                   <Trophy className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#B45309]">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#FCD34D]">
                   7+ Hackathons &amp; Tech Events · Internal SIH Winner
                 </span>
               </div>
@@ -30,98 +30,143 @@ export function About() {
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-heading text-xl font-bold text-[#0F172A]">
+              <h3 className="font-heading text-xl font-bold text-white">
                 7 Hackathons + Tech Events &amp; SIH Screening Victory
               </h3>
-              <p className="text-sm text-[#78350F] font-medium leading-relaxed">
+              <p className="text-sm text-amber-100/80 font-medium leading-relaxed">
                 Led team to 1st place in the competitive college screening for Smart India Hackathon. Competed across 7 hackathons plus collegiate tech events, mastering zero-to-one prototyping, async debugging, and agile engineering under intense sprint deadlines.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#FDE68A]">
-              <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-amber-500/20">
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
                 7+ Hackathons &amp; Tech Events
               </span>
-              <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
                 1st Place Internal SIH
               </span>
-              <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
                 0 &rarr; 1 Rapid Architecture
               </span>
             </div>
           </div>
 
           {/* Card 2: 💼 Industry Internship (Span 5) */}
-          <div className="md:col-span-5 rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-8 space-y-4 shadow-xs hover:border-[#4F46E5]/40 transition-colors">
+          <div className="md:col-span-5 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-indigo-500/40 transition-all">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-[#EEF2FF] text-[#4F46E5]">
+                <div className="p-2 rounded-xl bg-indigo-500/20 text-[#A5B4FC]">
                   <Briefcase className="h-5 w-5" />
                 </div>
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#4F46E5]">
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#A5B4FC]">
                   Industry Experience
                 </span>
               </div>
-              <Badge variant="accent" size="sm">Internship</Badge>
+              <Badge variant="accent" size="sm">May – July 2026</Badge>
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-heading text-lg font-bold text-[#0F172A]">
+              <h3 className="font-heading text-xl font-bold text-white">
                 Data Science Intern
               </h3>
-              <p className="font-sans text-xs font-semibold text-[#4F46E5]">
-                Celebal Technologies · Remote
-              </p>
-              <p className="text-xs text-[#475569] leading-relaxed pt-1">
-                Engineered end-to-end data pipelines, XGBoost classification models, and hands-on Retrieval-Augmented Generation (RAG) applications.
+              <p className="text-sm text-[#94A3B8] font-medium">
+                Celebal Technologies &middot; Remote
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#E2E8F0]">
-              <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#F8FAFC] text-[#334155] border border-[#E2E8F0]">
-                Python & XGBoost
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Engineered end-to-end data science pipelines, automated preprocessing, and developed classification models (XGBoost). Built hands-on RAG mini-projects combining vector search with LLMs.
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.08]">
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-white/[0.06] text-slate-300 border border-white/10">
+                Python &amp; XGBoost
               </span>
-              <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-[#F8FAFC] text-[#334155] border border-[#E2E8F0]">
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-white/[0.06] text-slate-300 border border-white/10">
                 RAG Mini-Projects
               </span>
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-white/[0.06] text-slate-300 border border-white/10">
+                Scikit-learn
+              </span>
             </div>
           </div>
 
-          {/* Card 3: 🎓 Academic Foundation (Span 6) */}
-          <div className="md:col-span-6 rounded-2xl border border-[#E2E8F0] bg-white p-6 space-y-3 shadow-xs hover:border-[#4F46E5]/40 transition-colors">
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-xl bg-[#F1F5F9] text-[#0F172A]">
-                <GraduationCap className="h-5 w-5" />
+          {/* Card 3: 🎓 Education (Span 5) */}
+          <div className="md:col-span-5 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-emerald-500/40 transition-all">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="p-2 rounded-xl bg-emerald-500/20 text-[#6EE7B7]">
+                  <GraduationCap className="h-5 w-5" />
+                </div>
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#6EE7B7]">
+                  Education
+                </span>
               </div>
-              <div>
-                <h4 className="font-heading text-base font-bold text-[#0F172A]">
-                  CVR College of Engineering
-                </h4>
-                <p className="text-xs text-[#64748B]">B.Tech in Computer Science and Engineering (2023 – 2027)</p>
-              </div>
+              <Badge variant="emerald" size="sm">Expected May 2027</Badge>
             </div>
-            <p className="text-xs text-[#475569] leading-relaxed">
-              Curriculum centered on Data Structures & Algorithms, Distributed Backend Systems, Database Architectures, and Applied Machine Learning.
+
+            <div className="space-y-1">
+              <h3 className="font-heading text-lg font-bold text-white">
+                B.Tech &mdash; Computer Science &amp; Engineering
+              </h3>
+              <p className="text-sm text-[#94A3B8] font-medium">
+                CVR College of Engineering &middot; Hyderabad, India
+              </p>
+            </div>
+
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Core foundation in Data Structures, Algorithms, Operating Systems, Database Management, and System Architecture with active experimentation in Agentic AI.
             </p>
+
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.08]">
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-white/[0.06] text-slate-300 border border-white/10">
+                Data Structures
+              </span>
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-white/[0.06] text-slate-300 border border-white/10">
+                Algorithms
+              </span>
+              <span className="font-mono text-[11px] px-2.5 py-0.5 rounded-md bg-white/[0.06] text-slate-300 border border-white/10">
+                System Design
+              </span>
+            </div>
           </div>
 
-          {/* Card 4: ⚡ Engineering Philosophy (Span 6) */}
-          <div className="md:col-span-6 rounded-2xl border border-[#C7D2FE] bg-gradient-to-br from-[#EEF2FF]/40 to-white p-6 space-y-3 shadow-xs hover:border-[#4F46E5] transition-colors">
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-xl bg-[#EEF2FF] text-[#4F46E5]">
-                <Sparkles className="h-5 w-5" />
+          {/* Card 4: ⚡ Engineering Philosophy (Span 7) */}
+          <div className="md:col-span-7 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-indigo-500/40 transition-all">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="p-2 rounded-xl bg-indigo-500/20 text-[#A5B4FC]">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+                <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#A5B4FC]">
+                  Builder Philosophy
+                </span>
               </div>
-              <h4 className="font-heading text-base font-bold text-[#0F172A]">
-                Autonomous Builder Philosophy
-              </h4>
+              <Badge variant="accent" size="sm">Hands-On Ownership</Badge>
             </div>
-            <p className="text-xs text-[#334155] font-medium leading-relaxed italic">
-              “I believe in learning by building, taking ownership of ideas, and transforming concepts into working, verifiable products.”
-            </p>
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              <Badge variant="accent" size="sm">Full-Stack Development</Badge>
-              <Badge variant="emerald" size="sm">Multi-Agent Systems</Badge>
-              <Badge variant="neutral" size="sm">RAG & Vector DBs</Badge>
+
+            <div className="space-y-1">
+              <h3 className="font-heading text-xl font-bold text-white">
+                The Engineer Who Builds Intelligent Products
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                I believe in learning by building, taking complete ownership of ideas, and turning prototypes into production-grade systems. I combine full-stack reliability with multi-agent intelligence.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/[0.08] text-center">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <span className="font-mono text-xs font-bold text-white block">Backend</span>
+                <span className="text-[10px] text-slate-400">APIs &amp; Systems</span>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <span className="font-mono text-xs font-bold text-white block">Applied AI</span>
+                <span className="text-[10px] text-slate-400">Agents &amp; RAG</span>
+              </div>
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                <span className="font-mono text-xs font-bold text-white block">Execution</span>
+                <span className="text-[10px] text-slate-400">0 &rarr; 1 Delivery</span>
+              </div>
             </div>
           </div>
         </div>

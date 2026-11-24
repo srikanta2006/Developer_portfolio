@@ -28,8 +28,8 @@ export function LiveClock() {
   }, []);
 
   return (
-    <span className="inline-flex items-center gap-1.5 font-mono text-xs text-[#475569]">
-      <Clock className="h-3 w-3 text-[#4F46E5]" />
+    <span className="inline-flex items-center gap-1.5 font-mono text-xs text-[#94A3B8]">
+      <Clock className="h-3 w-3 text-[#818CF8]" />
       <span>{timeString}</span>
     </span>
   );
