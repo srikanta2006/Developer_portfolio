@@ -8,8 +8,8 @@ export function HackathonStats() {
       <Container>
         <SectionHeading
           number="Proof / Rapid Prototyping"
-          title="12× Hackathon Battletest & Execution Velocity"
-          description="High-pressure prototyping under intense 24-to-36 hour sprint deadlines. Survived 12 collegiate & national hackathons, winning 1st Place in the SIH internal college screening."
+          title="7+ Hackathons, Tech Events & Execution Velocity"
+          description="High-pressure prototyping under intense sprint deadlines. Competed in 7 hackathons plus collegiate tech events, winning 1st Place in the SIH internal college screening."
         />
 
         {/* 4 Kinetic Metric Counters */}
@@ -22,10 +22,10 @@ export function HackathonStats() {
               <Trophy className="h-4 w-4 text-[#D97706]" />
             </div>
             <div className="font-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
-              12+
+              7+
             </div>
             <p className="text-xs text-[#78350F] font-medium pt-1">
-              Collegiate &amp; national hackathons competed
+              Hackathons &amp; tech events competed
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export function HackathonStats() {
               <Clock className="h-4 w-4 text-[#059669]" />
             </div>
             <div className="font-heading text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
-              400+
+              250+
             </div>
             <p className="text-xs text-[#064E3B] font-medium pt-1">
               Hours of zero-to-one prototyping under strict deadlines
@@ -75,7 +75,7 @@ export function HackathonStats() {
           </div>
         </div>
 
-        {/* What 12 Hackathons Taught Me (The 3 Core Lessons) */}
+        {/* What Hackathons Taught Me (The 3 Core Lessons) */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="p-5 sm:p-6 rounded-xl border border-[#E2E8F0] bg-white shadow-2xs space-y-2 hover:border-[#F59E0B] transition-colors">
             <div className="flex items-center gap-2 text-[#D97706]">
@@ -97,7 +97,7 @@ export function HackathonStats() {
               </h4>
             </div>
             <p className="text-xs text-[#475569] leading-relaxed">
-              API rate limits, WebSocket reconnection storms, and race conditions always hit at 3 AM. Competing in 12 hackathons taught me defensive error handling, fallback caching, and how to debug calmly when judges are minutes away.
+              API rate limits, WebSocket reconnection storms, and race conditions always hit late in sprints. Competing in 7 hackathons plus collegiate tech events taught me defensive error handling, fallback caching, and how to debug calmly when judges are minutes away.
             </p>
           </div>
 

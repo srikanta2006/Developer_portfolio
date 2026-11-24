@@ -15,7 +15,7 @@ export function About() {
 
         {/* Bento Proof Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-4">
-          {/* Card 1: 🏆 12x Hackathons & Internal SIH Win (Top Proof, Span 7) */}
+          {/* Card 1: 🏆 7+ Hackathons & Tech Events & Internal SIH Win (Top Proof, Span 7) */}
           <div className="md:col-span-7 rounded-2xl border-2 border-[#FDE68A] bg-gradient-to-br from-[#FFFBEB] via-white to-[#FEF3C7]/30 p-6 sm:p-8 space-y-4 shadow-xs hover:border-[#F59E0B] transition-colors">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -23,7 +23,7 @@ export function About() {
                   <Trophy className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#B45309]">
-                  12× Hackathon Competitor · Internal SIH Winner
+                  7+ Hackathons &amp; Tech Events · Internal SIH Winner
                 </span>
               </div>
               <Badge variant="amber" size="sm">Internal 1st Place</Badge>
@@ -31,16 +31,16 @@ export function About() {
 
             <div className="space-y-1">
               <h3 className="font-heading text-xl font-bold text-[#0F172A]">
-                12 Hackathons &amp; Internal SIH Screening Victory
+                7 Hackathons + Tech Events &amp; SIH Screening Victory
               </h3>
               <p className="text-sm text-[#78350F] font-medium leading-relaxed">
-                Led team to 1st place in the competitive college screening for Smart India Hackathon. Competed across ~12 collegiate hackathons, mastering zero-to-one prototyping, async debugging, and agile engineering under 24–36 hour deadlines.
+                Led team to 1st place in the competitive college screening for Smart India Hackathon. Competed across 7 hackathons plus collegiate tech events, mastering zero-to-one prototyping, async debugging, and agile engineering under intense sprint deadlines.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#FDE68A]">
               <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
-                12 Hackathons Participated
+                7+ Hackathons &amp; Tech Events
               </span>
               <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
                 1st Place Internal SIH

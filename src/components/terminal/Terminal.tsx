@@ -71,7 +71,7 @@ export function Terminal() {
                 <span className="text-[#4F46E5] font-semibold">arena</span>: Multi-agent AI courtroom simulation
               </div>
               <div>
-                <span className="text-[#4F46E5] font-semibold">hackathons</span>: 12x hackathons & SIH screening log
+                <span className="text-[#4F46E5] font-semibold">hackathons</span>: 7+ hackathons, tech events & SIH log
               </div>
               <div>
                 <span className="text-[#4F46E5] font-semibold">about</span>: Brief professional bio
@@ -131,16 +131,16 @@ export function Terminal() {
         output = (
           <div className="space-y-2 text-xs font-mono p-3 rounded-lg bg-[#FFFBEB] border border-[#FDE68A]">
             <div className="text-[#0F172A] font-bold flex items-center justify-between">
-              <span>🏆 12× Hackathon Battletest Log</span>
+              <span>🏆 7+ Hackathons &amp; Tech Events Log</span>
               <span className="text-[10px] text-[#B45309] bg-white px-2 py-0.5 rounded border border-[#FDE68A]">1st Place Internal SIH</span>
             </div>
             <div className="space-y-1.5 pt-1 border-t border-[#FDE68A] text-[11px] text-[#78350F]">
               <p>• <strong>Smart India Hackathon (SIH) Internal Screening:</strong> 1st Place Winner &amp; Team Lead.</p>
-              <p>• <strong>Collegiate &amp; National Competitions:</strong> Competed in ~12 hackathons across 2023–Present.</p>
-              <p>• <strong>Core Takeaway:</strong> 400+ sprint hours mastering high-pressure zero-to-one prototyping and zero-distraction tooling (directly inspired HackOS).</p>
+              <p>• <strong>Collegiate &amp; National Competitions:</strong> Competed in 7 hackathons plus collegiate tech events across 2023–Present.</p>
+              <p>• <strong>Core Takeaway:</strong> 250+ sprint hours mastering high-pressure zero-to-one prototyping and zero-distraction tooling (directly inspired HackOS).</p>
             </div>
             <p className="text-[10px] text-[#B45309] pt-1">
-              💡 Tip: Check out the <strong>12× Hackathon Battletest</strong> interactive section on this page!
+              💡 Tip: Check out the <strong>7+ Hackathons &amp; Tech Events</strong> section on the portfolio!
             </p>
           </div>
         );

@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 import { Container } from "./Container";
 
 const NAV_ITEMS = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
-  { label: "Hackathons", href: "#hackathons" },
-  { label: "Skills", href: "#capabilities" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Work", href: "/#work" },
+  { label: "Hackathons", href: "/#hackathons" },
+  { label: "Skills", href: "/#capabilities" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Terminal", href: "/terminal", isTerminal: true },
 ];
 
 export function Header() {
@@ -80,9 +81,14 @@ export function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="px-3.5 py-1.5 text-sm font-medium text-[#475569] hover:text-[#0F172A] transition-colors rounded-md hover:bg-black/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5]"
+                  className={
+                    item.isTerminal
+                      ? "ml-1 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded-lg bg-white border border-[#CBD5E1] text-[#0F172A] hover:border-[#4F46E5] hover:text-[#4F46E5] shadow-2xs transition-colors"
+                      : "px-3.5 py-1.5 text-sm font-medium text-[#475569] hover:text-[#0F172A] transition-colors rounded-md hover:bg-black/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5]"
+                  }
                 >
-                  {item.label}
+                  {item.isTerminal && <Terminal className="h-3 w-3 text-[#4F46E5]" />}
+                  <span>{item.label}</span>
                 </Link>
               ))}
             </nav>
@@ -124,9 +130,14 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-3 text-lg font-medium text-[#0F172A] border-b border-[#E2E8F0] hover:text-[#4F46E5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
+                className={
+                  item.isTerminal
+                    ? "py-3 text-lg font-mono font-semibold text-[#4F46E5] border-b border-[#E2E8F0] flex items-center gap-2"
+                    : "py-3 text-lg font-medium text-[#0F172A] border-b border-[#E2E8F0] hover:text-[#4F46E5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
+                }
               >
-                {item.label}
+                {item.isTerminal && <Terminal className="h-4 w-4" />}
+                <span>{item.label}</span>
               </Link>
             ))}
           </nav>

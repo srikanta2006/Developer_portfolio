@@ -4,14 +4,12 @@ import { SelectedWork } from "@/components/sections/SelectedWork";
 import { HackathonStats } from "@/components/sections/HackathonStats";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { Experience } from "@/components/sections/Experience";
-import { GitHubActivity } from "@/components/sections/GitHubActivity";
-import { TerminalSection } from "@/components/sections/TerminalSection";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
     <>
-      {/* 1. Hero with Recruiter Lens */}
+      {/* 1. Hero with Recruiter Perspective Lens */}
       <Hero />
 
       {/* 2. About Identity & Bento Proof */}
@@ -20,22 +18,16 @@ export default function Home() {
       {/* 3. Selected Work with Architecture Blueprints & Interactive Courtroom Simulator */}
       <SelectedWork />
 
-      {/* 4. 12x Hackathon Battletest & Execution Velocity */}
+      {/* 4. 7+ Hackathons & Tech Events Battletest */}
       <HackathonStats />
 
-      {/* 5. Technical Capabilities with Live Filter */}
+      {/* 5. Technical Capabilities with Dynamic Category Filter */}
       <Capabilities />
 
-      {/* 6. Experience & Journey */}
+      {/* 6. Experience & Journey Timeline */}
       <Experience />
 
-      {/* 7. GitHub Activity */}
-      <GitHubActivity />
-
-      {/* 8. Interactive Terminal */}
-      <TerminalSection />
-
-      {/* 9. Contact */}
+      {/* 7. Effortless Contact */}
       <Contact />
     </>
   );

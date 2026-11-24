@@ -39,12 +39,12 @@ export function RecruiterLens() {
     },
     {
       id: "hackathon" as RoleLens,
-      label: "12× Hackathon Veteran",
+      label: "7+ Hackathons & Events",
       icon: Trophy,
-      tagline: "12 Hackathons Survived & Built · 1st Place SIH Internal Screening Selection.",
-      matchReason: "Key Proof: 400+ sprint hours, high-velocity zero-to-one delivery, and HackOS origin.",
+      tagline: "7 Hackathons & Collegiate Tech Events · 1st Place SIH Internal Screening.",
+      matchReason: "Key Proof: 250+ sprint hours, high-velocity zero-to-one delivery, and HackOS origin.",
       targetAnchor: "#hackathons",
-      ctaText: "View 12× Hackathon Battletest",
+      ctaText: "View Hackathons & Events",
     },
   ];
 

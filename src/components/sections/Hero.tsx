@@ -71,9 +71,9 @@ export function Hero() {
               <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[#D97706]">
                   <Trophy className="h-3.5 w-3.5" />
-                  <span>12+ Hackathons</span>
+                  <span>7+ Hackathons</span>
                 </div>
-                <div className="text-[11px] font-medium text-[#0F172A]">SIH Internal Winner</div>
+                <div className="text-[11px] font-medium text-[#0F172A] truncate">+ Tech Events · SIH Win</div>
               </div>
 
               <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">

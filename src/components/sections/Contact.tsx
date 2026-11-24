@@ -32,7 +32,7 @@ export function Contact() {
       <Container>
         <div className="max-w-2xl mx-auto rounded-2xl border border-[#E2E8F0] bg-white p-8 sm:p-12 shadow-sm text-center space-y-6">
           <SectionHeading
-            number="07 / Contact"
+            number="05 / Contact"
             title="Let's build something intelligent."
             description="Open for software engineering challenges, multi-agent AI systems, and internship or full-time opportunities."
             className="text-center mx-auto"
