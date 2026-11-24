@@ -14,12 +14,12 @@ export function HackathonStats() {
 
         {/* 4 Kinetic Metric Counters */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-          <div className="p-5 sm:p-6 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#111827]/70 to-[#111827]/50 backdrop-blur-xl shadow-xl space-y-1 hover:border-amber-400/50 transition-all">
+          <div className="p-5 sm:p-6 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#111827]/70 to-[#111827]/50 backdrop-blur-xl shadow-xl space-y-1 hover:border-amber-400/50 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#FCD34D]">
                 Battletested
               </span>
-              <Trophy className="h-4 w-4 text-[#FBBF24]" />
+              <Trophy className="h-4 w-4 text-[#FBBF24] transition-transform duration-300 group-hover:scale-110" />
             </div>
             <div className="font-heading text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-400">
               7+
@@ -29,12 +29,12 @@ export function HackathonStats() {
             </p>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-[#111827]/70 to-[#111827]/50 backdrop-blur-xl shadow-xl space-y-1 hover:border-indigo-400/50 transition-all">
+          <div className="p-5 sm:p-6 rounded-3xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/10 via-[#111827]/70 to-[#111827]/50 backdrop-blur-xl shadow-xl space-y-1 hover:border-indigo-400/50 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#A5B4FC]">
                 SIH Screening
               </span>
-              <CheckCircle className="h-4 w-4 text-[#818CF8]" />
+              <CheckCircle className="h-4 w-4 text-[#818CF8] transition-transform duration-300 group-hover:scale-110" />
             </div>
             <div className="font-heading text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 to-indigo-400">
               1st Place
@@ -44,12 +44,12 @@ export function HackathonStats() {
             </p>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 via-[#111827]/70 to-[#111827]/50 backdrop-blur-xl shadow-xl space-y-1 hover:border-emerald-400/50 transition-all">
+          <div className="p-5 sm:p-6 rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/10 via-[#111827]/70 to-[#111827]/50 backdrop-blur-xl shadow-xl space-y-1 hover:border-emerald-400/50 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-[#6EE7B7]">
                 Sprint Speed
               </span>
-              <Clock className="h-4 w-4 text-[#34D399]" />
+              <Clock className="h-4 w-4 text-[#34D399] transition-transform duration-300 group-hover:scale-110" />
             </div>
             <div className="font-heading text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-emerald-400">
               250+
@@ -59,12 +59,12 @@ export function HackathonStats() {
             </p>
           </div>
 
-          <div className="p-5 sm:p-6 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl shadow-xl space-y-1 hover:border-white/25 transition-all">
+          <div className="p-5 sm:p-6 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl shadow-xl space-y-1 hover:border-white/25 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-400">
                 Delivery Rate
               </span>
-              <Rocket className="h-4 w-4 text-[#818CF8]" />
+              <Rocket className="h-4 w-4 text-[#818CF8] transition-transform duration-300 group-hover:scale-110" />
             </div>
             <div className="font-heading text-3xl sm:text-4xl font-extrabold text-white">
               100%
@@ -77,10 +77,10 @@ export function HackathonStats() {
 
         {/* What Hackathons Taught Me (The 3 Core Lessons) */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="p-6 sm:p-7 rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl shadow-xl space-y-2 hover:border-amber-400/40 transition-colors">
+          <div className="p-6 sm:p-7 rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl shadow-xl space-y-2 hover:border-amber-400/40 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center gap-2 text-[#FBBF24]">
-              <Zap className="h-4 w-4" />
-              <h4 className="font-heading text-sm font-bold text-white">
+              <Zap className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <h4 className="font-heading text-sm font-bold text-white group-hover:text-amber-200 transition-colors">
                 1. Speed as an Architecture Feature
               </h4>
             </div>
@@ -89,10 +89,10 @@ export function HackathonStats() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl shadow-xl space-y-2 hover:border-indigo-400/40 transition-colors">
+          <div className="p-6 sm:p-7 rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl shadow-xl space-y-2 hover:border-indigo-400/40 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center gap-2 text-[#818CF8]">
-              <ShieldAlert className="h-4 w-4" />
-              <h4 className="font-heading text-sm font-bold text-white">
+              <ShieldAlert className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <h4 className="font-heading text-sm font-bold text-white group-hover:text-indigo-200 transition-colors">
                 2. Live Triage Under Fire
               </h4>
             </div>
@@ -101,10 +101,10 @@ export function HackathonStats() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl shadow-xl space-y-2 hover:border-emerald-400/40 transition-colors">
+          <div className="p-6 sm:p-7 rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl shadow-xl space-y-2 hover:border-emerald-400/40 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center gap-2 text-[#34D399]">
-              <Rocket className="h-4 w-4" />
-              <h4 className="font-heading text-sm font-bold text-white">
+              <Rocket className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <h4 className="font-heading text-sm font-bold text-white group-hover:text-emerald-200 transition-colors">
                 3. Products Born From Friction
               </h4>
             </div>

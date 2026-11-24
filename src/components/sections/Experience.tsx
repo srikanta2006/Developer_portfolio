@@ -38,7 +38,7 @@ export function Experience() {
                 aria-hidden="true"
               />
 
-              <div className="rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 shadow-xl space-y-4 hover:border-indigo-500/40 transition-colors">
+              <div className="rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 shadow-xl space-y-4 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 ease-out shimmer-card">
                 {/* Header Meta: Category, Period, Organization */}
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2">

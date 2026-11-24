@@ -2,7 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { CopyButton } from "@/components/ui/CopyButton";
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -28,12 +28,18 @@ export function Contact() {
   const emailAddress = "srikantacvr@gmail.com";
 
   return (
-    <section id="contact" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20">
+    <section id="contact" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20 relative overflow-hidden">
       <Container>
-        <div className="relative max-w-2xl mx-auto rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-8 sm:p-12 shadow-2xl text-center space-y-6 overflow-hidden">
-          {/* Subtle Ambient Radial Glow */}
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative max-w-2xl mx-auto rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-8 sm:p-12 shadow-2xl text-center space-y-6 overflow-hidden transition-all duration-500 hover:border-indigo-500/40 hover:shadow-indigo-500/10 shimmer-card">
+          {/* Subtle Ambient Radial Glow with pulse animation */}
+          <div 
+            className="absolute -top-24 -left-24 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow" 
+            aria-hidden="true" 
+          />
+          <div 
+            className="absolute -bottom-24 -right-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" 
+            aria-hidden="true" 
+          />
 
           <SectionHeading
             number="05 / Contact"
@@ -48,9 +54,9 @@ export function Contact() {
               variant="primary"
               size="lg"
               href={`mailto:${emailAddress}`}
-              className="gap-2 text-sm sm:text-base px-6 py-3 w-full sm:w-auto"
+              className="gap-2 text-sm sm:text-base px-6 py-3 w-full sm:w-auto group hover:-translate-y-0.5 transition-all"
             >
-              <Mail className="h-4 w-4" aria-hidden="true" />
+              <Mail className="h-4 w-4 transition-transform group-hover:scale-110" aria-hidden="true" />
               <span>Send Email</span>
             </Button>
             <CopyButton
@@ -65,32 +71,23 @@ export function Contact() {
               href="https://github.com/srikanta2006"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors hover:-translate-y-0.5"
             >
               <GitHubIcon className="h-4 w-4" />
-              <span>GitHub</span>
-              <ArrowUpRight className="h-3 w-3 text-slate-500" />
+              <span>github.com/srikanta2006</span>
+              <ArrowUpRight className="h-3 w-3 text-slate-400" />
             </a>
-
-            <span className="text-white/20" aria-hidden="true">/</span>
 
             <a
               href="https://linkedin.com/in/srikanta-bellamkonda"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors"
+              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors hover:-translate-y-0.5"
             >
               <LinkedInIcon className="h-4 w-4 text-[#818CF8]" />
-              <span>LinkedIn</span>
-              <ArrowUpRight className="h-3 w-3 text-slate-500" />
+              <span>linkedin.com/in/srikanta-bellamkonda</span>
+              <ArrowUpRight className="h-3 w-3 text-slate-400" />
             </a>
-
-            <span className="text-white/20" aria-hidden="true">/</span>
-
-            <span className="inline-flex items-center gap-1.5 text-slate-400 font-mono text-xs">
-              <MapPin className="h-3.5 w-3.5 text-[#818CF8]" />
-              <span>Hyderabad, India</span>
-            </span>
           </div>
         </div>
       </Container>

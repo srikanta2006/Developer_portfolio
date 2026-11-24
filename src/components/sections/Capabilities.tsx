@@ -148,7 +148,7 @@ export function Capabilities() {
             {filteredCategories.map((category) => (
               <div
                 key={category.category}
-                className="rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 space-y-3 shadow-xl hover:border-indigo-500/40 transition-colors"
+                className="rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 space-y-3 shadow-xl hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 shimmer-card"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-heading text-sm font-bold text-white">
@@ -163,7 +163,7 @@ export function Capabilities() {
                   {category.skills.map((skill) => (
                     <span
                       key={skill.name}
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-medium text-slate-200 hover:border-white/20 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-xs font-medium text-slate-200 hover:border-indigo-400/40 hover:bg-white/[0.08] hover:scale-105 transition-all duration-200 cursor-default"
                     >
                       <span
                         className={`h-1.5 w-1.5 rounded-full shrink-0 ${
@@ -172,7 +172,7 @@ export function Capabilities() {
                             : skill.proficiency === "Intermediate"
                             ? "bg-[#6366F1]"
                             : "bg-slate-500"
-                        }`}
+                          }`}
                         aria-hidden="true"
                       />
                       <span>{skill.name}</span>

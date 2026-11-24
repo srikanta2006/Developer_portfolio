@@ -16,10 +16,10 @@ export function About() {
         {/* Bento Proof Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-4">
           {/* Card 1: 🏆 7+ Hackathons & Tech Events & Internal SIH Win (Top Proof, Span 7) */}
-          <div className="md:col-span-7 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#111827]/80 to-[#111827]/50 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-amber-400/50 transition-all">
+          <div className="md:col-span-7 rounded-3xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#111827]/80 to-[#111827]/50 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-amber-400/50 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-amber-500/20 text-[#FBBF24]">
+                <div className="p-2 rounded-xl bg-amber-500/20 text-[#FBBF24] transition-transform duration-300 group-hover:scale-110">
                   <Trophy className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#FCD34D]">
@@ -30,7 +30,7 @@ export function About() {
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-heading text-xl font-bold text-white">
+              <h3 className="font-heading text-xl font-bold text-white group-hover:text-amber-200 transition-colors">
                 7 Hackathons + Tech Events &amp; SIH Screening Victory
               </h3>
               <p className="text-sm text-amber-100/80 font-medium leading-relaxed">
@@ -52,10 +52,10 @@ export function About() {
           </div>
 
           {/* Card 2: 💼 Industry Internship (Span 5) */}
-          <div className="md:col-span-5 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-indigo-500/40 transition-all">
+          <div className="md:col-span-5 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-indigo-500/40 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-indigo-500/20 text-[#A5B4FC]">
+                <div className="p-2 rounded-xl bg-indigo-500/20 text-[#A5B4FC] transition-transform duration-300 group-hover:scale-110">
                   <Briefcase className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#A5B4FC]">
@@ -66,10 +66,10 @@ export function About() {
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-heading text-xl font-bold text-white">
+              <h3 className="font-heading text-xl font-bold text-white group-hover:text-indigo-200 transition-colors">
                 Data Science Intern
               </h3>
-              <p className="text-sm text-[#94A3B8] font-medium">
+              <p className="text-sm text-slate-400 font-medium">
                 Celebal Technologies &middot; Remote
               </p>
             </div>
@@ -92,10 +92,10 @@ export function About() {
           </div>
 
           {/* Card 3: 🎓 Education (Span 5) */}
-          <div className="md:col-span-5 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-emerald-500/40 transition-all">
+          <div className="md:col-span-5 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-emerald-500/40 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-emerald-500/20 text-[#6EE7B7]">
+                <div className="p-2 rounded-xl bg-emerald-500/20 text-[#6EE7B7] transition-transform duration-300 group-hover:scale-110">
                   <GraduationCap className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#6EE7B7]">
@@ -106,10 +106,10 @@ export function About() {
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-heading text-lg font-bold text-white">
+              <h3 className="font-heading text-lg font-bold text-white group-hover:text-emerald-200 transition-colors">
                 B.Tech &mdash; Computer Science &amp; Engineering
               </h3>
-              <p className="text-sm text-[#94A3B8] font-medium">
+              <p className="text-sm text-slate-400 font-medium">
                 CVR College of Engineering &middot; Hyderabad, India
               </p>
             </div>
@@ -132,10 +132,10 @@ export function About() {
           </div>
 
           {/* Card 4: ⚡ Engineering Philosophy (Span 7) */}
-          <div className="md:col-span-7 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-indigo-500/40 transition-all">
+          <div className="md:col-span-7 rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-6 sm:p-8 space-y-4 shadow-xl hover:border-indigo-500/40 hover:-translate-y-1.5 transition-all duration-300 ease-out shimmer-card group">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="p-2 rounded-xl bg-indigo-500/20 text-[#A5B4FC]">
+                <div className="p-2 rounded-xl bg-indigo-500/20 text-[#A5B4FC] transition-transform duration-300 group-hover:scale-110">
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#A5B4FC]">
@@ -146,7 +146,7 @@ export function About() {
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-heading text-xl font-bold text-white">
+              <h3 className="font-heading text-xl font-bold text-white group-hover:text-indigo-200 transition-colors">
                 The Engineer Who Builds Intelligent Products
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -155,15 +155,15 @@ export function About() {
             </div>
 
             <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/[0.08] text-center">
-              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-colors">
                 <span className="font-mono text-xs font-bold text-white block">Backend</span>
                 <span className="text-[10px] text-slate-400">APIs &amp; Systems</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-colors">
                 <span className="font-mono text-xs font-bold text-white block">Applied AI</span>
                 <span className="text-[10px] text-slate-400">Agents &amp; RAG</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-colors">
                 <span className="font-mono text-xs font-bold text-white block">Execution</span>
                 <span className="text-[10px] text-slate-400">0 &rarr; 1 Delivery</span>
               </div>

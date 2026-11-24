@@ -24,17 +24,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const blueprint = PROJECT_BLUEPRINTS[project.slug];
 
   return (
-    <article className="group relative rounded-3xl border border-white/10 bg-[#111827]/60 backdrop-blur-xl transition-all duration-300 hover:border-indigo-500/40 hover:shadow-[0_0_40px_rgba(99,102,241,0.12)] overflow-hidden">
+    <article className="group relative rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl transition-all duration-500 hover:border-indigo-500/50 hover:shadow-[0_20px_50px_rgba(99,102,241,0.16)] hover:-translate-y-1 overflow-hidden shimmer-card">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
         {/* Project Visual / Image Frame */}
         <div className="lg:col-span-6 relative aspect-[16/10] lg:aspect-auto min-h-[260px] sm:min-h-[320px] bg-[#0B0F19] border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden flex items-center justify-center p-6">
-          <div className="relative w-full h-full max-h-[320px] rounded-2xl border border-white/10 bg-[#0E1424] shadow-xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.01]">
+          <div className="relative w-full h-full max-h-[320px] rounded-2xl border border-white/10 bg-[#0E1424] shadow-xl overflow-hidden transition-all duration-700 group-hover:border-indigo-500/30">
             <Image
               src={project.image}
               alt={project.imageAlt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity"
+              className="object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
             />
           </div>
         </div>
