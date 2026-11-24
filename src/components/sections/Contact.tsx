@@ -1,17 +1,11 @@
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -23,166 +17,69 @@ function GitHubIcon({ className }: { className?: string }) {
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.79v8.37H6.46v-8.37M7.86 5.8a1.63 1.63 0 1 0 0 3.26 1.63 1.63 0 0 0 0-3.26z" />
     </svg>
   );
 }
 
 export function Contact() {
-  const emailAddress = "srikantabellamkonda@gmail.com";
-  const phoneNumber = "+91 7337015933";
+  const emailAddress = "srikantacvr@gmail.com";
 
   return (
     <section id="contact" className="py-20 sm:py-28 border-t border-[#E2E8F0] scroll-mt-20">
       <Container>
-        <div className="rounded-2xl border border-[#E2E8F0] bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-            {/* Left: Contact Invitation */}
-            <div className="lg:col-span-7 space-y-6">
-              <SectionHeading
-                number="05 / Contact"
-                title="Let's build something intelligent."
-                description="I am always interested in discussing software engineering challenges, multi-agent AI systems, full-stack product ideas, or internship & full-time opportunities."
-                className="mb-6 sm:mb-8"
-              />
+        <div className="max-w-2xl mx-auto rounded-2xl border border-[#E2E8F0] bg-white p-8 sm:p-12 shadow-sm text-center space-y-6">
+          <SectionHeading
+            number="05 / Contact"
+            title="Let's build something intelligent."
+            description="I am always interested in discussing software engineering challenges, multi-agent AI systems, full-stack product ideas, or internship & full-time opportunities."
+            className="text-center mx-auto"
+          />
 
-              <div className="space-y-4 text-sm text-[#475569] leading-relaxed">
-                <p>
-                  Whether you are an engineering team looking for a dedicated software & applied AI developer, a fellow builder wanting to collaborate on multi-agent architectures, or discussing practical applications of LLMs, feel free to reach out directly.
-                </p>
-                <div className="flex flex-wrap items-center gap-2 pt-2">
-                  <Badge variant="accent">Open for opportunities</Badge>
-                  <Badge variant="sage">Based in Hyderabad, India</Badge>
-                </div>
-              </div>
+          <div className="pt-2">
+            <Button
+              variant="primary"
+              size="lg"
+              href={`mailto:${emailAddress}`}
+              className="gap-2 text-base px-6 py-3"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              <span>{emailAddress}</span>
+            </Button>
+          </div>
 
-              {/* Direct Email Action Box */}
-              <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] space-y-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#64748B]">
-                  Direct Email Channel
-                </span>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="font-mono text-sm sm:text-base font-medium text-[#0F172A] select-all">
-                    {emailAddress}
-                  </span>
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    href={`mailto:${emailAddress}`}
-                    className="gap-1.5"
-                  >
-                    <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-                    <span>Send Email</span>
-                  </Button>
-                </div>
-              </div>
+          <div className="pt-6 border-t border-[#E2E8F0] flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-[#475569]">
+            <a
+              href="https://github.com/srikanta2006"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors"
+            >
+              <GitHubIcon className="h-4 w-4" />
+              <span>GitHub</span>
+              <ArrowUpRight className="h-3 w-3 text-[#64748B]" />
+            </a>
 
-              {/* Direct Phone Action Box */}
-              <div className="p-5 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] space-y-3">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#64748B]">
-                  Phone / Mobile
-                </span>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="font-mono text-sm sm:text-base font-medium text-[#0F172A] select-all">
-                    {phoneNumber}
-                  </span>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    href={`tel:+917337015933`}
-                    className="gap-1.5"
-                  >
-                    <Phone className="h-3.5 w-3.5 text-[#059669]" aria-hidden="true" />
-                    <span>Call Directly</span>
-                  </Button>
-                </div>
-              </div>
-            </div>
+            <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
 
-            {/* Right: Direct Profiles & Resume Request */}
-            <div className="lg:col-span-5 space-y-4 lg:border-l lg:border-[#E2E8F0] lg:pl-10">
-              <span className="font-mono text-xs uppercase tracking-widest text-[#64748B]">
-                Profiles & Verified Channels
-              </span>
+            <a
+              href="https://linkedin.com/in/srikanta-bellamkonda"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors"
+            >
+              <LinkedInIcon className="h-4 w-4 text-[#4F46E5]" />
+              <span>LinkedIn</span>
+              <ArrowUpRight className="h-3 w-3 text-[#64748B]" />
+            </a>
 
-              {/* GitHub Link Card */}
-              <a
-                href="https://github.com/srikanta2006"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#4F46E5]/40 hover:bg-[#F8FAFC] transition-all shadow-2xs"
-              >
-                <div className="flex items-center gap-3">
-                  <GitHubIcon className="h-5 w-5 text-[#0F172A]" />
-                  <div>
-                    <h4 className="font-heading text-sm font-semibold text-[#0F172A]">
-                      GitHub Profile
-                    </h4>
-                    <p className="font-mono text-xs text-[#64748B]">
-                      github.com/srikanta2006
-                    </p>
-                  </div>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-[#64748B] group-hover:text-[#4F46E5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
+            <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
 
-              {/* LinkedIn Link Card */}
-              <a
-                href="https://linkedin.com/in/srikanta-bellamkonda"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between p-4 rounded-xl border border-[#E2E8F0] bg-white hover:border-[#4F46E5]/40 hover:bg-[#F8FAFC] transition-all shadow-2xs"
-              >
-                <div className="flex items-center gap-3">
-                  <LinkedInIcon className="h-5 w-5 text-[#4F46E5]" />
-                  <div>
-                    <h4 className="font-heading text-sm font-semibold text-[#0F172A]">
-                      LinkedIn Profile
-                    </h4>
-                    <p className="font-mono text-xs text-[#64748B]">
-                      linkedin.com/in/srikanta-bellamkonda
-                    </p>
-                  </div>
-                </div>
-                <ArrowUpRight className="h-4 w-4 text-[#64748B] group-hover:text-[#4F46E5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
-
-              {/* Location Card */}
-              <div className="p-4 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] space-y-1">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#0F172A]">
-                  <MapPin className="h-4 w-4 text-[#4F46E5]" />
-                  <span>Hyderabad, India</span>
-                </div>
-                <p className="text-xs text-[#64748B]">
-                  Undergraduate student at CVR College of Engineering (B.Tech CSE, Graduating May 2027)
-                </p>
-              </div>
-
-              {/* Resume Card */}
-              <div className="p-4 rounded-xl border border-[#E2E8F0] bg-white space-y-2">
-                <h4 className="font-heading text-sm font-semibold text-[#0F172A]">
-                  Curriculum Vitae / Resume
-                </h4>
-                <p className="text-xs text-[#64748B] leading-relaxed">
-                  A comprehensive resume documenting academic performance (GPA: 8.74), project architectures, and Smart India Hackathon 1st place milestone.
-                </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  href={`mailto:${emailAddress}?subject=Resume%20Request%20-%20Srikanta%20Bellamkonda`}
-                  className="w-full justify-center gap-1.5 pt-2"
-                >
-                  <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-                  <span>Request Full Resume via Email</span>
-                </Button>
-              </div>
-            </div>
+            <span className="inline-flex items-center gap-1.5 text-[#64748B] font-mono text-xs">
+              <MapPin className="h-3.5 w-3.5 text-[#4F46E5]" />
+              <span>Hyderabad, India</span>
+            </span>
           </div>
         </div>
       </Container>

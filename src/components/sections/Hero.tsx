@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, MapPin, Sparkles, Mail, Phone } from "lucide-react";
+import { ArrowDown, Mail, MapPin, Sparkles } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -63,22 +63,6 @@ export function Hero() {
               </p>
             </div>
 
-            {/* Professional Characteristics Chips */}
-            <div className="flex flex-wrap gap-2 pt-1">
-              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#EEF2FF] text-[#4338CA] border border-[#C7D2FE]">
-                Problem Solver
-              </span>
-              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#065F46] border border-[#A7F3D0]">
-                Autonomous Product Builder
-              </span>
-              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0]">
-                Hands-on Developer
-              </span>
-              <span className="inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]">
-                Full-Stack + Applied AI
-              </span>
-            </div>
-
             {/* Primary & Secondary CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Button variant="primary" size="lg" href="#work" className="gap-2">
@@ -86,15 +70,20 @@ export function Hero() {
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </Button>
 
-              <Button variant="secondary" size="lg" href="#contact" className="gap-2">
-                <span>Contact Srikanta</span>
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              <Button
+                variant="secondary"
+                size="lg"
+                href="mailto:srikantacvr@gmail.com"
+                className="gap-2"
+              >
+                <Mail className="h-4 w-4 text-[#4F46E5]" aria-hidden="true" />
+                <span>Get in touch</span>
               </Button>
             </div>
 
             {/* Verified Public Channels */}
-            <div className="pt-3 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#475569]">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#64748B]">Channels:</span>
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-[#475569]">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#64748B]">Connect:</span>
               <a
                 href="https://github.com/srikanta2006"
                 target="_blank"
@@ -116,19 +105,11 @@ export function Hero() {
               </a>
               <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
               <a
-                href="mailto:srikantabellamkonda@gmail.com"
+                href="mailto:srikantacvr@gmail.com"
                 className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
               >
                 <Mail className="h-4 w-4 text-[#4F46E5]" />
-                <span>Email</span>
-              </a>
-              <span className="text-[#CBD5E1]" aria-hidden="true">/</span>
-              <a
-                href="tel:+917337015933"
-                className="inline-flex items-center gap-1.5 text-[#0F172A] hover:text-[#4F46E5] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
-              >
-                <Phone className="h-3.5 w-3.5 text-[#059669]" />
-                <span>+91 7337015933</span>
+                <span>srikantacvr@gmail.com</span>
               </a>
             </div>
           </div>

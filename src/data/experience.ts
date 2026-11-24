@@ -40,11 +40,10 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: "CVR College of Engineering",
     period: "Expected May 2027",
     location: "Hyderabad, Telangana, India",
-    metaBadge: "GPA: 8.74",
     description:
-      "Pursuing Computer Science and Engineering with an academic GPA of 8.74. Focusing on Data Structures & Algorithms, Backend Engineering, System Design, and Applied Artificial Intelligence.",
+      "Pursuing Computer Science and Engineering with a focus on Data Structures & Algorithms, Backend Engineering, System Design, and Applied Artificial Intelligence.",
     highlights: [
-      "Current Academic Standing: 8.74 GPA",
+      "Core coursework in Data Structures, Algorithms, Operating Systems, and Database Management",
       "Deep practical focus on Backend Architecture, Distributed Systems, and Autonomous AI Agents",
     ],
   },

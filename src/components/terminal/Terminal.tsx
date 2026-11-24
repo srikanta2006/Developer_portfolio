@@ -102,7 +102,7 @@ export function Terminal() {
               Student Developer · Software Engineer & Applied AI Engineer based in Hyderabad, India.
             </p>
             <p className="text-[#475569]">
-              Computer Science undergraduate at CVR College of Engineering (GPA: 8.74, Expected May 2027).
+              Computer Science undergraduate at CVR College of Engineering (Expected May 2027).
             </p>
             <p className="text-[#475569]">
               The Engineer Who Builds Intelligent Products. Combining full-stack web development, multi-agent AI systems, and RAG.
@@ -188,8 +188,7 @@ export function Terminal() {
         output = (
           <div className="space-y-1 text-xs font-mono">
             <p className="text-[#0F172A] font-semibold">Direct Communication:</p>
-            <p>Email: <a href="mailto:srikantabellamkonda@gmail.com" className="text-[#4F46E5] hover:underline">srikantabellamkonda@gmail.com</a></p>
-            <p>Phone: <a href="tel:+917337015933" className="text-[#059669] hover:underline">+91 7337015933</a></p>
+            <p>Email: <a href="mailto:srikantacvr@gmail.com" className="text-[#4F46E5] hover:underline">srikantacvr@gmail.com</a></p>
             <p>Location: Hyderabad, India</p>
             <p>LinkedIn: <a href="https://linkedin.com/in/srikanta-bellamkonda" target="_blank" rel="noopener noreferrer" className="text-[#4F46E5] hover:underline">linkedin.com/in/srikanta-bellamkonda</a></p>
             <p>GitHub: <a href="https://github.com/srikanta2006" target="_blank" rel="noopener noreferrer" className="text-[#4F46E5] hover:underline">github.com/srikanta2006</a></p>
@@ -203,10 +202,10 @@ export function Terminal() {
             <p className="text-[#0F172A] font-semibold">Curriculum Vitae / Resume:</p>
             <p className="text-[#475569]">Request a verified copy of Srikanta&apos;s latest resume:</p>
             <a
-              href="mailto:srikantabellamkonda@gmail.com?subject=Resume%20Request%20-%20Srikanta%20Bellamkonda"
+              href="mailto:srikantacvr@gmail.com?subject=Resume%20Request%20-%20Srikanta%20Bellamkonda"
               className="text-[#4F46E5] hover:underline"
             >
-              Email srikantabellamkonda@gmail.com (Subject: Resume Request)
+              Email srikantacvr@gmail.com (Subject: Resume Request)
             </a>
           </div>
         );

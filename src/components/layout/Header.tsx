@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Mail } from "lucide-react";
 import { Container } from "./Container";
 import { Button } from "@/components/ui/Button";
 
@@ -88,14 +88,13 @@ export function Header() {
               <div className="h-4 w-px bg-[#E8E5DD] mx-2" aria-hidden="true" />
 
               <Button
-                variant="secondary"
+                variant="primary"
                 size="sm"
-                href="/resume.pdf"
-                isExternal
+                href="mailto:srikantacvr@gmail.com"
                 className="gap-1.5"
               >
-                <span>Resume</span>
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                <Mail className="h-3.5 w-3.5" aria-hidden="true" />
+                <span>Get in touch</span>
               </Button>
             </nav>
 

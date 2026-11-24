@@ -1,31 +1,6 @@
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { SKILL_CATEGORIES, SkillProficiency } from "@/data/skills";
-
-function getProficiencyBadge(proficiency: SkillProficiency) {
-  switch (proficiency) {
-    case "Advanced":
-      return (
-        <span className="font-mono text-[10px] font-semibold text-[#059669] bg-[#ECFDF5] px-1.5 py-0.5 rounded border border-[#A7F3D0]">
-          Advanced
-        </span>
-      );
-    case "Intermediate":
-      return (
-        <span className="font-mono text-[10px] font-semibold text-[#4F46E5] bg-[#EEF2FF] px-1.5 py-0.5 rounded border border-[#C7D2FE]">
-          Intermediate
-        </span>
-      );
-    case "Beginner":
-      return (
-        <span className="font-mono text-[10px] font-medium text-[#475569] bg-[#F1F5F9] px-1.5 py-0.5 rounded border border-[#E2E8F0]">
-          Beginner
-        </span>
-      );
-    default:
-      return null;
-  }
-}
+import { SKILL_CATEGORIES } from "@/data/skills";
 
 export function Capabilities() {
   return (
@@ -34,72 +9,63 @@ export function Capabilities() {
         <SectionHeading
           number="03 / Capabilities"
           title="Technical Skills & Proficiencies"
-          description="Strictly reflecting verified technologies used in hands-on projects, systems architectures, and competitive builds. Unused tools are excluded."
+          description="Verified technologies applied across backend architecture, machine learning, and full-stack systems."
         />
 
         {/* Legend */}
-        <div className="flex flex-wrap items-center gap-4 mb-8 text-xs text-[#475569]">
-          <span className="font-mono uppercase tracking-wider text-[#64748B]">Assessed Proficiency:</span>
+        <div className="flex flex-wrap items-center gap-4 mb-6 text-xs text-[#64748B]">
+          <span className="font-mono text-xs uppercase tracking-wider">Proficiency:</span>
           <div className="flex items-center gap-1.5">
-            <span className="font-mono text-[10px] font-semibold text-[#059669] bg-[#ECFDF5] px-1.5 py-0.5 rounded border border-[#A7F3D0]">
-              Advanced
-            </span>
-            <span>Primary / production mastery</span>
+            <span className="h-2 w-2 rounded-full bg-[#059669]" />
+            <span>Advanced</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="font-mono text-[10px] font-semibold text-[#4F46E5] bg-[#EEF2FF] px-1.5 py-0.5 rounded border border-[#C7D2FE]">
-              Intermediate
-            </span>
-            <span>Hands-on implementation</span>
+            <span className="h-2 w-2 rounded-full bg-[#4F46E5]" />
+            <span>Intermediate</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="font-mono text-[10px] font-medium text-[#475569] bg-[#F1F5F9] px-1.5 py-0.5 rounded border border-[#E2E8F0]">
-              Beginner
-            </span>
-            <span>Applied fundamentals</span>
+            <span className="h-2 w-2 rounded-full bg-[#94A3B8]" />
+            <span>Beginner</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {SKILL_CATEGORIES.map((category) => (
             <div
               key={category.category}
-              className="rounded-xl border border-[#E2E8F0] bg-white p-6 flex flex-col justify-between space-y-4 shadow-sm hover:border-[#4F46E5]/40 transition-colors"
+              className="rounded-xl border border-[#E2E8F0] bg-white p-5 space-y-3 shadow-2xs hover:border-[#4F46E5]/40 transition-colors"
             >
-              <div className="space-y-1">
-                <h3 className="font-heading text-base font-bold text-[#0F172A]">
+              <div className="flex items-center justify-between">
+                <h3 className="font-heading text-sm font-bold text-[#0F172A]">
                   {category.category}
                 </h3>
                 <span className="font-mono text-[11px] text-[#64748B]">
-                  {category.skills.length} verified technologies
+                  {category.skills.length}
                 </span>
               </div>
 
-              <div className="space-y-2 pt-3 border-t border-[#E2E8F0]">
+              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#E2E8F0]">
                 {category.skills.map((skill) => (
-                  <div
+                  <span
                     key={skill.name}
-                    className="flex items-center justify-between py-1 px-2 rounded-lg bg-[#F8FAFC] border border-[#F1F5F9]"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F8FAFC] border border-[#E2E8F0] text-xs font-medium text-[#0F172A]"
                   >
-                    <span className="text-xs font-medium text-[#0F172A]">
-                      {skill.name}
-                    </span>
-                    {getProficiencyBadge(skill.proficiency)}
-                  </div>
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full shrink-0 ${
+                        skill.proficiency === "Advanced"
+                          ? "bg-[#059669]"
+                          : skill.proficiency === "Intermediate"
+                          ? "bg-[#4F46E5]"
+                          : "bg-[#94A3B8]"
+                      }`}
+                      aria-hidden="true"
+                    />
+                    <span>{skill.name}</span>
+                  </span>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Verification Note Callout */}
-        <div className="mt-8 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-xs text-[#475569] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <span>
-            <strong>Proficiency Integrity:</strong> Technologies not yet used in production or project code (e.g. Flask, OpenCV, FAISS, Jenkins) are omitted to maintain accuracy.
-          </span>
-          <span className="font-mono text-[11px] text-[#059669] font-medium">
-            Assessed & verified
-          </span>
         </div>
       </Container>
     </section>
