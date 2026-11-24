@@ -3,11 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Sparkles, ChevronDown, ChevronUp, Network } from "lucide-react";
 import { Project } from "@/data/projects";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { LegalArenaSimulator } from "@/components/projects/LegalArenaSimulator";
+import { ArchitectureBlueprint } from "@/components/projects/ArchitectureBlueprint";
+import { PROJECT_BLUEPRINTS } from "@/data/projectBlueprints";
 
 interface ProjectCardProps {
   project: Project;
@@ -17,6 +19,9 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const isLegalArena = project.slug === "legal-arena";
   const [showSimulator, setShowSimulator] = useState<boolean>(isLegalArena);
+  const [showBlueprint, setShowBlueprint] = useState<boolean>(false);
+
+  const blueprint = PROJECT_BLUEPRINTS[project.slug];
 
   return (
     <article className="group relative rounded-2xl border border-[#E2E8F0] bg-white transition-all duration-300 hover:border-[#4F46E5]/40 hover:shadow-md overflow-hidden">
@@ -124,9 +129,30 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 className="gap-1.5"
               >
                 <span className="h-2 w-2 rounded-full bg-[#059669] animate-pulse" />
-                <span>Live Application</span>
+                <span>Live Demo</span>
                 <ExternalLink className="h-3.5 w-3.5 text-[#059669]" aria-hidden="true" />
               </Button>
+            )}
+
+            {/* Architecture Blueprint Toggle Button */}
+            {blueprint && (
+              <button
+                type="button"
+                onClick={() => setShowBlueprint(!showBlueprint)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors cursor-pointer ${
+                  showBlueprint
+                    ? "bg-[#EEF2FF] text-[#4F46E5] border-[#C7D2FE]"
+                    : "bg-white text-[#475569] border-[#E2E8F0] hover:border-[#CBD5E1] hover:text-[#0F172A]"
+                }`}
+              >
+                <Network className="h-3.5 w-3.5 text-[#4F46E5]" />
+                <span>{showBlueprint ? "Hide Blueprint" : "Architecture Blueprint"}</span>
+                {showBlueprint ? (
+                  <ChevronUp className="h-3.5 w-3.5" />
+                ) : (
+                  <ChevronDown className="h-3.5 w-3.5" />
+                )}
+              </button>
             )}
 
             {isLegalArena && (
@@ -160,6 +186,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
       </div>
+
+      {/* Interactive Architecture Blueprint Pipeline View */}
+      {blueprint && showBlueprint && (
+        <div className="p-6 sm:p-8 border-t border-[#E2E8F0] bg-white animate-in fade-in duration-200">
+          <ArchitectureBlueprint projectId={project.slug} nodes={blueprint} />
+        </div>
+      )}
 
       {/* Interactive Courtroom Debate Widget (Proof in Action!) */}
       {isLegalArena && showSimulator && (

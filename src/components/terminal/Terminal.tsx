@@ -14,6 +14,7 @@ interface HistoryEntry {
 const QUICK_COMMANDS = [
   "help",
   "arena",
+  "hackathons",
   "about",
   "projects",
   "skills",
@@ -70,6 +71,9 @@ export function Terminal() {
                 <span className="text-[#4F46E5] font-semibold">arena</span>: Multi-agent AI courtroom simulation
               </div>
               <div>
+                <span className="text-[#4F46E5] font-semibold">hackathons</span>: 12x hackathons & SIH screening log
+              </div>
+              <div>
                 <span className="text-[#4F46E5] font-semibold">about</span>: Brief professional bio
               </div>
               <div>
@@ -117,6 +121,26 @@ export function Terminal() {
             </div>
             <p className="text-[10px] text-[#64748B] pt-1">
               💡 Tip: Scroll to <strong>Featured Projects &rarr; LegalArena</strong> to test the full visual interactive simulator on this page!
+            </p>
+          </div>
+        );
+        break;
+
+      case "hackathons":
+      case "hackathon":
+        output = (
+          <div className="space-y-2 text-xs font-mono p-3 rounded-lg bg-[#FFFBEB] border border-[#FDE68A]">
+            <div className="text-[#0F172A] font-bold flex items-center justify-between">
+              <span>🏆 12× Hackathon Battletest Log</span>
+              <span className="text-[10px] text-[#B45309] bg-white px-2 py-0.5 rounded border border-[#FDE68A]">1st Place Internal SIH</span>
+            </div>
+            <div className="space-y-1.5 pt-1 border-t border-[#FDE68A] text-[11px] text-[#78350F]">
+              <p>• <strong>Smart India Hackathon (SIH) Internal Screening:</strong> 1st Place Winner &amp; Team Lead.</p>
+              <p>• <strong>Collegiate &amp; National Competitions:</strong> Competed in ~12 hackathons across 2023–Present.</p>
+              <p>• <strong>Core Takeaway:</strong> 400+ sprint hours mastering high-pressure zero-to-one prototyping and zero-distraction tooling (directly inspired HackOS).</p>
+            </div>
+            <p className="text-[10px] text-[#B45309] pt-1">
+              💡 Tip: Check out the <strong>12× Hackathon Battletest</strong> interactive section on this page!
             </p>
           </div>
         );

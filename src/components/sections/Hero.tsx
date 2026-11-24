@@ -4,6 +4,8 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { CopyButton } from "@/components/ui/CopyButton";
+import { LiveClock } from "@/components/ui/LiveClock";
+import { RecruiterLens } from "@/components/ui/RecruiterLens";
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -69,9 +71,9 @@ export function Hero() {
               <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[#D97706]">
                   <Trophy className="h-3.5 w-3.5" />
-                  <span>SIH 2024</span>
+                  <span>12+ Hackathons</span>
                 </div>
-                <div className="text-[11px] font-medium text-[#0F172A]">1st Place Winner</div>
+                <div className="text-[11px] font-medium text-[#0F172A]">SIH Internal Winner</div>
               </div>
 
               <div className="p-2.5 rounded-lg border border-[#E2E8F0] bg-white shadow-2xs space-y-1">
@@ -136,6 +138,8 @@ export function Hero() {
                 <MapPin className="h-3.5 w-3.5 text-[#4F46E5]" />
                 <span>Hyderabad, India</span>
               </div>
+              <span className="text-[#CBD5E1]" aria-hidden="true">·</span>
+              <LiveClock />
             </div>
           </div>
 
@@ -160,6 +164,11 @@ export function Hero() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Interactive Recruiter Perspective Lens */}
+        <div className="mt-10 pt-8 border-t border-[#E2E8F0]">
+          <RecruiterLens />
         </div>
       </Container>
     </section>

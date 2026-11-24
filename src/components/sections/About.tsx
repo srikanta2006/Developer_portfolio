@@ -15,7 +15,7 @@ export function About() {
 
         {/* Bento Proof Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 pt-4">
-          {/* Card 1: 🏆 Hackathon Victory (Top Proof, Span 7) */}
+          {/* Card 1: 🏆 12x Hackathons & Internal SIH Win (Top Proof, Span 7) */}
           <div className="md:col-span-7 rounded-2xl border-2 border-[#FDE68A] bg-gradient-to-br from-[#FFFBEB] via-white to-[#FEF3C7]/30 p-6 sm:p-8 space-y-4 shadow-xs hover:border-[#F59E0B] transition-colors">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -23,30 +23,30 @@ export function About() {
                   <Trophy className="h-5 w-5" />
                 </div>
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#B45309]">
-                  Smart India Hackathon 2024
+                  12× Hackathon Competitor · Internal SIH Winner
                 </span>
               </div>
-              <Badge variant="amber" size="sm">1st Place Winner</Badge>
+              <Badge variant="amber" size="sm">Internal 1st Place</Badge>
             </div>
 
             <div className="space-y-1">
               <h3 className="font-heading text-xl font-bold text-[#0F172A]">
-                First Place Winner & Team Lead
+                12 Hackathons &amp; Internal SIH Screening Victory
               </h3>
               <p className="text-sm text-[#78350F] font-medium leading-relaxed">
-                National competition solving real-world government and enterprise problem statements under rigorous 36-hour competitive evaluation.
+                Led team to 1st place in the competitive college screening for Smart India Hackathon. Competed across ~12 collegiate hackathons, mastering zero-to-one prototyping, async debugging, and agile engineering under 24–36 hour deadlines.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#FDE68A]">
               <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
-                Team Leadership
+                12 Hackathons Participated
               </span>
               <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
-                Rapid Prototyping
+                1st Place Internal SIH
               </span>
               <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-white text-[#92400E] border border-[#FDE68A]">
-                System Architecture
+                0 &rarr; 1 Rapid Architecture
               </span>
             </div>
           </div>

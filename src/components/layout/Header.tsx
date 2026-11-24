@@ -8,6 +8,7 @@ import { Container } from "./Container";
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
+  { label: "Hackathons", href: "#hackathons" },
   { label: "Skills", href: "#capabilities" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
