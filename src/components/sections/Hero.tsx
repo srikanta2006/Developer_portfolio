@@ -63,21 +63,11 @@ export function Hero() {
               </p>
             </div>
 
-            {/* Primary & Secondary CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* Primary CTA */}
+            <div className="pt-2">
               <Button variant="primary" size="lg" href="#work" className="gap-2">
                 <span>Explore Featured Projects</span>
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
-              </Button>
-
-              <Button
-                variant="secondary"
-                size="lg"
-                href="mailto:srikantacvr@gmail.com"
-                className="gap-2"
-              >
-                <Mail className="h-4 w-4 text-[#4F46E5]" aria-hidden="true" />
-                <span>Get in touch</span>
               </Button>
             </div>
 

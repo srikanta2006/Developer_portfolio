@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
-import { Button } from "@/components/ui/Button";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
   { label: "Work", href: "#work" },
+  { label: "Skills", href: "#capabilities" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -79,23 +79,11 @@ export function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="px-3.5 py-1.5 text-sm font-medium text-[#706E6B] hover:text-[#171717] transition-colors rounded-md hover:bg-black/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB]"
+                  className="px-3.5 py-1.5 text-sm font-medium text-[#475569] hover:text-[#0F172A] transition-colors rounded-md hover:bg-black/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5]"
                 >
                   {item.label}
                 </Link>
               ))}
-
-              <div className="h-4 w-px bg-[#E8E5DD] mx-2" aria-hidden="true" />
-
-              <Button
-                variant="primary"
-                size="sm"
-                href="mailto:srikantacvr@gmail.com"
-                className="gap-1.5"
-              >
-                <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-                <span>Get in touch</span>
-              </Button>
             </nav>
 
             {/* Mobile Menu Toggle Button */}
@@ -124,45 +112,22 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-label="Site navigation"
-          className="fixed inset-0 top-16 sm:top-20 z-30 bg-[#F7F6F2] md:hidden flex flex-col px-6 py-8 border-b border-[#E8E5DD] shadow-lg animate-in fade-in duration-150 overflow-y-auto"
+          className="fixed inset-0 top-16 sm:top-20 z-30 bg-[#FAFAFC] md:hidden flex flex-col px-6 py-8 border-b border-[#E2E8F0] shadow-lg animate-in fade-in duration-150 overflow-y-auto"
         >
-          <nav className="flex flex-col gap-4 text-left">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#706E6B] mb-2">
-              Menu Navigation
+          <nav className="flex flex-col gap-2 text-left">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#64748B] mb-2">
+              Navigation
             </span>
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2.5 text-lg font-medium text-[#171717] border-b border-[#E8E5DD]/60 hover:text-[#6D5DFB] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6D5DFB] rounded"
+                className="py-3 text-lg font-medium text-[#0F172A] border-b border-[#E2E8F0] hover:text-[#4F46E5] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4F46E5] rounded"
               >
                 {item.label}
               </Link>
             ))}
-
-            <div className="pt-6 flex flex-col gap-3">
-              <Button
-                variant="primary"
-                size="md"
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full justify-center"
-              >
-                Get in Touch
-              </Button>
-              <Button
-                variant="outline"
-                size="md"
-                href="/resume.pdf"
-                isExternal
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full justify-center gap-1.5"
-              >
-                <span>View Resume</span>
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </Button>
-            </div>
           </nav>
         </div>
       )}

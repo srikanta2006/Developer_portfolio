@@ -16,9 +16,6 @@ export function FeatureStatusList({ status }: FeatureStatusListProps) {
         <h3 className="font-heading text-xl font-bold text-[#0F172A]">
           Implementation Status & Roadmap
         </h3>
-        <span className="font-mono text-xs text-[#64748B]">
-          Verified against working codebase
-        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
