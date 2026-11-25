@@ -1,141 +1,64 @@
-# Personal Portfolio — Srikanta Bellamkonda
+# Srikanta Bellamkonda
 
-**Identity:** Creative Technologist · Software Developer · AI Builder  
-**Visual Direction:** Minimal Editorial  
-**Theme:** Light Only  
-**Architecture:** Next.js App Router (Hybrid: Single-Page Homepage + Dedicated Case-Study Routes)
-**Architecture:** Next.js App Router (Hybrid: Single-Page Homepage + Dedicated Case-Study Routes)  
-**Live Deployment:** [https://srikanta-portfolio-ten.vercel.app](https://srikanta-portfolio-ten.vercel.app)  
-**Repository:** [https://github.com/srikanta2006/Developer_portfolio](https://github.com/srikanta2006/Developer_portfolio)
+**Software Engineer · Applied AI Builder · Full-Stack Developer**  
+Hyderabad, India · B.Tech CSE '27, CVR College of Engineering
 
----
-
-## Overview
-
-This repository houses the personal portfolio of Srikanta Bellamkonda. It is engineered with a minimal editorial aesthetic, presenting real projects, engineering decisions, and technical case studies.
-
-The project follows a disciplined, phase-by-phase implementation governed by `MASTER_PLAN.md` and `AI_CODING_AGENT_PROMPT.md`.
+[![Live Portfolio](https://img.shields.io/badge/Portfolio-srikanta--dev--portfolio.vercel.app-2563EB?style=flat-square)](https://srikanta-dev-portfolio.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-srikanta2006-111827?style=flat-square&logo=github)](https://github.com/srikanta2006)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-srikanta--bellamkonda-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/srikanta-bellamkonda)
+[![Email](https://img.shields.io/badge/Email-srikantacvr%40gmail.com-10B981?style=flat-square)](mailto:srikantacvr@gmail.com)
 
 ---
 
-## Tech Stack
+## About Me
 
-- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, Turbopack, React 19)
-- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict mode)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) with editorial `@theme` tokens
-- **Typography:** Next.js Google Fonts (`Playfair Display`, `Inter`, `JetBrains Mono`)
-- **Icons:** [Lucide React](https://lucide.dev/) + Semantic SVGs
-- **Utilities:** `clsx`, `tailwind-merge` (`cn` helper in `src/lib/utils.ts`)
-- **Linting:** ESLint (flat config with Next.js core web vitals and TypeScript rules)
+I build intelligent, production-ready software systems — combining reliable full-stack engineering with multi-agent AI, RAG pipelines, and rapid zero-to-one execution.
+
+- **1st Place** — Smart India Hackathon (SIH) Internal College Screening
+- **Data Science Intern** — Celebal Technologies (May – Jul 2026)
+- **7+ Hackathons & Tech Events** — 250+ hours of high-pressure prototyping with a 100% MVP delivery rate
+- **4+ Shipped Systems** — Spanning multi-agent AI orchestration, business analytics, developer tooling, and full-stack web apps
 
 ---
 
-## Design System Tokens (Light Theme Only)
+## Experience
 
-| Token | Value | Role |
+### Data Science Intern — Celebal Technologies
+*May 2026 – Jul 2026 · Remote*
+- Engineered end-to-end data science pipelines with automated preprocessing and feature engineering.
+- Built and evaluated classification models (**XGBoost**, **Scikit-learn**) for real-world datasets.
+- Developed hands-on **RAG (Retrieval-Augmented Generation)** mini-projects combining vector search with LLMs.
+
+### B.Tech in Computer Science & Engineering — CVR College of Engineering
+*Expected May 2027 · Hyderabad, India*
+- Core coursework: Data Structures & Algorithms, Operating Systems, DBMS, and System Architecture.
+- Active builder in Agentic AI, multi-agent workflows, and competitive collegiate hackathons.
+
+---
+
+## Featured Projects
+
+| Project | Domain | Highlights |
 | :--- | :--- | :--- |
-| **Page Background** | `#F7F6F2` | Warm off-white editorial canvas |
-| **Surface / Card** | `#FFFFFF` | Crisp white cards, containers, and interactive surfaces |
-| **Primary Text** | `#171717` | Near-black high-contrast heading and body text |
-| **Secondary Text** | `#706E6B` | Muted neutral with guaranteed WCAG AA contrast ratio (>4.5:1) |
-| **Accent Violet** | `#6D5DFB` | Purposeful highlights, links, and keyboard focus rings |
-| **Muted Sage** | `#B8C6A5` | Secondary calm nature/architectural accent |
-| **Border** | `#E8E5DD` | Subtle low-contrast structural dividers and borders |
+| **LegalArena** | Applied AI · Multi-Agent Systems | Multi-agent AI courtroom simulation powered by **LangChain & LangGraph** (Prosecution, Defence, and Judge agents with structured state transitions). |
+| **BizNexus** | Full-Stack · Applied AI | AI-powered business intelligence co-pilot for SMEs with natural-language metric querying, inventory/sales analytics, and automated executive summaries (**FastAPI, React, Python, SQLite**). |
+| **HackOS** | Full-Stack Web · Developer Tooling | Unified hackathon workspace built to eliminate context-switching between Trello, Figma, Notion, and Docs during 36-hour sprints. |
+| **Burst** | Full-Stack Web | Multi-user blogging and content-sharing platform with personalized feeds, custom WYSIWYG authoring, client-side image compression, and creator analytics (**React 19, Firebase, Firestore**). |
 
 ---
 
-## Project Structure
+## Technical Skills
 
-```text
-Portfolio_website/
-├── public/
-│   ├── images/              # Photographs and editorial media
-│   ├── projects/            # Real project screenshots
-│   └── favicon.ico
-├── src/
-│   ├── app/
-│   │   ├── globals.css      # Design tokens, typography variables, reduced-motion rules
-│   │   ├── layout.tsx       # Root layout, Google Fonts, Header, Skip-to-content, Footer
-│   │   └── page.tsx         # Design tokens & site shell preview (Phase 1)
-│   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Container.tsx# Responsive container (1120px default, 1240px wide, 840px narrow)
-│   │   │   ├── Header.tsx   # Sticky header with desktop nav, mobile drawer, skip link
-│   │   │   └── Footer.tsx   # Wordmark, links, social connections, and back-to-top
-│   │   ├── sections/        # Homepage sections (Phase 2)
-│   │   ├── projects/        # Project cards and showcase components
-│   │   ├── terminal/        # Interactive portfolio command interface (Phase 4)
-│   │   └── ui/
-│   │       ├── Badge.tsx    # Tech tags and status pills (default, accent, sage, neutral)
-│   │       ├── Button.tsx   # Polymorphic button/link (primary, secondary, accent, outline, ghost)
-│   │       ├── SectionHeading.tsx # Editorial numbered section titles
-│   │       └── TextLink.tsx # Accessible text link with external indicator
-│   ├── content/
-│   │   └── work/            # Case study MDX / content definitions (Phase 3)
-│   ├── data/                # Structured data files (Phase 2)
-│   └── lib/
-│       └── utils.ts         # Utility helpers (cn class merging)
-├── .env.example             # Environment variable template
-├── AI_CODING_AGENT_PROMPT.md# Implementation instructions and workflow contract
-├── MASTER_PLAN.md           # Master blueprint and source of truth
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+- **Languages:** Python, TypeScript, JavaScript, SQL, C/C++, Java
+- **Applied AI & ML:** LangChain, LangGraph, RAG Pipelines, ChromaDB, XGBoost, Scikit-learn, LLM Tool-Calling
+- **Full-Stack & Backend:** Next.js, React 19, FastAPI, Node.js, Tailwind CSS, REST APIs, WebSockets
+- **Databases & Cloud:** PostgreSQL, Cloud Firestore, SQLite, Firebase Auth, Vercel, Git/GitHub
 
 ---
 
-## Getting Started (Windows PowerShell)
+## Connect
 
-### Prerequisites
-
-- **Node.js**: v20+ or v22 LTS (Verified on `v22.14.0`)
-- **npm**: v10+ (Verified on `10.9.2`)
-
-### 1. Install Dependencies
-
-```powershell
-npm install
-```
-
-### 2. Run Development Server
-
-```powershell
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### 3. Verification & Quality Checks
-
-Run linting:
-```powershell
-npm run lint
-```
-
-Run TypeScript type check:
-```powershell
-npm run typecheck
-```
-
-Run production build:
-```powershell
-npm run build
-```
-
----
-
-## Implementation Phases & Status
-
-| Phase | Description | Status |
-| :--- | :--- | :--- |
-| **Phase 0** | Discovery and project setup | **Complete** |
-| **Phase 1** | Design foundation and site shell | **Complete** |
-| **Phase 2** | Homepage content and layout | **Complete** |
-| **Phase 3** | Project case studies | **Complete** |
-| **Phase 4** | Interactive features (Terminal & GitHub) | **Complete** |
-| **Phase 5** | Quality, accessibility & optimization | **Complete (Awaiting Review)** |
-| **Phase 6** | Deployment (Vercel preview) | Next up (Pending Phase 5 approval) |
-| **Phase 5** | Quality, accessibility & optimization | **Complete** |
-| **Phase 6** | Deployment (Vercel preview & production) | **Complete (Live)** |
-| **Phase 6** | Deployment (Vercel preview) | Scheduled |
+- **Live Portfolio:** [srikanta-dev-portfolio.vercel.app](https://srikanta-dev-portfolio.vercel.app)
+- **Email:** [srikantacvr@gmail.com](mailto:srikantacvr@gmail.com)
+- **GitHub:** [github.com/srikanta2006](https://github.com/srikanta2006)
+- **LinkedIn:** [linkedin.com/in/srikanta-bellamkonda](https://linkedin.com/in/srikanta-bellamkonda)
