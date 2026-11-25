@@ -18,25 +18,25 @@ export function SelectedWork() {
   });
 
   return (
-    <section id="work" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20">
+    <section id="work" className="py-20 sm:py-24 border-t border-white/[0.08] scroll-mt-20">
       <Container>
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <SectionHeading
-            number="02 / Selected Work"
-            title="Featured Projects & Case Studies"
-            description="Software systems and AI applications engineered with verified architecture and working code."
+            number="Featured Work"
+            title="Selected Projects"
+            description="Software systems and applied AI applications engineered with verified architecture and working code."
             className="mb-0"
           />
 
-          {/* Interactive Filter Pills */}
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#111827]/80 border border-white/10 text-xs font-medium self-start sm:self-auto shrink-0 shadow-lg">
+          {/* Clean Segmented Filter Pills */}
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-[#0C0E12] border border-white/[0.08] text-xs font-medium self-start sm:self-auto shrink-0">
             <button
               type="button"
               onClick={() => setFilter("all")}
-              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 filter === "all"
-                  ? "bg-white text-[#0B0F19] font-bold shadow-xs"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-white/[0.08] text-[#60A5FA] font-semibold"
+                  : "text-[#94A3B8] hover:text-[#ECEEF0]"
               }`}
             >
               All ({PROJECTS.length})
@@ -44,10 +44,10 @@ export function SelectedWork() {
             <button
               type="button"
               onClick={() => setFilter("ai")}
-              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 filter === "ai"
-                  ? "bg-[#6366F1] text-white font-bold shadow-xs shadow-indigo-500/20"
-                  : "text-slate-400 hover:text-[#A5B4FC]"
+                  ? "bg-white/[0.08] text-[#60A5FA] font-semibold"
+                  : "text-[#94A3B8] hover:text-[#ECEEF0]"
               }`}
             >
               Applied AI (2)
@@ -55,18 +55,19 @@ export function SelectedWork() {
             <button
               type="button"
               onClick={() => setFilter("fullstack")}
-              className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 filter === "fullstack"
-                  ? "bg-[#10B981] text-white font-bold shadow-xs shadow-emerald-500/20"
-                  : "text-slate-400 hover:text-[#6EE7B7]"
+                  ? "bg-white/[0.08] text-[#60A5FA] font-semibold"
+                  : "text-[#94A3B8] hover:text-[#ECEEF0]"
               }`}
             >
-              Full-Stack Web (2)
+              Full-Stack (2)
             </button>
           </div>
         </div>
 
-        <div className="space-y-12 sm:space-y-16">
+        {/* RNR-Style 2-Column Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {filteredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}

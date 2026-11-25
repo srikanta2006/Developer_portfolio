@@ -1,8 +1,13 @@
+"use client";
+
+import { useState, FormEvent } from "react";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { CopyButton } from "@/components/ui/CopyButton";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, Send, CheckCircle2, AlertCircle } from "lucide-react";
+
+const TOPICS = ["Hiring / Role", "Collaboration", "General"] as const;
 
 function GitHubIcon({ className }: { className?: string }) {
   return (
@@ -27,67 +32,244 @@ function LinkedInIcon({ className }: { className?: string }) {
 export function Contact() {
   const emailAddress = "srikantacvr@gmail.com";
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [topic, setTopic] = useState<(typeof TOPICS)[number]>("Hiring / Role");
+  const [message, setMessage] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, topic, message, website }),
+      });
+
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+
+      if (!res.ok || !data.ok) {
+        setStatus("error");
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setStatus("error");
+      setErrorMsg("Network error. Please try again or email directly.");
+    }
+  }
+
   return (
-    <section id="contact" className="py-20 sm:py-28 border-t border-white/[0.08] scroll-mt-20 relative overflow-hidden">
+    <section id="contact" className="py-20 sm:py-24 border-t border-white/[0.08] scroll-mt-20">
       <Container>
-        <div className="relative max-w-2xl mx-auto rounded-3xl border border-white/10 bg-[#111827]/70 backdrop-blur-xl p-8 sm:p-12 shadow-2xl text-center space-y-6 overflow-hidden transition-all duration-500 hover:border-indigo-500/40 hover:shadow-indigo-500/10 shimmer-card">
-          {/* Subtle Ambient Radial Glow with pulse animation */}
-          <div 
-            className="absolute -top-24 -left-24 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow" 
-            aria-hidden="true" 
-          />
-          <div 
-            className="absolute -bottom-24 -right-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow" 
-            aria-hidden="true" 
-          />
-
-          <SectionHeading
-            number="05 / Contact"
-            title="Let's build something intelligent."
-            description="Open for software engineering challenges, multi-agent AI systems, and internship or full-time opportunities."
-            className="text-center mx-auto"
-          />
-
-          {/* Effortless Contact Options */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Button
-              variant="primary"
-              size="lg"
-              href={`mailto:${emailAddress}`}
-              className="gap-2 text-sm sm:text-base px-6 py-3 w-full sm:w-auto group hover:-translate-y-0.5 transition-all"
-            >
-              <Mail className="h-4 w-4 transition-transform group-hover:scale-110" aria-hidden="true" />
-              <span>Send Email</span>
-            </Button>
-            <CopyButton
-              text={emailAddress}
-              label="Copy Email"
-              className="py-3 px-4 text-sm w-full sm:w-auto justify-center"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Direct Info & Quick Channels */}
+          <div className="lg:col-span-5 space-y-6">
+            <SectionHeading
+              number="05 / Contact"
+              title="Let's build something intelligent."
+              description="Open for software engineering challenges, multi-agent AI systems, and internship or full-time opportunities. Send a direct message or reach out via email."
+              className="mb-0"
             />
+
+            <div className="flex flex-wrap items-center gap-3">
+              <Button
+                variant="secondary"
+                size="md"
+                href={`mailto:${emailAddress}`}
+                className="gap-2"
+              >
+                <Mail className="h-4 w-4 text-[#3B82F6]" aria-hidden="true" />
+                <span>{emailAddress}</span>
+              </Button>
+              <CopyButton
+                text={emailAddress}
+                label="Copy Email"
+                className="h-10 px-4 text-xs rounded-xl bg-[#0C0E12] border-white/[0.1] hover:border-[#3B82F6]/50"
+              />
+            </div>
+
+            <div className="pt-4 border-t border-white/[0.08] flex flex-wrap items-center gap-6 text-xs sm:text-sm text-[#94A3B8]">
+              <a
+                href="https://github.com/srikanta2006"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[#CBD5E1] hover:text-[#60A5FA] font-medium transition-colors"
+              >
+                <GitHubIcon className="h-4 w-4" />
+                <span>github.com/srikanta2006</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-[#64748B]" />
+              </a>
+
+              <a
+                href="https://linkedin.com/in/srikanta-bellamkonda"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[#CBD5E1] hover:text-[#60A5FA] font-medium transition-colors"
+              >
+                <LinkedInIcon className="h-4 w-4 text-[#3B82F6]" />
+                <span>linkedin.com/in/srikanta-bellamkonda</span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-[#64748B]" />
+              </a>
+            </div>
           </div>
 
-          <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-400">
-            <a
-              href="https://github.com/srikanta2006"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors hover:-translate-y-0.5"
-            >
-              <GitHubIcon className="h-4 w-4" />
-              <span>github.com/srikanta2006</span>
-              <ArrowUpRight className="h-3 w-3 text-slate-400" />
-            </a>
+          {/* Right Column: Direct Messaging Form */}
+          <div className="lg:col-span-7 rounded-2xl border border-white/[0.08] bg-[#0C0E12] p-6 sm:p-8">
+            {status === "success" ? (
+              <div className="py-10 text-center space-y-4">
+                <div className="mx-auto h-11 w-11 rounded-full bg-[#10B981]/15 border border-[#10B981]/30 flex items-center justify-center text-[#10B981]">
+                  <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-heading text-lg font-bold text-[#ECEEF0]">
+                    Message received
+                  </h3>
+                  <p className="text-sm text-[#94A3B8] max-w-md mx-auto">
+                    Thanks for reaching out! Your message has been sent and I&apos;ll get back to you soon.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setStatus("idle")}
+                  className="inline-flex items-center px-4 py-2 rounded-xl border border-white/[0.1] bg-white/[0.04] text-xs font-medium text-[#ECEEF0] hover:border-[#3B82F6]/50 hover:text-[#60A5FA] transition-colors cursor-pointer"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="flex items-center justify-between gap-2 pb-2 border-b border-white/[0.06]">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#64748B]">
+                    Direct Message
+                  </span>
+                  <span className="font-mono text-[11px] text-[#64748B]">
+                    Replies within 24h
+                  </span>
+                </div>
 
-            <a
-              href="https://linkedin.com/in/srikanta-bellamkonda"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-slate-200 hover:text-white font-medium transition-colors hover:-translate-y-0.5"
-            >
-              <LinkedInIcon className="h-4 w-4 text-[#818CF8]" />
-              <span>linkedin.com/in/srikanta-bellamkonda</span>
-              <ArrowUpRight className="h-3 w-3 text-slate-400" />
-            </a>
+                {/* Topic Selector */}
+                <div className="space-y-1.5">
+                  <span className="block text-xs font-medium text-[#94A3B8]">
+                    Topic
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {TOPICS.map((t) => (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => setTopic(t)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors cursor-pointer ${
+                          topic === t
+                            ? "bg-[#2563EB]/15 border-[#3B82F6]/40 text-[#60A5FA]"
+                            : "bg-[#070809] border-white/[0.08] text-[#94A3B8] hover:text-[#ECEEF0]"
+                        }`}
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Honeypot (hidden from humans) */}
+                <input
+                  type="text"
+                  name="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-name" className="block text-xs font-medium text-[#94A3B8]">
+                      Name
+                    </label>
+                    <input
+                      id="contact-name"
+                      type="text"
+                      required
+                      minLength={2}
+                      maxLength={100}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Your name"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/[0.08] bg-[#070809] text-sm text-[#ECEEF0] placeholder:text-[#64748B] focus:outline-none focus:border-[#3B82F6]"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-email" className="block text-xs font-medium text-[#94A3B8]">
+                      Email
+                    </label>
+                    <input
+                      id="contact-email"
+                      type="email"
+                      required
+                      maxLength={150}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-white/[0.08] bg-[#070809] text-sm text-[#ECEEF0] placeholder:text-[#64748B] focus:outline-none focus:border-[#3B82F6]"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label htmlFor="contact-message" className="block text-xs font-medium text-[#94A3B8]">
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    required
+                    minLength={10}
+                    maxLength={2000}
+                    rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell me about the role, project, or idea..."
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-white/[0.08] bg-[#070809] text-sm text-[#ECEEF0] placeholder:text-[#64748B] focus:outline-none focus:border-[#3B82F6] resize-y"
+                  />
+                </div>
+
+                {status === "error" && (
+                  <div
+                    role="alert"
+                    className="flex items-center gap-2 text-xs text-red-400 bg-red-500/10 border border-red-500/25 rounded-xl px-3.5 py-2.5"
+                  >
+                    <AlertCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    <span>{errorMsg}</span>
+                  </div>
+                )}
+
+                <div className="pt-1 flex items-center justify-end">
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="md"
+                    disabled={status === "submitting"}
+                    className="gap-2 w-full sm:w-auto"
+                  >
+                    <Send className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span>{status === "submitting" ? "Sending..." : "Send Message"}</span>
+                  </Button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </Container>

@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ExitIntentModal } from "@/components/ui/ExitIntentModal";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -83,12 +84,13 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-[#0B0F19] text-[#F8FAFC] antialiased selection:bg-indigo-500/30 selection:text-white">
+      <body className="min-h-screen flex flex-col bg-[#070809] text-[#ECEEF0] antialiased selection:bg-blue-500/30 selection:text-white">
         <Header />
         <main id="main-content" className="flex-1">
           {children}
         </main>
         <Footer />
+        <ExitIntentModal />
       </body>
     </html>
   );

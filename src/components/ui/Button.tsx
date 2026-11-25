@@ -24,19 +24,19 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-sans font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6366F1] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0F19] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none active:scale-[0.98]";
+      "inline-flex items-center justify-center font-sans font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070809] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none active:scale-[0.98]";
 
     const variantStyles = {
       primary:
-        "bg-white text-[#0B0F19] hover:bg-slate-200 shadow-md hover:shadow-lg border border-white font-semibold",
+        "bg-[#2563EB] text-white hover:bg-[#1D4ED8] shadow-sm border border-[#3B82F6]/40 font-semibold",
       secondary:
-        "bg-white/[0.06] text-white hover:bg-white/[0.12] shadow-2xs border border-white/15 backdrop-blur-md",
+        "bg-[#0C0E12] text-[#ECEEF0] hover:border-[#3B82F6]/50 hover:text-[#60A5FA] border border-white/[0.1]",
       accent:
-        "bg-[#6366F1] text-white hover:bg-[#4F46E5] shadow-md hover:shadow-indigo-500/25 border border-[#6366F1]",
+        "bg-[#2563EB] text-white hover:bg-[#1D4ED8] shadow-sm border border-[#3B82F6]/40",
       ghost:
-        "bg-transparent text-[#CBD5E1] hover:bg-white/[0.06] border border-transparent hover:text-white",
+        "bg-transparent text-[#94A3B8] hover:bg-white/[0.05] border border-transparent hover:text-white",
       outline:
-        "bg-transparent text-[#CBD5E1] hover:bg-white/[0.06] border border-white/15 hover:border-white/30 hover:text-white",
+        "bg-transparent text-[#CBD5E1] hover:border-[#3B82F6]/50 hover:text-[#60A5FA] border border-white/[0.12]",
     };
 
     const sizeStyles = {
